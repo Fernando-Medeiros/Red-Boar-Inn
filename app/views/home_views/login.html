@@ -1,0 +1,74 @@
+{% extends 'home.html' %}
+
+
+{% block content %}
+    <div class="container-cards">
+
+        <div class="container-cards card">
+
+            <div> <img src="{{ url_for('static', filename='img/logo.png') }}" width="150"> </div>
+
+            <div class="container-cards">
+
+                <form method="POST" action="">
+
+                    {{ form_.csrf_token }}
+
+                    <fieldset style="border: none">
+
+                        <div class="form-group">
+                            {{ form_.email.label    (class='form-style-label') }}
+
+                            {% if form_.email.errors %}
+                                {{ form_.email          (class='form-style is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for error in form_.email.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+
+                            {% else %}
+                                {{ form_.email          (class='form-style')  }}
+                            {% endif %}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_.password.label (class='form-style-label') }}
+
+                            {% if form_.password.errors %}
+                                {{ form_.password          (class='form-style is-invalid') }}
+                            <div class="invalid-feedback">
+                                {% for error in form_.password.errors %}
+                                    {{ error }}
+                                {% endfor %}
+                            </div>
+
+                            {% else %}
+                                {{ form_.password          (class='form-style')  }}
+                            {% endif %}
+                        </div>
+
+                        <div style="padding-top: 15px; padding-bottom: 15px">
+                            {{ form_.keep_on }}
+                            {{ form_.keep_on.label  (class='form-style-label') }}
+                        </div>
+
+                    </fieldset>
+
+                            <div class="button-a"> <button> {{ form_.submit.label }} </button> </div>
+
+                </form>
+
+                <div>
+                    <a class="button-b" href="{{ url_for('login.new_account') }}"> <button> New account </button> </a>
+                </div>
+
+            </div>
+
+            <div>
+              <a style="color: black" href="{{ url_for('login.recover_password') }}"> Forgot your password? </a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

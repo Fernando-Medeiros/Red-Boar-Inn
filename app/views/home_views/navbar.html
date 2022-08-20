@@ -1,0 +1,23 @@
+
+<div class="container-navbar-menu">
+
+  <div>
+    <a href="{{ url_for('home.home') }}">
+    <img src="{{ url_for('static', filename='img/logo.png') }}" width="50">
+    </a>
+  </div>
+
+  <div class="navbar">
+
+    <a href="{{ url_for('home.home') }}"> Home </a>
+    <a href="{{ url_for('home.about') }}"> About </a>
+    <a href="{{ url_for('home.updates') }}"> Updates </a>
+
+  </div>
+
+  <div class="container-navbar-menu navbar">
+    <a class="button-b" href="{{ url_for('login.login') }}"> <button> Log in </button> </a>
+    <a class="button-a" href="{{ url_for('login.new_account') }}"> <button> Create an Account </button> </a>
+  </div>
+
+</div>
