@@ -1,0 +1,22 @@
+{% extends 'home/base.html' %}
+
+
+{% block content %}
+
+    <div class="container-body">
+
+         <hr>   <h1>Home</h1>    <hr>
+    </div>
+
+    <div class="container-body">
+        <div class="">
+            {{ length_users }}
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'home/footer.html' %}
+{% endblock %}

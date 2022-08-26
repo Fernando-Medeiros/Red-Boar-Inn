@@ -27,17 +27,18 @@ class User(database__.Model, UserMixin):
 class Characters(database__.Model):
 
     id = database__.Column(database__.Integer, primary_key=True)
-    level = database__.Column(database__.Integer, nullable=False, default="1")
-    experience = database__.Column(database__.Integer, nullable=False, default="1")
     profession = database__.Column(database__.String, nullable=False, default="Peasant")
-    health = database__.Column(database__.Integer, nullable=False, default="15")
-    energy = database__.Column(database__.Integer, nullable=False, default="10")
 
-    strength = database__.Column(database__.Integer, nullable=False, default="1")
-    vitality = database__.Column(database__.Integer, nullable=False, default="1")
-    wisdom = database__.Column(database__.Integer, nullable=False, default="1")
-    dexterity = database__.Column(database__.Integer, nullable=False, default="1")
-    luck = database__.Column(database__.Integer, nullable=False, default="1")
+    level = database__.Column(database__.Integer, nullable=False, default=1)
+    experience = database__.Column(database__.Integer, nullable=False, default=1)
+    health = database__.Column(database__.Integer, nullable=False, default=15)
+    energy = database__.Column(database__.Integer, nullable=False, default=10)
+    strength = database__.Column(database__.Integer, nullable=False, default=1)
+    vitality = database__.Column(database__.Integer, nullable=False, default=1)
+    wisdom = database__.Column(database__.Integer, nullable=False, default=1)
+    dexterity = database__.Column(database__.Integer, nullable=False, default=1)
+    luck = database__.Column(database__.Integer, nullable=False, default=1)
+
     date = database__.Column(database__.DateTime, nullable=False, default=datetime.utcnow)
     id_user_ = database__.Column(database__.Integer, database__.ForeignKey('user.id'), nullable=False)
 
@@ -48,3 +49,4 @@ class Inventory(database__.Model):
     name = database__.Column(database__.String, nullable=False)
     description = database__.Column(database__.Text, nullable=False)
     id_user_ = database__.Column(database__.Integer, database__.ForeignKey('user.id'), nullable=False)
+

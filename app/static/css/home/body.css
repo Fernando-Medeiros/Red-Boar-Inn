@@ -1,0 +1,14 @@
+/* CONTAINER BODY FOR PAGES - ABOUT - UPDATES */
+.container-body {
+    display: flex;
+    flex-direction: column;
+    padding: 15% 22%;
+    gap: 0.5rem;
+    color: white;
+}
+
+.container-body p {
+    color: white;
+    font-size: 1.1rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}

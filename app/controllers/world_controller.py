@@ -7,5 +7,5 @@ class WorldController:
     @staticmethod
     @login_required
     def home():
-        return render_template("world.html",
+        return render_template("game/world/world.html",
                                title='World')

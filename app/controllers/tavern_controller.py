@@ -7,5 +7,5 @@ class TavernController:
     @staticmethod
     @login_required
     def home():
-        return render_template("tavern.html",
+        return render_template("game/tavern/tavern.html",
                                title='Tavern')

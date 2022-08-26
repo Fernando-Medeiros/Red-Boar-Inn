@@ -5,11 +5,13 @@ from mvc_flask import FlaskMVC
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 
+from datetime import timedelta
+
 
 app__ = Flask(__name__)
 app__.config['SECRET_KEY'] = '1ca8b0ad13d4197ca746bcb13c2169b2'
 app__.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///local_database.db'
-
+app__.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=1)
 database__ = SQLAlchemy(app__)
 mvc__ = FlaskMVC()
 

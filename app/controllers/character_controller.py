@@ -7,5 +7,5 @@ class CharacterController:
     @staticmethod
     @login_required
     def home():
-        return render_template("character.html",
+        return render_template("game/character/character.html",
                                title='Character')

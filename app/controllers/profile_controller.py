@@ -7,5 +7,5 @@ class ProfileController:
     @staticmethod
     @login_required
     def home():
-        return render_template("profile.html",
+        return render_template("game/profile/profile.html",
                                title='Profile')

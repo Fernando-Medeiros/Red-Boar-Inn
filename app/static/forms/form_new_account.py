@@ -3,7 +3,7 @@ from flask_wtf import FlaskForm
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from wtforms import SubmitField, PasswordField, StringField
 
-from app.static.models.user import User
+from app.models.user import User
 
 
 class FormNewAccount(FlaskForm):

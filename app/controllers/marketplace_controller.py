@@ -7,5 +7,5 @@ class MarketplaceController:
     @staticmethod
     @login_required
     def home():
-        return render_template("marketplace.html",
+        return render_template("game/marketplace/marketplace.html",
                                title='Marketplace')

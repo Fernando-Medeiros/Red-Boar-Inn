@@ -3,20 +3,22 @@
 
   <head>
       <meta charset="UTF-8">
+      <link href="{{ url_for('static', filename='css/home/head_and_footer.css') }}" type="text/css" rel="stylesheet">
+      <link href="{{ url_for('static', filename='css/home/alert.css') }}" type="text/css" rel="stylesheet">
+      <link href="{{ url_for('static', filename='css/home/forms.css') }}" type="text/css" rel="stylesheet">
+      <link href="{{ url_for('static', filename='css/home/body.css') }}" type="text/css" rel="stylesheet">
 
       {% block head %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <link href="{{ url_for('static', filename='css/home.css') }}" type="text/css" rel="stylesheet">
-          <title> {% block title %}    {{ title }}    {% endblock %} </title>
-
+        <title> {% block title %}    {{ title }}    {% endblock %} </title>
       {% endblock %}
 
   </head>
 
   <body>
 
-      {% include 'home_views/navbar.html' %}
+      {% include 'home/navbar.html' %}
 
       <div class="container-alert">
           {% with posts = get_flashed_messages(with_categories=True) %}

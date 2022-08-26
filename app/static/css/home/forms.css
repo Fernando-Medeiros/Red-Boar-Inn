@@ -1,0 +1,120 @@
+/* CONFIG CARDS -> LOGIN - NEW ACCOUNT - RECOVER */
+.container-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.1rem 0rem;
+}
+
+.card {
+    width: 33rem;
+    height: 27%;
+    border: none;
+    border-radius: 0.7rem;
+    background: rgb(206, 206, 206);
+    margin-top: 3%;
+    box-shadow: 0rem 0.2rem 0.2rem rgba(0, 0, 0, 0.25);
+}
+
+
+
+
+/* FORMS - LOGIN - NEW ACCOUNT - RECOVER PASSWORD */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    padding: 0.6rem 0.1rem;
+}
+
+.form-style {
+    /* padding: 0.5rem 6.5rem; */
+    width: 27rem;
+    padding: 0.3rem 1.5rem;
+    border: none;
+    border-radius: 0.3rem;
+    text-align: left;
+    font-size: 1rem;
+}
+
+
+.form-style-label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.is-invalid {
+    border: 0.1rem solid tomato;
+}
+
+.invalid-feedback {
+    color: tomato;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+
+/* BUTTONS A*/
+.button-a {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.button-a button {
+    background-color: rgb(87, 22, 168);
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    display: block;
+    padding: 0.5rem 3.75rem;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    box-shadow: 0rem 0.2rem 0.2rem rgba(0, 0, 0, 0.25);
+}
+
+.button-a button:hover {
+    background-color: rgb(69, 17, 133);
+    transition: .4s all;
+}
+
+
+/* BUTTONS  B*/
+.button-b {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.button-b a {
+    color: black;
+}
+
+.button-b button {
+    background-color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    display: block;
+    padding: 0.5rem 3.75rem;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    box-shadow: 0rem 0.2rem 0.2rem rgba(0, 0, 0, 0.25);
+}
+
+.button-b button:hover {
+    background-color: #F2F2F2;
+    transition: .4s all;
+}

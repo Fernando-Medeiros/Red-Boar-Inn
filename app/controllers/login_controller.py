@@ -4,14 +4,11 @@ from random import randint
 
 from app import bcrypt__, database__
 
-from app.static.models.user import User
+from app.models.user import User
 
 from app.static.forms.form_login import FormLogin
 from app.static.forms.form_new_account import FormNewAccount
 from app.static.forms.form_recover_password import FormSendToken, FormNewPassword, FormValidateToken
-
-import smtplib
-import email.message
 
 
 class LoginController:
@@ -34,7 +31,7 @@ class LoginController:
             else:
                 flash('Incorrect email or password!', 'alert-danger')
 
-        return render_template("home_views/login.html",
+        return render_template("home/forms_login_newacc/login.html",
                                form_=form_,
                                title='Login')
 
@@ -72,7 +69,7 @@ class LoginController:
             else:
                 flash('E-mail already registered, Please choose another email or reset your password.', 'alert-danger')
 
-        return render_template("home_views/new_account.html",
+        return render_template("home/forms_login_newacc/new_account.html",
                                form_=form_,
                                title='New Account')
 
@@ -91,7 +88,7 @@ class LoginController:
             else:
                 flash('Email not registered', 'alert-danger')
 
-        return render_template("home_views/forms_recover_pwd/send_email.html",
+        return render_template("home/forms_recover_pwd/send_email.html",
                                form_=form_,
                                title='Recover Password/Send Email')
 
@@ -108,7 +105,7 @@ class LoginController:
 
                 flash('Valid Token', 'alert-success')
 
-                return render_template("home_views/forms_recover_pwd/new_password.html",
+                return render_template("home/forms_recover_pwd/new_password.html",
                                        title="Recover Password/Change Password",
                                        form_new_pwd_=form_new_pwd_, )
 
@@ -128,7 +125,7 @@ class LoginController:
                 flash('Token or Email invalid', 'alert-danger')
                 return redirect('/login/recover/validate-token')
 
-        return render_template("home_views/forms_recover_pwd/validate_token.html",
+        return render_template("home/forms_recover_pwd/validate_token.html",
                                title="Recover Password/Validate Token",
                                form_validate_token_=form_validate_token_)
 
@@ -206,7 +203,7 @@ def connect_and_send_email(_email_: str, _token_pwd: str):
     # message.add_header('Content-Type', 'text/html')
     # message.set_payload(body)
     #
-    # server.login(message['From'], '842671395')
+    # server.login(message['From'], '123456789')
     #
     # server.sendmail(
     #     message['From'], [message['To']], message.as_string().encode('utf-8'))

@@ -7,5 +7,5 @@ class SettingsController:
     @staticmethod
     @login_required
     def home():
-        return render_template("settings.html",
+        return render_template("game/settings/settings.html",
                                title='Settings')

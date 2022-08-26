@@ -6,7 +6,7 @@
       {% block head %}
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <link href="{{ url_for('static', filename='css/profile.css') }}" type="text/css" rel="stylesheet">
+          <link href="{{ url_for('static', filename='css/game/head.css') }}" type="text/css" rel="stylesheet">
           <title> {% block title %}    {{ title }}    {% endblock %} </title>
       {% endblock %}
 
@@ -14,7 +14,7 @@
 
   <body>
 
-    {% include 'navbar.html' %}
+    {% include 'game/navbar.html' %}
 
     {% block body %}
     {% endblock %}

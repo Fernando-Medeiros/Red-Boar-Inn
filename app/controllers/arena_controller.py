@@ -7,5 +7,5 @@ class ArenaController:
     @staticmethod
     @login_required
     def home():
-        return render_template("arena.html",
+        return render_template("game/arena/arena.html",
                                title='Arena')
