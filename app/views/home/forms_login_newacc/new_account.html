@@ -5,7 +5,11 @@
     <div class="container-cards">
         <div class="container-cards card">
 
-            <div> <img src="{{ url_for('static', filename='img/logo.png') }}" width="150"> </div>
+            <div>
+                <a href="{{ url_for('home.home') }}">
+                    <img src="{{ url_for('static', filename='img/logo.png') }}" width="150">
+                </a>
+            </div>
 
             <div class="container-cards">
                 <form method="POST" action="">
@@ -85,9 +89,9 @@
                         </div>
 
                     </fieldset>
-
+                        <br>
                         <div class="button-a"> <button> {{ form_.submit.label }} </button> </div>
-
+                        <br>
                 </form>
 
                 <div>

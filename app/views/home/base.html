@@ -17,8 +17,8 @@
   </head>
 
   <body>
-
-      {% include 'home/navbar.html' %}
+      {% block navbar %}
+      {% endblock %}
 
       <div class="container-alert">
           {% with posts = get_flashed_messages(with_categories=True) %}
@@ -31,7 +31,6 @@
             {% endif %}
           {% endwith %}
       </div>
-
 
       {% block content %}
       {% endblock %}

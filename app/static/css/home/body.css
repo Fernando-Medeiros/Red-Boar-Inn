@@ -1,14 +1,123 @@
-/* CONTAINER BODY FOR PAGES - ABOUT - UPDATES */
+/* CONTAINER BODY FOR PAGES - HOME - ABOUT - UPDATES */
 .container-body {
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    padding: 15% 22%;
+    margin: 5% 10% 5% 10%;
     gap: 0.5rem;
-    color: white;
+    color: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-.container-body p {
-    color: white;
-    font-size: 1.1rem;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+.container-banner {
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+/* CONTAINER BANNER-USERS AND ONLINE USERS */
+.banner-users {
+    text-align: center;
+    flex-direction: column;
+    background-color: none;
+    width: 100%;
+    height: auto;
+    padding: 1rem 1rem;
+    border-radius: 0.3rem;
+    box-shadow: 0rem 0.2rem 0.2rem rgba(0, 0, 0, 0.25);
+}
+
+/* CONTAINER HOME-IMAGE */
+.container-home-image {
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem 1rem;
+}
+
+.container-home-image img {
+    width: auto;
+    border-radius: 0.3rem;
+    box-shadow: 0rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+
+.container-home-image button {
+    width: 3rem;
+    height: 3rem;
+    font-size: 2.5rem;
+    border: transparent;
+    border-radius: 10rem;
+}
+
+.container-home-image button:hover {
+    color: #fff;
+    transition: .3s all;
+    background-color: #8521FF;
+}
+
+/* CONTAINER HOME-ABOUT */
+.container-home-about {
+    background: #D9D9D9;
+    padding: 3rem 10% 3rem 10%;
+    margin: 0%;
+}
+
+.container-home-about p {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+
+/* CONTAINER HOME-RANK */
+.container-home-rank {
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
+
+/* CONTAINER HOME-JOIN */
+.container-home-join {
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+}
+
+.container-home-join p {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+
+
+/* -------------------- UPDATES-PAGE */
+.container-updates-main {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    gap: 1rem;
+}
+
+.container-updates-main button {
+    border: none;
+    width: fit-content;
+    text-align: left;
+    font-size: 1.4rem;
+}
+
+.container-updates-main button:hover {
+    color: #5716A8;
+}
+
+.container-about-main p {
+    color: #666666;
+}
+
+
+/* -------------------- ABOUT-PAGE */
+.text-style-in-containers {
+    text-align: left;
+}
+
+.text-style-in-containers li {
+    padding: 0.5rem;
 }

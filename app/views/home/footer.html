@@ -1,27 +1,32 @@
 
 <footer>
+    <div class="container-footer-main">
+        <div class="container-footer">
 
-    <div class="container-footer">
-
-        <div class="navbar-footer">
-            <a href="{{ url_for('home.home') }}"> Home </a>
-            <a href="{{ url_for('home.about') }}"> About </a>
-            <a href="{{ url_for('home.updates') }}"> Updates </a>
+            <div class="navbar-footer">
+                <a href="{{ url_for('home.home') }}"> Home </a>
+                <a href="{{ url_for('home.about') }}"> About </a>
+                <a href="{{ url_for('home.updates') }}"> Updates </a>
+                <a href="{{ url_for('login.login') }}"> Login </a>
+                <a href="{{ url_for('login.new_account') }}"> Register </a>
+                <a href="{{ url_for('home.about') }}"> Cookie Policy </a>
+                <a href="{{ url_for('home.about') }}"> Privacy Policy </a>
+                <a href="{{ url_for('home.about') }}"> Terms of Service </a>
+            </div>
+        </div>
+        <div class="container-footer">
+            <div class="navbar-footer">
+                <a href="https://github.com/Fernando-Medeiros">
+                    <img src="{{ url_for('static', filename='img/icons/github.png') }}" width="24"> </a>
+                <a href="https://www.instagram.com/">
+                    <img src="{{ url_for('static', filename='img/icons/discord.png') }}" width="24">    </a>
+                <a href="https://discord.com/">
+                    <img src="{{ url_for('static', filename='img/icons/instagram.png') }}" width="24">  </a>
+            </div>
         </div>
 
         <div class="navbar-footer">
-            <a href="https://github.com/Fernando-Medeiros">
-                <img src="{{ url_for('static', filename='img/icons/github.png') }}" width="32"> </a>
-            <a href="https://www.instagram.com/">
-                <img src="{{ url_for('static', filename='img/icons/discord.png') }}" width="32">    </a>
-            <a href="https://discord.com/">
-                <img src="{{ url_for('static', filename='img/icons/instagram.png') }}" width="32">  </a>
-        </div>
-
-        <div class="navbar-footer">
-            <a href=""> Cookie Policy </a>
-            <a href=""> Privacy Policy </a>
-            <a href=""> Terms of Service </a>
+            <a> 2022  The Red Boar Inn. All rights reserved.</a>
         </div>
 
     </div>

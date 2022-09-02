@@ -2,11 +2,15 @@
 
 
 {% block content %}
-    <div class="container-cards">
+<div class="container-cards" xmlns="http://www.w3.org/1999/html">
 
         <div class="container-cards card">
 
-            <div> <img src="{{ url_for('static', filename='img/logo.png') }}" width="150"> </div>
+            <div>
+                <a href="{{ url_for('home.home') }}">
+                    <img src="{{ url_for('static', filename='img/logo.png') }}" width="150">
+                </a>
+            </div>
 
             <div class="container-cards">
 
@@ -60,12 +64,14 @@
                 </form>
 
                 <div>
+                    <br>
                     <a class="button-b" href="{{ url_for('login.new_account') }}"> <button> New account </button> </a>
                 </div>
 
             </div>
 
             <div>
+                <br>
               <a style="color: black" href="{{ url_for('login.recover_password') }}"> Forgot your password? </a>
             </div>
         </div>

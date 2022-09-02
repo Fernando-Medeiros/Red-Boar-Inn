@@ -1,6 +1,7 @@
 from flask import render_template
 
-from app.models.user import User
+from app.models.user import User, Characters
+from app.updates import dic_updates
 
 
 class HomeController:
@@ -9,19 +10,21 @@ class HomeController:
     def home():
         length_users = len(User.query.all())
 
+        users = Characters.query.all()[:10]
+
         return render_template("home/home/home.html",
                                title='Home - Flask Rpg',
+                               users=users,
                                length_users=length_users)
 
     @staticmethod
     def updates():
 
-        with open('updates.txt', mode='r', encoding='utf-8') as read_updates:
-            updates_notes = read_updates.readlines()
+        updates_notes = dic_updates[:10]
 
         return render_template("home/updates/updates.html",
-                               updates_notes=updates_notes,
-                               title='Updates')
+                               title='Updates',
+                               updates_notes=updates_notes)
 
     @staticmethod
     def about():
