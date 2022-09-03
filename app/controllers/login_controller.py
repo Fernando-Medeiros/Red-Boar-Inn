@@ -6,9 +6,9 @@ from app import bcrypt__, database__
 
 from app.models.user import User
 
-from app.static.forms.form_login import FormLogin
-from app.static.forms.form_new_account import FormNewAccount
-from app.static.forms.form_recover_password import FormSendToken, FormNewPassword, FormValidateToken
+from app.forms.form_login import FormLogin
+from app.forms.form_new_account import FormNewAccount
+from app.forms.form_recover_password import FormSendToken, FormNewPassword, FormValidateToken
 
 
 class LoginController:
