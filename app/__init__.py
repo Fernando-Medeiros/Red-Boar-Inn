@@ -29,3 +29,7 @@ def init_ext_app():
 
 def create_app():
     return init_ext_app()
+
+
+# ONLY DEPLOY HEROKU
+_app_ = create_app()
