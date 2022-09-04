@@ -32,8 +32,7 @@ class User(database__.Model, UserMixin):
 
     @staticmethod
     def length():
-        database__.create_all()
-        return User.query.count() if User else 0
+        return len(User.query.all())
 
 
 class Characters(database__.Model):
@@ -55,7 +54,7 @@ class Characters(database__.Model):
 
     @staticmethod
     def length():
-        return Characters.query.all() if Characters else 0
+        return Characters.query.all()
 
 
 class Inventory(database__.Model):
