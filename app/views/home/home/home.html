@@ -7,9 +7,7 @@
 {% block content %}
 
     <div class="container-body container-home-image">
-        <button> < </button>
         <img src="{{ url_for('static', filename='img/home/img1.jpg') }}">
-        <button> > </button>
     </div>
 
     <div class="container-body container-banner">
@@ -22,11 +20,11 @@
 
     <div class="container-body container-banner">
         <div class="banner-users">
-            <h1> Total users {{ length_users }} </h1>
+            <h2> Users {{ length_users }} </h2>
         </div>
 
         <div class="banner-users">
-            <h1> Online users {{ length_users }} </h1>
+            <h2> Online {{ length_users }} </h2>
         </div>
 
     </div>
@@ -55,27 +53,31 @@
             See you at the red boar inn!</p>
     </div>
 
-    <div class="container-body  container-banner">
+    <div class="container-body  container-banner wrap">
         <div class="banner-users">
             <h2>RANK</h2>
 
-            <div class="container-body  container-banner">
-                <div class="container-home-rank"> <h3> Character's Name </h3> </div>
-                <div class="container-home-rank"> <h3> Level </h3> </div>
+            <div class="container-body  container-banner banner-rank">
+                <div class="container-home-rank"> <h4> Character </h4> </div>
+                <div class="container-home-rank"> <h4> Profession </h4> </div>
+                <div class="container-home-rank"> <h4> Level </h4> </div>
             </div>
 
-            {% for user in users %}
-                <div class="container-body  container-banner">
+            {% for char in rank_characters_by_level %}
+                <div class="container-body container-banner banner-rank">
                     <div class="container-home-rank">
-                        <h3> {{ user.username }} </h3> <hr>
+                        <span> {{ char.name }} </span>
                     </div>
                     <div class="container-home-rank">
-                        <h3> {{ user.gold }} </h3> <hr>
+                        <span> {{ char.profession }} </span>
+                    </div>
+                    <div class="container-home-rank">
+                        <span> {{ char.level }} </span>
                     </div>
                 </div>
             {% endfor %}
         </div>
-
+        <br>
         <div class="container-home-join">
             <p>Freedom to choose your play style</p>
             <p>Build your fame and make your mark in this world</p>

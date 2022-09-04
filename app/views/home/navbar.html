@@ -2,7 +2,7 @@
 <div class="container-navbar-main">
   <div class="container-navbar-menu">
 
-    <div class="navbar">
+    <div class="navbar" style="width: 100%">
       <a href="{{ url_for('home.home') }}">
       <img src="{{ url_for('static', filename='img/logo.png') }}" width="50">
       </a>
@@ -15,8 +15,9 @@
     </div>
 
     <div class="navbar navbar-buttons ">
-      <a class="button-b" href="{{ url_for('login.login') }}"> <button> Log in </button> </a>
-      <a class="button-a" href="{{ url_for('login.new_account') }}"> <button> Create an Account </button> </a>
+
+      <a href="{{ url_for('login.login') }}"> Log in </a>
+      <a href="{{ url_for('login.new_account') }}"> Create an Account </a>
     </div>
 
   </div>

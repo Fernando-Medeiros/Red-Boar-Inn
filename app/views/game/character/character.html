@@ -2,5 +2,35 @@
 
 
 {% block body %}
-    <hr>    <h1>Character</h1>    <hr>
+    <hr>    <h3>Character</h3>    <hr>
+
+    <div class="container-character">
+
+        <img src="{{ url_for('static', filename='img/game/profile/' +  current_user.picture) }}" width="50px" height="50px">
+
+        <div class="container-character-info">
+            <strong> {{ current_user.username }} </strong>
+            <span> Gold: {{ current_user.gold }} </span>
+        </div>
+
+        <div class="container-character-info">
+            <strong> Character </strong>
+            <span> Name {{ current_user.character[0].name }} </span>
+            <span> Level {{ current_user.character[0].level }} </span>
+            <span> Profession {{ current_user.character[0].profession }} </span>
+            <span> Experience {{ current_user.character[0].experience }} </span>
+            <span> Pts {{ current_user.character[0].pts_status }} </span>
+            <br> <hr>
+            <span> Health {{ current_user.character[0].health }} </span>
+            <span> Energy {{ current_user.character[0].energy }} </span>
+
+            <span> Strength {{ current_user.character[0].strength }} </span>
+            <span> Vitality {{ current_user.character[0].vitality }} </span>
+            <span> Wisdom {{ current_user.character[0].wisdom }} </span>
+            <span> Dexterity {{ current_user.character[0].dexterity }} </span>
+            <span> Luck {{ current_user.character[0].luck }} </span>
+
+        </div>
+
+    </div>
 {% endblock %}

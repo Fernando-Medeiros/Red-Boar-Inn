@@ -8,13 +8,13 @@ class HomeController:
 
     @staticmethod
     def home():
-        length_users = len(User.query.all())
+        length_users = User.length()
 
-        users = Characters.query.all()[:10]
+        rank_characters_by_level = Characters.length()[:10]
 
         return render_template("home/home/home.html",
                                title='Home - Flask Rpg',
-                               users=users,
+                               rank_characters_by_level=rank_characters_by_level,
                                length_users=length_users)
 
     @staticmethod

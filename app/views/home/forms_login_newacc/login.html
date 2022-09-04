@@ -2,13 +2,13 @@
 
 
 {% block content %}
-<div class="container-cards" xmlns="http://www.w3.org/1999/html">
+<div class="container-body-forms container-cards">
 
         <div class="container-cards card">
 
             <div>
                 <a href="{{ url_for('home.home') }}">
-                    <img src="{{ url_for('static', filename='img/logo.png') }}" width="150">
+                    <img src="{{ url_for('static', filename='img/logo.png') }}" width="81">
                 </a>
             </div>
 
@@ -59,7 +59,7 @@
 
                     </fieldset>
 
-                            <div class="button-a"> <button> {{ form_.submit.label }} </button> </div>
+                            <div class="button-a"> <button> Sign in </button> </div>
 
                 </form>
 

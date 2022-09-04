@@ -42,22 +42,27 @@ class LoginController:
 
         if form_.validate_on_submit():
 
-            pwd_crypt = bcrypt__.generate_password_hash(form_.password.data)
-            pwd_recover_crypt = bcrypt__.generate_password_hash(str(randint(1, 9999999999)))
+            _pwd_crypt = bcrypt__.generate_password_hash(form_.password.data)
+            _pwd_recover_crypt = bcrypt__.generate_password_hash(str(randint(1, 9999999999)))
+
+            database__.create_all()
 
             if not User.query.filter_by(email=form_.email.data).first():
 
                 __user = User(
                     username=form_.username.data,
                     email=form_.email.data,
-                    password=pwd_crypt,
-                    token_recover_pwd=pwd_recover_crypt
+                    password=_pwd_crypt,
+                    token_recover_pwd=_pwd_recover_crypt
                 )
 
                 if __user:
+                    __new_char = __user.create_char()
+                    __new_inventory = __user.create_inventory()
 
-                    database__.create_all()
                     database__.session.add(__user)
+                    database__.session.add(__new_char)
+                    database__.session.add(__new_inventory)
                     database__.session.commit()
 
                     login_after_create_new_account(form_.email.data, form_.password.data)

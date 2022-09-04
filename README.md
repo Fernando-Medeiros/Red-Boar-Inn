@@ -21,6 +21,7 @@
     width="45%" height="50%"
     src="src_readme/img3.png">
 </div>
+
 <div align="center">
  <img style="border-radius: 1rem;
     box-shadow: 0rem 0.2rem 0.2rem rgba(0, 0, 0, 0.25)"
@@ -32,6 +33,16 @@
     src="src_readme/img2.png">
 </div>
 
+<div align="center">
+ <img style="border-radius: 1rem;
+    box-shadow: 0rem 0.2rem 0.2rem rgba(0, 0, 0, 0.25)"
+    width="33%" height="33%"
+    src="src_readme/img5.jpg">
+ <img style="border-radius: 1rem;
+    box-shadow: 0rem 0.2rem 0.2rem rgba(0, 0, 0, 0.25)"
+    width="33%" height="33%"
+    src="src_readme/img6.jpg">
+</div> <hr>
 
 ## https://red-boar-inn.herokuapp.com/
 

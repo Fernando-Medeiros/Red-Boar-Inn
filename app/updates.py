@@ -27,5 +27,18 @@ dic_updates = [
     "info": [
       "-> Finishing the first version of the template (home, about, updates).",
       "-> Minimalist design."]
+  },
+  {
+    "version": "v.0.0.0.5",
+    "date": "02/09/2022",
+    "info": [
+      "-> Initial deployment on Heroku",
+      "-> Redesign (Mobile)."]
+  },
+  {
+    "version": "v.0.0.0.6",
+    "date": "03/09/2022",
+    "info": [
+      "-> Start building the game"]
   }
 ]
