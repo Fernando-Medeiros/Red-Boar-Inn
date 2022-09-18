@@ -3,8 +3,7 @@
     <img align="center" src="https://img.shields.io/badge/Flask-white?style=for-the-badge&logo=flask&logoColor=black">    
     <img align="center" src="https://img.shields.io/badge/HTML5-white?style=for-the-badge&logo=html5&logoColor=black">
     <img align="center" src="https://img.shields.io/badge/CSS3-white?style=for-the-badge&logo=css3&logoColor=black">
-    <img align="center" src="https://img.shields.io/badge/Firebase-white?style=for-the-badge&logo=firebase&logoColor=black">
-    <img align="center" src="https://img.shields.io/badge/PostgreSQL-white?style=for-the-badge&logo=postgresql&logoColor=black">   
+    <img align="center" src="https://img.shields.io/badge/Mongodb-white?style=for-the-badge&logo=mongodb&logoColor=black">   
 </div>
 
 <hr>
@@ -44,7 +43,6 @@
     src="src_readme/img6.jpg">
 </div> <hr>
 
-## https://red-boar-inn.herokuapp.com/
 
 <br>
 <hr>
@@ -88,72 +86,16 @@ See you at the red boar inn!</p>
 <hr>
 
 ### Scope
+
 The current scope is provided below:
-<div style="display: flex">
-  <div style="flex-direction: column"> <h6>Home</h6>
-
-- [x] Home
-  - [x] Updates
-  - [x] About
-  - [x] Login
-    - [x] New account
-    - [x] Recover password
-
-  </div>
-</div>
-
-<div style="display: flex; justify-content: space-around; flex-direction: row">
-<div style="flex-direction: column"> <h6>Game</h6>
-
-- [ ] World
-  - [ ] Adventure
-  - [ ] Quests
-  - [ ] Dungeon
-  - [ ] Raid
-</div>
-<div style="flex-direction: column"> <h6>-</h6>
-
-- [ ] Arena
-  - [ ] Duel pxp
-  - [ ] Duel IA
-  - [ ] Ranking
-</div>
-
-<div style="flex-direction: column"> <h6>-</h6>
-
-- [ ] Marketplace
-  - [ ] Buy and sell items
-  - [ ] Auction
-  - [ ] Craft
-</div>
-<div style="flex-direction: column"> <h6>-</h6>
-
-- [ ] Character
-  - [ ] Status
-  - [ ] Profession
-  - [ ] Inventory
-  - [ ] Custom
-</div>
-<div style="flex-direction: column"> <h6>-</h6>
-
-- [ ] Tavern
-  - [ ] Chat Global
-  - [ ] Chat Regional
-  - [ ] Chat Private
-</div>
-<div style="flex-direction: column"> <h6>-</h6>
-
-- [ ] Settings
-  - [ ] Account
-  - [ ] Privacy
-  - [ ] Security
-</div>
-</div>
+...
 
 <br>
 <hr>
 
 ### Clone this project
+<br>
+
 ```
 git clone https://github.com/Fernando-Medeiros/Web-Game-FLask.git
 ```
@@ -162,21 +104,10 @@ git clone https://github.com/Fernando-Medeiros/Web-Game-FLask.git
 
 
 ### Install Dependencies
-<ul>
-    <li>Flask</li>
-    <li>Flask-WTF</li>
-    <li>Flask-Login</li>
-    <li>Flask-Bcrypt</li>
-    <li>Flask-Sqlalchemy</li>    
-    <li>MVC-Flask</li>
-    <li>Email-validator</li>
-    <li>Gunicorn</li>
-    <li>Requests</li>
-</ul>
-To install the dependencies open your terminal inside the virtual environment and paste the instruction below:
+<br>
 
 ```
-pip install flask flask-login flask-sqlalchemy mvc-flask flask-wtf flask-login flask-bcrypt email-validator gunicorn requests
+pip install -r requeriments.txt
 ```
 
 <br>

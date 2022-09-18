@@ -1,35 +1,14 @@
 from flask import Flask
-
-from flask_sqlalchemy import SQLAlchemy
-from mvc_flask import FlaskMVC
-from flask_bcrypt import Bcrypt
-from flask_login import LoginManager
-
-from datetime import timedelta
-
-
-app__ = Flask(__name__)
-app__.config['SECRET_KEY'] = '1ca8b0ad13d4197ca746bcb13c2169b2'
-app__.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///local_database.db'
-app__.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=1)
-database__ = SQLAlchemy(app__)
-mvc__ = FlaskMVC()
-
-bcrypt__ = Bcrypt(app__)
-login_manager__ = LoginManager(app__)
-
-login_manager__.login_view = 'login.login'
-login_manager__.login_message_category = 'alert-info'
-
-
-def init_ext_app():
-    mvc__.init_app(app__)
-    return app__
+from dynaconf import FlaskDynaconf
+from .extensions.blueprints import register_routes
 
 
 def create_app():
-    return init_ext_app()
 
+    app = Flask(__name__)
 
-# ONLY DEPLOY HEROKU
-_app_ = create_app()
+    FlaskDynaconf(app, extensions_list=True, load_dotenv=True)
+
+    register_routes(app)
+
+    return app

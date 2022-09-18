@@ -1,0 +1,80 @@
+{% extends 'home/base.html' %}
+
+
+{% block content %}
+<div class="container-body-forms container-cards">
+
+    <div class="container-cards card">
+
+        <div>
+            <a href="{{ url_for('home.index') }}">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" width="81">
+            </a>
+        </div>
+
+        <div class="container-cards">
+
+            <form method="POST" action="">
+
+                {{ form.csrf_token }}
+
+                <fieldset style="border: none">
+
+                    <div class="form-group">
+                        {{ form.email.label (class='form-style-label') }}
+
+                        {% if form.email.errors %}
+                        {{ form.email (class='form-style is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                            {{ error }}
+                            {% endfor %}
+                        </div>
+
+                        {% else %}
+                        {{ form.email (class='form-style') }}
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.password.label (class='form-style-label') }}
+
+                        {% if form.password.errors %}
+                        {{ form.password (class='form-style is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                            {{ error }}
+                            {% endfor %}
+                        </div>
+
+                        {% else %}
+                        {{ form.password (class='form-style') }}
+                        {% endif %}
+                    </div>
+
+                    <div style="padding-top: 15px; padding-bottom: 15px">
+                        {{ form.keep_on }}
+                        {{ form.keep_on.label (class='form-style-label') }}
+                    </div>
+
+                </fieldset>
+
+                <div class="button-a"> <button type='submit'> Sign in </button> </div>
+
+            </form>
+
+            <div>
+                <br>
+                <a class="button-b" href="{{ url_for('auth.create') }}"> <button> New account </button> </a>
+            </div>
+
+        </div>
+
+        <div>
+            <br>
+            <a style="color: black" href="{{ url_for('auth.recover') }}"> Forgot your password? </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

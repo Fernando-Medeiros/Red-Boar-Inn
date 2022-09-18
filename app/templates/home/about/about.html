@@ -1,0 +1,88 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+
+    <div class="container-body" style="align-items: center">
+        <a href="{{ url_for('home.index') }}">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" width="81">
+        </a>
+    </div>
+
+    <div class="container-body container-home-about ">
+        <h2>About</h2> <br>
+        <p>The Red Boar Inn is a project in development that mixes RPG, MMO and the SIMPLICITY of running in any browser.</p> <hr>
+        <p> -> For this project I want the player to be able to interact and leave their mark on the game's history</p>
+        <p> -> The main idea is to allow you to create different types of gameplay choices and follow along.
+            This type of game is my personal choice, about what I would like to play, but it is not limited to that,
+            as the community grows I will accept suggestions for implementations.</p>
+
+        <p> <strong>"The freedom to participate in arena events, explore the world, create unique items to use or sell,
+            help other players fight a common enemy, or stop for a while at the tavern and have a drink with the bard."</strong></p>
+
+    </div>
+
+    <br>
+    <div class="container-body container-banner wrap">
+        <div class="banner-users">
+            <h2>Data Security</h2> <br>
+            <img style="margin-bottom: 1rem" src="{{ url_for('static', filename='img/icons/safe.png') }}" width="24">
+            <div class="text-style-in-containers ">
+                <li>Data is not shared with third parties.</li>
+                <li>The developer claims that this app does not share user data with other companies or organizations.</li>
+                <li>Data is encrypted in transit.</li>
+                <li>Your data is transferred over a secure connection.</li>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="banner-users">
+            <h2>Cookies Policy</h2> <br>
+            <img style="margin-bottom: 1rem" src="{{ url_for('static', filename='img/icons/cookies.png') }}" width="24">
+            <div class="text-style-in-containers ">
+                <p>Cookies come in a variety of forms but are essentially small data files used to collect and store information about you.
+                    We use them on our website for a variety of different functions:</p>
+                <li>for the smooth and safe operation of our website;</li>
+                <li>to manage your preferences and remember you for future visits;</li>
+                <li>to analyse how you use our website in order to continually make improvements.</li>
+                <p>The majority of these cookies are linked to your browser session (session cookies) and disappear once you close your browser.
+                    Others remain on your device for a longer period (persistent cookies).</p>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div class="container-body container-banner wrap">
+        <div class="banner-users">
+            <h2>Terms of Service</h2> <br>
+            <img style="margin-bottom: 1rem" src="{{ url_for('static', filename='img/icons/terms.png') }}" width="24">
+            <div class="text-style-in-containers">
+                <li>Red Boar Inn is a massively multiplayer, lightweight, text-based online role-playing game.</li>
+                <li>We strive to make Red Boar Inn the best text-based MMO and a safe environment for you to enjoy.
+                    This includes respecting your privacy and our commitment to protecting your personal data.</li>
+                <li>These Red Boar Inn Terms of Use apply to your access to and use of the Red Boar Inn, including our website,
+                    as well as any other apps, widgets and other online products and services.</li>
+                <li>By accessing the Red Boar Inn or using our Services, you confirm that you accept these Terms and agree to be bound by them.</li>
+                <li>If you do not agree to these Terms, you will not be able to use our Services and you must not access our website.</li>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="banner-users">
+            <h2>Credits</h2> <br>
+            <img style="margin-bottom: 1rem" src="{{ url_for('static', filename='img/icons/credits.png') }}" width="24">
+            <div class="text-style-in-containers ">
+                <h4>Images:</h4> <br>
+                <a href="https://www.freepik.com/free-vector/knights-of-the-medieval-castle_14541115.htm">
+                    <p>* Knights of the medieval castle -> (Liuzishan - Freepik.com)</p></a>
+            </div>
+        </div>
+    </div>
+    <br>
+
+{% endblock %}
+
+{% block footer %}
+    {% include 'home/footer.html' %}
+{% endblock %}

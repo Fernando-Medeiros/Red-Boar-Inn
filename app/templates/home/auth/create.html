@@ -1,0 +1,106 @@
+{% extends 'home/base.html' %}
+
+
+{% block content %}
+<div class="container-body-forms container-cards">
+    <div class="container-cards card">
+
+        <div>
+            <a href="{{ url_for('home.index') }}">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" width="81">
+            </a>
+        </div>
+
+        <div class="container-cards">
+            <form method="POST" action="">
+
+                {{ form.csrf_token }}
+
+                <fieldset style="border: none">
+
+                    <div class="form-group">
+                        {{ form.username.label (class='form-style-label') }}
+
+                        {% if form.username.errors %}
+                        {{ form.username (class='form-style is-invalid') }}
+
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %}
+                            {{ error }}
+                            {% endfor %}
+                        </div>
+
+                        {% else %}
+                        {{ form.username (class='form-style') }}
+                        {% endif %}
+                    </div>
+
+
+                    <div class="form-group">
+                        {{ form.email.label (class='form-style-label') }}
+
+                        {% if form.email.errors %}
+                        {{ form.email (class='form-style is-invalid') }}
+
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                            {{ error }}
+                            {% endfor %}
+                        </div>
+
+                        {% else %}
+                        {{ form.email (class='form-style') }}
+                        {% endif %}
+                    </div>
+
+
+                    <div class="form-group">
+                        {{ form.password.label (class='form-style-label') }}
+
+                        {% if form.password.errors %}
+                        {{ form.password (class='form-style is-invalid') }}
+
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                            {{ error }}
+                            {% endfor %}
+                        </div>
+
+                        {% else %}
+                        {{ form.password (class='form-style') }}
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.auth.label (class='form-style-label') }}
+
+                        {% if form.auth.errors %}
+                        {{ form.auth (class='form-style is-invalid') }}
+
+                        <div class="invalid-feedback">
+                            {% for error in form.auth.errors %}
+                            {{ error }}
+                            {% endfor %}
+                        </div>
+
+                        {% else %}
+                        {{ form.auth (class='form-style') }}
+                        {% endif %}
+                    </div>
+
+                </fieldset>
+                <br>
+                <div class="button-a"> <button type="submit"> Next </button> </div>
+                <br>
+            </form>
+
+            <div>
+                <a class="button-b" href="{{ url_for('auth.login') }}">
+                    <button type="submit"> Already have an account? Log in </button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

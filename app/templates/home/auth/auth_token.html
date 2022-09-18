@@ -1,0 +1,68 @@
+{% extends 'home/base.html' %}
+
+
+{% block content %}
+<div class="container-body-forms container-cards">
+
+    <div class="container-cards card">
+
+        <div>
+            <a href="{{ url_for('home.index') }}">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" width="81">
+            </a>
+        </div>
+
+        <div class="container-cards">
+
+            <form method="POST" action="">
+
+                {{ form_auth_token.csrf_token }}
+
+                <fieldset style="border: none">
+
+                    <div class="form-group">
+                        {{ form_auth_token.email.label (class='form-style-label') }}
+
+                        {% if form_auth_token.email.errors %}
+                        {{ form_auth_token.email (class='form-style is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form_auth_token.email.errors %}
+                            {{ error }}
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form_auth_token.email (class='form-style') }}
+                        {% endif %}
+                    </div>
+
+
+                    <div class="form-group">
+
+                        {{ form_auth_token.token.label (class='form-style-label') }}
+
+                        {% if form_auth_token.token.errors %}
+                        {{ form_auth_token.token (class='form-style is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form_auth_token.token.errors %}
+                            {{ error }}
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form_auth_token.token (class='form-style') }}
+                        {% endif %}
+                    </div>
+
+                </fieldset>
+                <br>
+                <div class="button-a"> <button type="submit"> Confirm Token </button> </div>
+            </form>
+
+            <div>
+                <br>
+                <a class="button-b" href="{{ url_for('auth.login') }}"> <button> Return Log in </button> </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+[default]
+TITLE = "Red Boar Inn"
+DEBUG = false
+
+EXTENSIONS = [
+"app.extensions.configuration:init_app"
+]
+
+
+[production]
+SECRET_KEY = "@jinja {{env.SECRET_KEY}}"
+MONGO_URI = "@jinja {{env.DATABASE_URL}}"
+MONGO_URI_UPDATES = "@jinja {{env.DATABASE_URL_UPDATES}}"
+
+
+[development]
+SECRET_KEY = 'secret'
+MONGO_URI = "@jinja {{env.DATABASE_URL}}"
+MONGO_URI_UPDATES = "@jinja {{env.DATABASE_URL_UPDATES}}"
+
+
+[test]
+WTF_CSRF_ENABLED = false

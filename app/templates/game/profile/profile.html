@@ -1,0 +1,186 @@
+{% extends 'game/base.html' %}
+
+
+{% block body %}
+
+<!--SPRITE AND NAME-->
+<div class="container-main">
+    <div class="container-sprite">
+        <img src="{{ url_for('static', filename='img/sprites/' + current_user.return_user['character']['sprite'] ) }}"
+            width="70">
+        <br>
+        <span> {{ current_user.return_user['character']['name']|title()}} </span>
+        <br>
+        <span>[{{ current_user.return_user['character']['vocation'] }} -</span>
+        <span> {{ current_user.return_user['character']['job'] }} ]</span>
+
+    </div>
+</div>
+
+
+<!--HEALTH AND ENERGY BARS / PRIMARY STATUS-->
+<div class="container-main">
+    <div class="container-hp-mp-att">
+
+        <div class="hp-en-margin-and-gap">
+            <img src="{{ url_for('static', filename='img/icons/terms.png') }}" width="12">
+            <span> {{ current_user.return_user['status']['health'] }} /</span>
+            <span> {{ current_user.return_user['status']['current_health'] }}</span>
+            <div class="bar-health">
+                <div> </div>
+            </div>
+        </div>
+
+        <div class="hp-en-margin-and-gap">
+            <img src="{{ url_for('static', filename='img/icons/terms.png') }}" width="12">
+            <span> {{ current_user.return_user['status']['energy'] }} /</span>
+            <span> {{ current_user.return_user['status']['current_energy'] }}</span>
+            <div class="bar-energy">
+                <div> </div>
+            </div>
+        </div>
+
+
+        <div class="container-attributes">
+            <div>
+                <img src="{{ url_for('static', filename='img/icons/terms.png') }}" width="25">
+                <span> {{ current_user.return_user['status']['vitality'] }} </span>
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/icons/terms.png') }}" width="25">
+                <span> {{ current_user.return_user['status']['strength'] }} </span>
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/icons/terms.png') }}" width="25">
+                <span> {{ current_user.return_user['status']['wisdom'] }} </span>
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/icons/terms.png') }}" width="25">
+                <span> {{ current_user.return_user['status']['dexterity'] }} </span>
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/icons/terms.png') }}" width="25">
+                <span> {{ current_user.return_user['status']['creativity']}} </span>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!--SKILLS / SECONDARY STATUS-->
+<div class="container-main">
+    <div class="container-row-status-secondary">
+
+        <div class="container-column-status-secondary mini-container-status ">
+
+            <div> <span> attack </span> <span> {{current_user.return_user['status']['health'] }} </span> </div>
+            <div> <span> magic </span> <span> {{current_user.return_user['status']['health'] }} </span> </div>
+            <div> <span> defense </span> <span> {{current_user.return_user['status']['health'] }} </span> </div>
+            <div> <span> resistance </span> <span> {{current_user.return_user['status']['health'] }} </span> </div>
+            <div> <span> agility </span> <span> {{current_user.return_user['status']['health'] }} </span> </div>
+            <div> <span> creativity </span> <span> {{current_user.return_user['status']['health'] }} </span> </div>
+            <div> <span> block </span> <span> {{current_user.return_user['status']['health'] }} </span> </div>
+            <div> <span> dodge </span> <span> {{current_user.return_user['status']['health'] }} </span> </div>
+            <div> <span> critical </span> <span> {{current_user.return_user['status']['health'] }} </span> </div>
+            <div> <span> critical att </span> <span>{{current_user.return_user['status']['health'] }}</span> </div>
+
+        </div>
+
+
+        <div class="container-column-status-secondary mini-container-status ">
+
+            <div> <img src="{{ url_for('static', filename='img/icons/safe.png') }}" width="25">
+                <div class="bar-progress"> </div>
+            </div>
+            <div> <img src="{{ url_for('static', filename='img/icons/safe.png') }}" width="25">
+                <div class="bar-progress"> </div>
+            </div>
+            <div> <img src="{{ url_for('static', filename='img/icons/safe.png') }}" width="25">
+                <div class="bar-progress"> </div>
+            </div>
+            <div> <img src="{{ url_for('static', filename='img/icons/safe.png') }}" width="25">
+                <div class="bar-progress"> </div>
+            </div>
+            <div> <img src="{{ url_for('static', filename='img/icons/safe.png') }}" width="25">
+                <div class="bar-progress"> </div>
+            </div>
+            <div> <img src="{{ url_for('static', filename='img/icons/safe.png') }}" width="25">
+                <div class="bar-progress"> </div>
+            </div>
+            <div> <img src="{{ url_for('static', filename='img/icons/safe.png') }}" width="25">
+                <div class="bar-progress"> </div>
+            </div>
+            <div> <img src="{{ url_for('static', filename='img/icons/safe.png') }}" width="25">
+                <div class="bar-progress"> </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!--SUBMENU-->
+<div class="container-main">
+    <div class="container-submenu">
+
+        <div>
+            <div>
+                <a href="{{ url_for('profile.vocation') }}">
+                    <img src="{{ url_for('static', filename='img/icons/safe.png') }}" width="25"> <br>
+                    <span> Vocation </span>
+                </a>
+            </div>
+
+            <div>
+                <a href="{{ url_for('profile.status') }}">
+                    <img src="{{ url_for('static', filename='img/icons/credits.png') }}" width="25"> <br>
+                    <span> Status </span>
+                </a>
+            </div>
+
+            <div>
+                <a href="{{ url_for('profile.craft_skills') }}">
+                    <img src="{{ url_for('static', filename='img/icons/safe.png') }}" width="25"> <br>
+                    <span> Craft skills </span>
+                </a>
+            </div>
+
+            <div>
+                <a href="{{ url_for('profile.job') }}">
+                    <img src="{{ url_for('static', filename='img/icons/terms.png') }}" width="25"> <br>
+                    <span> Job </span>
+                </a>
+            </div>
+
+            <div>
+                <a href="{{ url_for('profile.skills') }}">
+                    <img src="{{ url_for('static', filename='img/icons/cookies.png') }}" width="25"> <br>
+                    <span> Skills </span>
+                </a>
+            </div>
+
+            <div>
+                <a href="{{ url_for('profile.settings') }}">
+                    <img src="{{ url_for('static', filename='img/icons/credits.png') }}" width="25"> <br>
+                    <span> Settings </span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!--FOOTER-->
+<div class="footer">
+    2022 The Red Boar Inn. All rights reserved.
+</div>
+
+{% endblock %}

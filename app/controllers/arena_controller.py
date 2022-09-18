@@ -1,11 +1,15 @@
-from flask import render_template
+from flask import Blueprint, render_template, redirect, url_for, flash, request
+
 from flask_login import login_required
 
 
-class ArenaController:
+arena = Blueprint('arena', __name__)
 
-    @staticmethod
-    @login_required
-    def home():
-        return render_template("game/arena/arena.html",
-                               title='Arena')
+
+@arena.route('/arena', methods=['GET', 'POST'])
+@login_required
+def home():
+
+    return render_template('/game/arena/arena.html',
+
+                           title='arena')

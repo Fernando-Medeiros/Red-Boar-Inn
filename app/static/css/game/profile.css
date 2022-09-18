@@ -1,0 +1,157 @@
+.container-main {
+    display: flex;
+    width: auto;
+    height: auto;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+}
+
+/* SPRITE - NAME AND PROFESSION */
+.container-sprite {
+    width: auto;
+    height: auto;
+    margin-top: 45px;
+}
+
+.container-sprite img {
+    margin-bottom: 15px;
+}
+
+
+
+/* STATUS PRIMARY */
+.container-hp-mp-att {
+    width: 372px;
+    height: auto;
+    margin: 20px 5px 20px 5px;
+    background: #181818;
+}
+
+
+.hp-en-margin-and-gap {
+    margin: 5px;
+    gap: 10px;
+}
+
+
+.bar-health {
+    box-sizing: border-box;
+    width: auto;
+    height: 8px;
+    border-radius: 10px;
+    background: #ff79798c;
+}
+
+.bar-health div {
+    box-sizing: border-box;
+    width: auto;
+    height: 8px;
+    border-radius: 10px;
+    background: #FF7979;
+}
+
+.bar-energy {
+    box-sizing: border-box;
+    width: auto;
+    height: 8px;
+    border-radius: 10px;
+    background: #79d7ff8c;
+}
+
+.bar-energy div {
+    box-sizing: border-box;
+    width: auto;
+    height: 8px;
+    border-radius: 10px;
+    background: #79D7FF;
+}
+
+
+.container-attributes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: auto;
+    height: auto;
+    margin: 25px 0px 5px 0px;
+}
+
+.container-attributes div img {
+    margin-right: 5px;
+}
+
+
+/* STATUS SECONDARY */
+.container-row-status-secondary {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    width: 372px;
+    height: auto;
+    margin: 20px 5px 20px 5px;
+    padding: 5px;
+    background: #181818;
+}
+
+.container-column-status-secondary {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+}
+
+.mini-container-status div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px 0px 10px;
+    margin: 5px 0px 5px 0px;
+
+}
+
+.bar-progress {
+    width: 80%;
+    height: 6px;
+    border-radius: 10px;
+    background: #7e79ff9a;
+}
+
+.bar-progress div {
+    width: 80%;
+    height: 6px;
+    border-radius: 10px;
+    background: #7E79FF;
+}
+
+
+
+/* SUB-MENU */
+.container-submenu {
+    width: 372px;
+    height: auto;
+    margin: 20px 5px 20px 5px;
+}
+
+.container-submenu div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: center;
+    gap: 1rem;
+    padding: 5px;
+}
+
+
+
+
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    align-items: center;
+    background: #181818;
+    color: #B9B9B9;
+    margin-top: 40px;
+    padding: 10px;
+}

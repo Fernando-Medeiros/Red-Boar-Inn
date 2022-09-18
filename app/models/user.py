@@ -1,63 +1,95 @@
 from flask_login import UserMixin
 from datetime import datetime
 
-from app import database__, login_manager__
+from werkzeug.security import generate_password_hash
+from random import randint
 
 
-@login_manager__.user_loader
-def load_user(id_user):
-    database__.create_all()
-    return User.query.get(int(id_user))
+class User(UserMixin):
+
+    date = datetime.today().strftime('%d/%m/%Y %H:%M:%S')
+
+    __user = {
+        "id": '',
+        "name": '',
+        "email": '',
+        "password": '',
+        "token_pwd": '',
+        "date": date,
+        "online": True,
+
+        "character": {
+            "name": 'change a new name',
+            "level": 1,
+            "gold": 1,
+            "jewel": 1,
+            "sprite": 'sprite1.png',
+            "vocation": "Peasant",
+            "job": "Farmer"
+        },
+
+        "status": {
+            "points": 25,
+            "experience": 1,
+            "next_experience": 25,
+
+            "health": 30,
+            "energy": 10,
+            "current_health": 30,
+            "current_energy": 10,
+
+            "strength": 1,
+            "vitality": 1,
+            "wisdom": 1,
+            "dexterity": 1,
+            "creativity": 1
+        },
+
+        "skills": {
+            "woodcutting": 1,
+            "mining": 1,
+            "herbalism": 1,
+            "farming": 1,
+            "hunt": 1
+        },
+
+        "craft": {
+            "food": 1,
+            "tools": 1,
+            "heavy_armor": 1,
+            "light_armor": 1,
+            "accessories": 1,
+            "axes_and_hammers": 1,
+            "bows_and_crossbows": 1,
+            "swords": 1,
+            "magic_staffs": 1,
+            "light_arms": 1
+        },
+
+        "inventory": {
+            "apple": {
+                "qnt": 1,
+                "price": 1,
+                "type": "food",
+                "sprite": "apple.png"
+            }
+        }
+
+    }
+
+    def get_id(self) -> str:
+
+        try:
+            return str(self.__user['id'])
+        except AttributeError:
+            raise NotImplementedError(
+                "No `id` attribute - override `get_id`") from None
+
+    @property
+    def return_user(self) -> dict:
+        return self.__user
 
 
-class User(database__.Model, UserMixin):
-    id = database__.Column(database__.Integer, primary_key=True)
-    username = database__.Column(database__.String, nullable=False, unique=True)
-    email = database__.Column(database__.String, nullable=False, unique=True)
-    password = database__.Column(database__.String, nullable=False)
-    token_recover_pwd = database__.Column(database__.String, nullable=False)
-    picture = database__.Column(database__.String, default='default.jpg')
-    gold = database__.Column(database__.String, default='1')
-    date = database__.Column(database__.DateTime, nullable=False, default=datetime.utcnow)
-    character = database__.relationship('Characters', backref='author', lazy=True)
-    inventory = database__.relationship('Inventory', backref='author', lazy=True)
-
-    def create_char(self):
-        char = Characters(name=self.username, author=self)
-        return char
-
-    def create_inventory(self):
-        inventory = Inventory(author=self)
-        return inventory
-
-    @staticmethod
-    def length():
-        return len(User.query.all())
-
-
-class Characters(database__.Model):
-    id = database__.Column(database__.Integer, primary_key=True)
-    name = database__.Column(database__.String, nullable=False, unique=True)
-    profession = database__.Column(database__.String, default="Peasant")
-    level = database__.Column(database__.Integer, default=1)
-    experience = database__.Column(database__.Integer, default=1)
-    health = database__.Column(database__.Integer, default=30)
-    energy = database__.Column(database__.Integer, default=10)
-    strength = database__.Column(database__.Integer, default=1)
-    vitality = database__.Column(database__.Integer, default=1)
-    wisdom = database__.Column(database__.Integer, default=1)
-    dexterity = database__.Column(database__.Integer, default=1)
-    luck = database__.Column(database__.Integer, default=1)
-    pts_status = database__.Column(database__.Integer, default=25)
-    date = database__.Column(database__.DateTime, nullable=False, default=datetime.utcnow)
-    id_user = database__.Column(database__.Integer, database__.ForeignKey('user.id'), nullable=False)
-
-    @staticmethod
-    def length():
-        return Characters.query.all()
-
-
-class Inventory(database__.Model):
-    id = database__.Column(database__.Integer, primary_key=True)
-    items = database__.Column(database__.String, nullable=False, default='item_0')
-    id_user_ = database__.Column(database__.Integer, database__.ForeignKey('user.id'), nullable=False)
+    @return_user.setter
+    def return_user(self, **kwargs):
+        self.__user.update(**kwargs)

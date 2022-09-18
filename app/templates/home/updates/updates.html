@@ -1,0 +1,39 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+
+<div class="container-body" style="align-items: center">
+    <a href="{{ url_for('home.index') }}">
+        <img src="{{ url_for('static', filename='img/logo.png') }}" width="81">
+    </a>
+</div>
+
+<div class="container-body">
+
+    <br>
+
+    {% for note in updates_notes|reverse() %}
+
+        <div class="container-updates-main">
+
+            <button>
+                <strong> {{ note.version }} </strong> {{ "-" }} <small> {{ note.date }} </small>
+            </button>
+
+            <div>
+                {% for info in note.info %}
+                    <p> {{ info }} </p>
+                {% endfor %}
+            </div>
+
+            <br>
+        </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% include 'home/footer.html' %}
+{% endblock %}

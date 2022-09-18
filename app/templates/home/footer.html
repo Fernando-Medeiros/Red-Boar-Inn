@@ -1,0 +1,34 @@
+
+<footer>
+    <div class="container-footer-main">
+        <div class="container-footer">
+
+            <div class="navbar-footer">
+                <a href="{{ url_for('home.index') }}"> Home </a>
+                <a href="{{ url_for('home.about') }}"> About </a>
+                <a href="{{ url_for('home.updates') }}"> Updates </a>
+                <a href="{{ url_for('auth.login') }}"> Login </a>
+                <a href="{{ url_for('auth.create') }}"> Register </a>
+                <a href="{{ url_for('home.about') }}"> Cookie Policy </a>
+                <a href="{{ url_for('home.about') }}"> Privacy Policy </a>
+                <a href="{{ url_for('home.about') }}"> Terms of Service </a>
+            </div>
+        </div>
+        <div class="container-footer">
+            <div class="navbar-footer">
+                <a href="https://github.com/Fernando-Medeiros" target="_blank">
+                    <img src="{{ url_for('static', filename='img/icons/github.png') }}" width="24"> </a>
+                <a href="https://www.instagram.com/" target="_blank">
+                    <img src="{{ url_for('static', filename='img/icons/instagram.png') }}" width="24">    </a>
+                <a href="https://discord.com/" target="_blank">
+                    <img src="{{ url_for('static', filename='img/icons/discord.png') }}" width="24">  </a>
+            </div>
+        </div>
+
+        <div class="navbar-footer">
+            <a><small> 2022  The Red Boar Inn. All rights reserved.</small></a>
+        </div>
+
+    </div>
+
+</footer>

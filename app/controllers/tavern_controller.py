@@ -1,11 +1,15 @@
-from flask import render_template
+from flask import Blueprint, render_template, redirect, url_for, flash, request
+
 from flask_login import login_required
 
 
-class TavernController:
+tavern = Blueprint('tavern', __name__)
 
-    @staticmethod
-    @login_required
-    def home():
-        return render_template("game/tavern/tavern.html",
-                               title='Tavern')
+
+@tavern.route('/tavern', methods=['GET', 'POST'])
+@login_required
+def home():
+
+    return render_template('/game/tavern/tavern.html',
+
+                           title='tavern')
