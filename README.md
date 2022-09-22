@@ -93,15 +93,6 @@ The current scope is provided below:
 <br>
 <hr>
 
-### Clone this project
-<br>
-
-```
-git clone https://github.com/Fernando-Medeiros/Web-Game-FLask.git
-```
-
-<br>
-
 
 ### Install Dependencies
 <br>
@@ -112,6 +103,3 @@ pip install -r requeriments.txt
 
 <br>
 <hr>
-
-### License
-Free

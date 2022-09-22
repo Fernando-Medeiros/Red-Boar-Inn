@@ -25,6 +25,7 @@ def register_routes(app):
         tavern,
         inventory,
         options
+        
     ]
 
     for route in routes:

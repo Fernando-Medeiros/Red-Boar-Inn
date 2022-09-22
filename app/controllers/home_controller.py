@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, url_for, redirect
 
-from app.backends.auth_login_backend import check_current_user
-from app.backends.home_info_backend import list_updates, qnt_users, online_players, show_rank
+from app.backend.auth_login_backend import check_current_user
+from app.backend.home_info_backend import list_updates, qnt_users, online_players, show_rank
 
 
 home = Blueprint("home", __name__)

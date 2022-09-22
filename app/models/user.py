@@ -1,21 +1,15 @@
 from flask_login import UserMixin
-from datetime import datetime
-
-from werkzeug.security import generate_password_hash
-from random import randint
 
 
 class User(UserMixin):
-
-    date = datetime.today().strftime('%d/%m/%Y %H:%M:%S')
-
+    
     __user = {
         "id": '',
         "name": '',
         "email": '',
         "password": '',
         "token_pwd": '',
-        "date": date,
+        "date": '',
         "online": True,
 
         "character": {
@@ -88,7 +82,6 @@ class User(UserMixin):
     @property
     def return_user(self) -> dict:
         return self.__user
-
 
     @return_user.setter
     def return_user(self, **kwargs):

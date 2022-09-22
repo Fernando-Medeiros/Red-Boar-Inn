@@ -1,8 +1,9 @@
 from werkzeug.security import check_password_hash
 from flask_login import login_user, current_user
+from flask import current_app as app
 
-from app.models.user import User
-from app.extensions.configuration import mongo, login_manager
+from ..models.user import User
+from ..extensions.configuration import login_manager
 
 import datetime
 
@@ -10,11 +11,11 @@ import datetime
 @login_manager.user_loader
 def load_user(id_user):
 
-    user_exists = mongo.db.USERS.find_one({"id": id_user})
+    user_exists = app.db.USERS.find_one({"id": id_user})
     
     user = User()
     user.return_user.update(user_exists)
-    
+   
     return user
 
 
@@ -27,13 +28,13 @@ def check_current_user():
 
 def set_offline_status(id_user):
 
-    mongo.db.USERS.find_one_and_update(
+    app.db.USERS.find_one_and_update(
         {'id': id_user}, {'$set': {'online': False}})
 
 
 def set_online_status(id_user):
 
-    mongo.db.USERS.find_one_and_update(
+    app.db.USERS.find_one_and_update(
         {'id': id_user}, {'$set': {'online': True}})
 
 
@@ -43,10 +44,10 @@ def auth_login(**kwargs):
 
         email = str(kwargs['email']).strip()
 
-        __find_user = mongo.db.USERS.find_one({'email': email})
+        find_user = app.db.USERS.find_one({'email': email})
 
         password = check_password_hash(
-            __find_user['password'], kwargs['password'])
+            find_user['password'], kwargs['password'])
 
     except Exception as ErrorLoginUser:
 
@@ -54,14 +55,15 @@ def auth_login(**kwargs):
 
     else:
 
-        if __find_user and password:
+        if find_user and password:
 
-            __user = User()
+            user = User()
 
-            __user.return_user.update(__find_user)
+            user.return_user.update(find_user)
 
-            set_online_status(__user.return_user['id'])
+            set_online_status(user.return_user['id'])
 
-            login_user(__user, remember=False, duration=datetime.timedelta(hours=1) ,fresh=False)
+            login_user(user, remember=False, duration=datetime.timedelta(hours=1) ,fresh=False)
 
             return True
+

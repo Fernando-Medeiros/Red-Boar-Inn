@@ -2,10 +2,13 @@ from flask import Blueprint, render_template, redirect, url_for, flash, request
 
 from flask_login import login_required, logout_user, logout_user, current_user
 
-from app.forms import form_login, form_new_account, form_recover_password
+from ..forms.form_new_account import FormNewAccount
+from ..forms.form_login import FormLogin
+from ..forms.form_recover_password import FormSendToken, FormValidateToken, FormNewPassword
 
-from app.backends.auth_login_backend import auth_login, check_current_user, set_offline_status
-from app.backends.auth_create_backend import auth_Create, check_User
+from ..backend.auth_login_backend import auth_login, check_current_user, set_offline_status
+from ..backend.auth_create_backend import auth_create, check_user, check_char_name
+from ..backend.auth_recover_backend import send_mail, new_pwd, validate_token
 
 
 auth = Blueprint('auth', __name__)
@@ -14,7 +17,7 @@ auth = Blueprint('auth', __name__)
 @auth.route('/auth/login', methods=['GET', 'POST'])
 def login():
     
-    form = form_login.FormLogin()
+    form = FormLogin()
 
     if form.validate_on_submit():
 
@@ -32,7 +35,6 @@ def login():
             flash('Incorrect email or password!', 'alert-danger')
 
     return render_template('/home/auth/login.html',
-
                            title='Login',
                            form=form)
 
@@ -40,28 +42,30 @@ def login():
 @auth.route('/auth/create', methods=['GET', 'POST'])
 def create():
 
-    form = form_new_account.FormNewAccount()
+    form = FormNewAccount()
 
     if form.validate_on_submit():
 
-        if check_User(email=form.email.data,
-                      password=form.password.data):
+        if check_user(email=form.email.data):
 
-            if auth_Create(name=form.username.data,
-                           email=form.email.data,
-                           password=form.password.data):
+            if check_char_name(charname=form.charname.data):
 
-                return redirect(url_for('home.index'))
+                if auth_create(name=form.username.data,
+                                email=form.email.data,
+                                password=form.password.data,
+                                charname=form.charname.data):
 
+                    return redirect(url_for('home.index'))
+
+                else:
+                    flash('Please provide the correct data', 'alert-danger')
             else:
-                flash('Please provide the correct data', 'alert-danger')
-
+                flash('Character name is already in use.', 'alert-danger')
         else:
             flash(
                 'E-mail already registered, Please choose another email or reset your password.', 'alert-danger')
 
     return render_template('/home/auth/create.html',
-
                            title='New account',
                            form=form)
 
@@ -69,8 +73,19 @@ def create():
 @auth.route('/auth/recover', methods=['GET', 'POST'])
 def recover():
 
-    form = form_recover_password.FormSendToken()
+    form = FormSendToken()
 
+    if form.validate_on_submit():
+        
+        if send_mail(form.email.data): 
+
+            flash('Token sent! Check your mailbox.', 'alert-success')
+
+            return redirect(url_for('auth.auth_token'))
+
+        else:
+            flash('Incorrect email!', 'alert-danger')
+       
     return render_template('/home/auth/send_email.html',
                            title='Recover',
                            form=form)
@@ -79,21 +94,46 @@ def recover():
 @auth.route('/auth/recover/auth_token', methods=['GET', 'POST'])
 def auth_token():
 
-    form_auth_token = form_recover_password.FormValidateToken()
+    form_auth_token = FormValidateToken()
+  
 
-    return render_template('/home/auth/auth_token.html',
-                           title='Recover',
-                           form_auth_token=form_auth_token)
+    if form_auth_token.is_submitted():
 
+        if validate_token(token=form_auth_token.token.data):
+            
+            flash('Valid Token! Choose your new password.', 'alert-success')
 
-@auth.route('/auth/recover/auth_token', methods=['GET', 'POST'])
-def new_pwd():
-
-    form_new_pwd = form_recover_password.FormNewPassword()
+            return redirect(url_for('auth.new_password'))
+            
+        else:
+            flash('Incorrect email or token!', 'alert-danger')
 
     return render_template('/home/auth/auth_token.html',
                            title='Auth',
-                           form_new_pwd=form_new_pwd)
+                           form_auth_token=form_auth_token)
+
+
+@auth.route('/auth/recover/new_password', methods=['GET', 'POST'])
+def new_password():
+    
+    form_new_pwd = FormNewPassword()
+
+    if form_new_pwd.is_submitted():
+
+        if new_pwd(
+            email=form_new_pwd.email_auth.data,
+            password=form_new_pwd.password.data):
+            
+            flash('Password changed successfully!', 'alert-success')
+
+            return redirect(url_for('auth.login'))
+        
+        else:
+            flash('Invalid Password!', 'alert-danger')
+
+    return render_template('/home/auth/new_password.html',
+                            title='Auth',
+                            form_new_pwd=form_new_pwd)
 
 
 @auth.route('/auth/logout')

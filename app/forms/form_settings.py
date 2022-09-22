@@ -8,5 +8,5 @@ class FormSettings(FlaskForm):
 
     username = StringField('Username', validators=[DataRequired()])
     email = StringField('E-mail', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired(), Length(6, 20)])
+    password = PasswordField('Password', validators=[DataRequired(), Length(8, 20)])
     auth = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
