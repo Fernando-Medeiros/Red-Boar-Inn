@@ -1,6 +1,8 @@
 from werkzeug.security import generate_password_hash
+
 from flask_login import login_user
 from flask import current_app as app
+from flask_pymongo import ObjectId
 
 from ..models.user import User
 
@@ -27,28 +29,26 @@ def auth_create(**kwargs):
         charname = str(kwargs['charname']).strip()
 
 
-        __password = generate_password_hash(kwargs['password'])
+        _password = generate_password_hash(kwargs['password'])
 
-        __token_pwd = generate_password_hash(
-            str(randint(111111111111, 999999999999)))
+        _token_pwd = generate_password_hash(str(randint(111111111111, 999999999999)))
 
-        __id = generate_password_hash(
-            str(randint(111111111111, 999999999999)))
+        _id = ObjectId(str(randint(111111111111111111111111, 999999999999999999999999)))
 
         date = datetime.datetime.today().strftime('%d/%m/%Y %H:%M:%S')
 
 
-        __new_account = User()
+        _new_account = User()
 
-        __new_account.return_user.update(
-            id=__id,
+        _new_account.return_user.update(
+            _id=_id,
             name=name,
             email=email,
-            password=__password,
-            token_pwd=__token_pwd,
+            password=_password,
+            token_pwd=_token_pwd,
             date=date)
 
-        __new_account.return_user['character']['name'] = charname
+        _new_account.return_user['character']['name'] = charname
 
 
     except Exception as ErrorCreateNewUser:
@@ -57,16 +57,13 @@ def auth_create(**kwargs):
     else:
 
         try:
-            app.db.USERS.insert_one(__new_account.return_user)
+            app.db.USERS.insert_one(_new_account.return_user)
 
-        except Exception as ErrorCreateNewUser:
+        except Exception as ErrorCreateNewUser:        
             return False
 
         else:
-            user = User()
-
-            user.return_user.update(__new_account.return_user)
-
-            login_user(user, remember=False, duration=datetime.timedelta(hours=1), fresh=False)
+          
+            login_user(_new_account, remember=False, duration=datetime.timedelta(hours=1), fresh=False)
             
             return True

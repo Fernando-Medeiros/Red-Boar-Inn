@@ -51,8 +51,7 @@ def validate_token(**kwargs):
 def new_pwd(**kwargs):
 
     try:
-        token_pwd = generate_password_hash(
-            str(randint(111111111111, 999999999999)))
+        token_pwd = generate_password_hash(str(randint(111111111111, 999999999999)))
 
         password = generate_password_hash(str(kwargs['password']).strip())
 

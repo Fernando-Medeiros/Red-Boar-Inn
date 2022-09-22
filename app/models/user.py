@@ -4,7 +4,7 @@ from flask_login import UserMixin
 class User(UserMixin):
     
     __user = {
-        "id": '',
+        "_id":'',
         "name": '',
         "email": '',
         "password": '',
@@ -74,7 +74,7 @@ class User(UserMixin):
     def get_id(self) -> str:
 
         try:
-            return str(self.__user['id'])
+            return str(self.__user['_id'])
         except AttributeError:
             raise NotImplementedError(
                 "No `id` attribute - override `get_id`") from None

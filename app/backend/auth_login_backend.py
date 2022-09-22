@@ -1,6 +1,8 @@
 from werkzeug.security import check_password_hash
+
 from flask_login import login_user, current_user
 from flask import current_app as app
+from flask_pymongo import ObjectId
 
 from ..models.user import User
 from ..extensions.configuration import login_manager
@@ -11,7 +13,7 @@ import datetime
 @login_manager.user_loader
 def load_user(id_user):
 
-    user_exists = app.db.USERS.find_one({"id": id_user})
+    user_exists = app.db.USERS.find_one({"_id": ObjectId(id_user)})
     
     user = User()
     user.return_user.update(user_exists)
@@ -29,13 +31,13 @@ def check_current_user():
 def set_offline_status(id_user):
 
     app.db.USERS.find_one_and_update(
-        {'id': id_user}, {'$set': {'online': False}})
+        {'_id': ObjectId(id_user)}, {'$set': {'online': False}})
 
 
 def set_online_status(id_user):
 
     app.db.USERS.find_one_and_update(
-        {'id': id_user}, {'$set': {'online': True}})
+        {'_id': ObjectId(id_user)}, {'$set': {'online': True}})
 
 
 def auth_login(**kwargs):
@@ -61,7 +63,7 @@ def auth_login(**kwargs):
 
             user.return_user.update(find_user)
 
-            set_online_status(user.return_user['id'])
+            set_online_status(user.return_user['_id'])
 
             login_user(user, remember=False, duration=datetime.timedelta(hours=1) ,fresh=False)
 

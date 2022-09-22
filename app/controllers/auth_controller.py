@@ -140,7 +140,7 @@ def new_password():
 @login_required
 def logout():
 
-    set_offline_status(current_user.return_user['id'])
+    set_offline_status(current_user.return_user['_id'])
 
     logout_user()
 
