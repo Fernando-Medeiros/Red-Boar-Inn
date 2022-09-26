@@ -1,0 +1,51 @@
+<nav class="max-width navbar-status">
+
+    <div class="grid-row">
+
+        <div class="grid-colum">
+            <div>
+                <img src="{{ url_for('static', filename='img/icons/jewel.png') }}" width="24">
+                <span> {{ current_user.return_user['character']['jewel'] }} </span>
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/icons/gold.png') }}" width="24">
+                <span> {{ current_user.return_user['character']['gold'] }} </span>
+            </div>
+        </div>
+
+        <div class="grid-colum">
+            <div>
+                <span> Lv: {{ current_user.return_user['character']['level'] }} </span>
+            </div>
+            <div>
+                <span> Ex: {{ current_user.return_user['status']['experience'] }} /</span>
+                <span> {{ current_user.return_user['status']['next_experience'] }} </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="icons-right">
+
+        <a href="{{ url_for('options.home') }}">
+            <img src="{{ url_for('static', filename='img/icons/users.png') }}" width="25">
+        </a>
+
+        <a href="{{ url_for('options.home') }}">
+            <img src="{{ url_for('static', filename='img/icons/message.png') }}" width="25">
+        </a>
+
+        <a href="{{ url_for('options.home') }}">
+            <img src="{{ url_for('static', filename='img/icons/notification.png') }}" width="25">
+        </a>
+
+        <a href="{{ url_for('auth.logout') }}">
+            <img src="{{ url_for('static', filename='img/icons/logout.png') }}" width="25">
+        </a>
+
+    </div>
+</nav>
+
+<div class="max-width bar-experience">
+    <div> </div>
+</div>

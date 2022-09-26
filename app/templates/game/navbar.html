@@ -1,60 +1,59 @@
-<div class="bar-experience">
-  <div> </div>
-</div>
-
-
-<div class="container-navbar-main">
-  <div class="navbar">
+<nav class="navbar-left grid-colum">
 
     <div>
-      <a href="{{ url_for('world.home') }}">
-        <img src="{{ url_for('static', filename='img/icons/cookies.png') }}" width="24"><br>
-        <span> World </span>
-      </a>
+        <button type="button" id="menu">
+            <img src="{{ url_for('static', filename='img/icons/menu.png') }}" width="25">
+        </button>
     </div>
 
     <div>
-      <a href="{{ url_for('arena.home') }}">
-        <img src="{{ url_for('static', filename='img/icons/safe.png') }}" width="24"><br>
-        <span> Arena </span>
-      </a>
+        <a href="{{ url_for('profile.home') }}">
+            <img src="{{ url_for('static', filename='img/icons/profile.png') }}" width="25">
+            <span> Profile </span>
+        </a>
     </div>
 
     <div>
-      <a href="{{ url_for('market.home') }}">
-        <img src="{{ url_for('static', filename='img/icons/credits.png') }}" width="24"><br>
-        <span> Market </span>
-      </a>
+        <a href="{{ url_for('world.home') }}">
+            <img src="{{ url_for('static', filename='img/icons/world.png') }}" width="25">
+            <span> World </span>
+        </a>
+    </div>
+
     </div>
 
     <div>
-      <a href="{{ url_for('profile.home') }}">
-        <img src="{{ url_for('static', filename='img/sprites/sprite1.png') }}" width="24"><br>
-        <span> Profile </span>
-      </a>
+        <a href="{{ url_for('arena.home') }}">
+            <img src="{{ url_for('static', filename='img/icons/arena.png') }}" width="25">
+            <span> Arena </span>
+        </a>
     </div>
 
     <div>
-      <a href="{{ url_for('craft.home') }}">
-        <img src="{{ url_for('static', filename='img/icons/terms.png') }}" width="24"><br>
-        <span> Craft </span>
-      </a>
+        <a href="{{ url_for('market.home') }}">
+            <img src="{{ url_for('static', filename='img/icons/market.png') }}" width="25">
+            <span> Market </span>
+        </a>
     </div>
 
     <div>
-      <a href="{{ url_for('tavern.home') }}">
-        <img src="{{ url_for('static', filename='img/logo.png') }}" width="24"><br>
-        <span> Tavern </span>
-      </a>
+        <a href="{{ url_for('craft.home') }}">
+            <img src="{{ url_for('static', filename='img/icons/craft.png') }}" width="25">
+            <span> Craft </span>
+        </a>
     </div>
 
     <div>
-      <a href="{{ url_for('inventory.home') }}">
-        <img src="{{ url_for('static', filename='img/icons/credits.png') }}" width="24"><br>
-        <span> Bag </span>
-      </a>
+        <a href="{{ url_for('tavern.home') }}">
+            <img src="{{ url_for('static', filename='img/icons/tavern.png') }}" width="25">
+            <span> Tavern </span>
+        </a>
     </div>
 
-  </div>
-
-</div>
+    <div>
+        <a href="{{ url_for('inventory.home') }}">
+            <img src="{{ url_for('static', filename='img/icons/inventory.png') }}" width="25">
+            <span> Inventory </span>
+        </a>
+    </div>
+</nav>

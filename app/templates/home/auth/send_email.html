@@ -21,37 +21,33 @@
                 <fieldset style="border: none">
 
                     <div class="form-group">
-                        {{ form.email.label (class='form-style-label') }}
+                        {{ form.email.label }}
 
                         {% if form.email.errors %}
-                        {{ form.email (class='form-style is-invalid') }}
+                        {{ form.email (class='is-invalid') }}
                         <div class="invalid-feedback">
                             {% for error in form.email.errors %}
                             {{ error }}
                             {% endfor %}
                         </div>
                         {% else %}
-                        {{ form.email (class='form-style') }}
+                        {{ form.email }}
                         {% endif %}
                     </div>
 
                 </fieldset>
-                <br>
+
                 <div class="button-a"> <button type="submit"> Send Token Reset </button> </div>
 
             </form>
-
-            <div>
-                <br>
-                <a class="button-b" href="{{ url_for('auth.login') }}"> <button> Return Log in </button> </a>
-            </div>
-
-            <div>
-                <br>
-                <a class="button-b" href="{{ url_for('auth.auth_token') }}"> <button> Already have token? </button> </a>
-            </div>
-
         </div>
+
+
+        <a class="button-b" href="{{ url_for('auth.login') }}"> <button> Return Log in </button> </a>
+
+        <a class="button-b" href="{{ url_for('auth.auth_token') }}"> <button> Already have token? </button> </a>
+
+
     </div>
 </div>
 {% endblock %}

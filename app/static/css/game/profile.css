@@ -63,7 +63,7 @@
     box-sizing: border-box;
     width: auto;
     height: 8px;
-    border-radius: 10px;
+    border-radius: .6rem;
     background: #79D7FF;
 }
 
@@ -120,7 +120,7 @@
 .bar-progress div {
     width: 80%;
     height: 6px;
-    border-radius: 10px;
+    border-radius: .6rem;
     background: #7E79FF;
 }
 
@@ -128,7 +128,7 @@
 
 /* SUB-MENU */
 .container-submenu {
-    width: 372px;
+    width: 100%;
     height: auto;
     margin: 20px 5px 20px 5px;
 }
@@ -153,5 +153,5 @@
     background: #181818;
     color: #B9B9B9;
     margin-top: 40px;
-    padding: 10px;
+    padding: .6rem;
 }

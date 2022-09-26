@@ -21,48 +21,48 @@
                 <fieldset style="border: none">
 
                     <div class="form-group">
-                        {{ form_auth_token.email.label (class='form-style-label') }}
+                        {{ form_auth_token.email.label }}
 
                         {% if form_auth_token.email.errors %}
-                        {{ form_auth_token.email (class='form-style is-invalid') }}
+                        {{ form_auth_token.email (class='is-invalid') }}
                         <div class="invalid-feedback">
                             {% for error in form_auth_token.email.errors %}
                             {{ error }}
                             {% endfor %}
                         </div>
                         {% else %}
-                        {{ form_auth_token.email (class='form-style') }}
+                        {{ form_auth_token.email }}
                         {% endif %}
                     </div>
 
 
                     <div class="form-group">
 
-                        {{ form_auth_token.token.label (class='form-style-label') }}
+                        {{ form_auth_token.token.label }}
 
                         {% if form_auth_token.token.errors %}
-                        {{ form_auth_token.token (class='form-style is-invalid') }}
+                        {{ form_auth_token.token (class='is-invalid') }}
                         <div class="invalid-feedback">
                             {% for error in form_auth_token.token.errors %}
                             {{ error }}
                             {% endfor %}
                         </div>
                         {% else %}
-                        {{ form_auth_token.token (class='form-style') }}
+                        {{ form_auth_token.token }}
                         {% endif %}
                     </div>
 
                 </fieldset>
-                <br>
+
                 <div class="button-a"> <button type="submit"> Confirm Token </button> </div>
             </form>
-
-            <div>
-                <br>
-                <a class="button-b" href="{{ url_for('auth.login') }}"> <button> Return Log in </button> </a>
-            </div>
-
         </div>
+
+
+        <a class="button-b" href="{{ url_for('auth.login') }}"> <button> Return Log in </button> </a>
+
+
     </div>
 </div>
+
 {% endblock %}

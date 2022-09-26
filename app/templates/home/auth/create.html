@@ -19,10 +19,10 @@
                 <fieldset style="border: none">
 
                     <div class="form-group">
-                        {{ form.username.label (class='form-style-label') }}
+                        {{ form.username.label }}
 
                         {% if form.username.errors %}
-                        {{ form.username (class='form-style is-invalid') }}
+                        {{ form.username (class='is-invalid') }}
 
                         <div class="invalid-feedback">
                             {% for error in form.username.errors %}
@@ -31,17 +31,17 @@
                         </div>
 
                         {% else %}
-                        {{ form.username (class='form-style') }}
+                        {{ form.username }}
                         {% endif %}
                     </div>
-                    
+
 
 
                     <div class="form-group">
-                        {{ form.charname.label (class='form-style-label') }}
+                        {{ form.charname.label }}
 
                         {% if form.charname.errors %}
-                        {{ form.charname (class='form-style is-invalid') }}
+                        {{ form.charname (class='is-invalid') }}
 
                         <div class="invalid-feedback">
                             {% for error in form.charname.errors %}
@@ -50,16 +50,16 @@
                         </div>
 
                         {% else %}
-                        {{ form.charname (class='form-style') }}
+                        {{ form.charname }}
                         {% endif %}
                     </div>
 
 
                     <div class="form-group">
-                        {{ form.email.label (class='form-style-label') }}
+                        {{ form.email.label }}
 
                         {% if form.email.errors %}
-                        {{ form.email (class='form-style is-invalid') }}
+                        {{ form.email (class='is-invalid') }}
 
                         <div class="invalid-feedback">
                             {% for error in form.email.errors %}
@@ -68,16 +68,16 @@
                         </div>
 
                         {% else %}
-                        {{ form.email (class='form-style') }}
+                        {{ form.email }}
                         {% endif %}
                     </div>
 
 
                     <div class="form-group">
-                        {{ form.password.label (class='form-style-label') }}
+                        {{ form.password.label }}
 
                         {% if form.password.errors %}
-                        {{ form.password (class='form-style is-invalid') }}
+                        {{ form.password (class='is-invalid') }}
 
                         <div class="invalid-feedback">
                             {% for error in form.password.errors %}
@@ -86,15 +86,15 @@
                         </div>
 
                         {% else %}
-                        {{ form.password (class='form-style') }}
+                        {{ form.password }}
                         {% endif %}
                     </div>
 
                     <div class="form-group">
-                        {{ form.auth.label (class='form-style-label') }}
+                        {{ form.auth.label }}
 
                         {% if form.auth.errors %}
-                        {{ form.auth (class='form-style is-invalid') }}
+                        {{ form.auth (class='is-invalid') }}
 
                         <div class="invalid-feedback">
                             {% for error in form.auth.errors %}
@@ -103,23 +103,21 @@
                         </div>
 
                         {% else %}
-                        {{ form.auth (class='form-style') }}
+                        {{ form.auth }}
                         {% endif %}
                     </div>
 
                 </fieldset>
-                <br>
+
                 <div class="button-a"> <button type="submit"> Next </button> </div>
-                <br>
+
             </form>
-
-            <div>
-                <a class="button-b" href="{{ url_for('auth.login') }}">
-                    <button type="submit"> Already have an account? Log in </button>
-                </a>
-            </div>
-
         </div>
+
+        <a class="button-b" href="{{ url_for('auth.login') }}">
+            <button> Already have an account? Log in </button>
+        </a>
+
     </div>
 </div>
 {% endblock %}

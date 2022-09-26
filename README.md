@@ -1,48 +1,21 @@
 <div align="center">
-    <img align="center" src="https://img.shields.io/badge/Python-white?style=for-the-badge&logo=python&logoColor=black">
+    <img align="center" src="https://img.shields.io/badge/Python-white?style=for-the-badge&logo=python&logoColor=yellow">
     <img align="center" src="https://img.shields.io/badge/Flask-white?style=for-the-badge&logo=flask&logoColor=black">    
-    <img align="center" src="https://img.shields.io/badge/HTML5-white?style=for-the-badge&logo=html5&logoColor=black">
-    <img align="center" src="https://img.shields.io/badge/CSS3-white?style=for-the-badge&logo=css3&logoColor=black">
-    <img align="center" src="https://img.shields.io/badge/Mongodb-white?style=for-the-badge&logo=mongodb&logoColor=black">   
+    <img align="center" src="https://img.shields.io/badge/HTML5-white?style=for-the-badge&logo=html5&logoColor=orange">
+    <img align="center" src="https://img.shields.io/badge/CSS3-white?style=for-the-badge&logo=css3&logoColor=blue">
+    <img align="center" src="https://img.shields.io/badge/Mongodb-white?style=for-the-badge&logo=mongodb&logoColor=green">   
 </div>
 
 <hr>
 
 <h1 align="center">The Red Boar Inn</h1>
 
+
 <div align="center">
-    <img style="border-radius: 1rem;
-    box-shadow: 0rem 0.2rem 0.2rem rgba(0, 0, 0, 0.25)"
-    width="45%" height="50%"
-    src="src_readme/img1.png">
- <img style="border-radius: 1rem;
-    box-shadow: 0rem 0.2rem 0.2rem rgba(0, 0, 0, 0.25)"
-    width="45%" height="50%"
-    src="src_readme/img3.png">
+   <video width="1000px" controls>
+      <source src="src_readme/video1.mp4" type="video/mp4">
+   </video>
 </div>
-
-<div align="center">
- <img style="border-radius: 1rem;
-    box-shadow: 0rem 0.2rem 0.2rem rgba(0, 0, 0, 0.25)"
-    width="45%" height="50%"
-    src="src_readme/img4.png">
- <img style="border-radius: 1rem;
-    box-shadow: 0rem 0.2rem 0.2rem rgba(0, 0, 0, 0.25)"
-    width="45%" height="50%"
-    src="src_readme/img2.png">
-</div>
-
-<div align="center">
- <img style="border-radius: 1rem;
-    box-shadow: 0rem 0.2rem 0.2rem rgba(0, 0, 0, 0.25)"
-    width="33%" height="33%"
-    src="src_readme/img5.jpg">
- <img style="border-radius: 1rem;
-    box-shadow: 0rem 0.2rem 0.2rem rgba(0, 0, 0, 0.25)"
-    width="33%" height="33%"
-    src="src_readme/img6.jpg">
-</div> <hr>
-
 
 <br>
 <hr>

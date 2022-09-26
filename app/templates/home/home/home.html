@@ -7,8 +7,8 @@
 {% block content %}
 
 <div class="container-body container-home-image">
-    <img src="{{ url_for('static', filename='img/pictures/img1.jpg') }}">
 </div>
+
 
 <div class="container-body container-banner">
     <div class="banner-users">
@@ -21,10 +21,12 @@
 <div class="container-body container-banner">
     <div class="banner-users">
         <h2> Users {{ number_of_accounts }} </h2>
+        <img src="{{ url_for('static', filename='img/icons/accounts.png') }}" width="30">
     </div>
 
     <div class="banner-users">
         <h2> Online {{ number_of_online_users }} </h2>
+        <img src="{{ url_for('static', filename='img/icons/online.png') }}" width="30">
     </div>
 
 </div>
@@ -52,7 +54,7 @@
     <p> --> You need to know the red boar inn.</p>
     <p>The red boar inn is the most famous inn in these lands and is for anyone who likes gold, adventure and a good
         beer.</p>
-    <hr>
+ 
     <p> --> This city is a world, I'll let you discover it for yourself...^^
         See you at the red boar inn!</p>
 </div>
@@ -87,7 +89,7 @@
         </div>
         {% endfor %}
     </div>
-    <br>
+
     <div class="container-home-join">
         <p>Freedom to choose your play style</p>
         <p>Build your fame and make your mark in this world</p>

@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href="{{ url_for('static', filename='css/game/head.css') }}" type="text/css" rel="stylesheet">
-      <link href="{{ url_for('static', filename='css/game/navbar_main.css') }}" type="text/css" rel="stylesheet">
-      <link href="{{ url_for('static', filename='css/game/profile.css') }}" type="text/css" rel="stylesheet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+  <link href="{{ url_for('static', filename='css/game/head.css') }}" type="text/css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/game/navbar_status.css') }}" type="text/css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/game/profile.css') }}" type="text/css" rel="stylesheet">
 
-      {% block head %}
-        <title> {% block title %}    {{ title }}    {% endblock %} </title>
-      {% endblock %}
+  <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
 
-  </head>
+  {% block head %}
+  <title> {% block title %} {{ title }} {% endblock %} </title>
+  {% endblock %}
 
-  <body>
-    {% include 'game/navbar_status.html' %}
-    {% include 'game/navbar.html' %}
+</head>
 
-    {% block body %}
-    {% endblock %}
+<body>
+  {% include 'game/navbar.html' %}
+  {% include 'game/status.html' %}
 
-  </body>
+
+  {% block body %}
+  {% endblock %}
+
+  <script type="text/javascript" src="{{ url_for('static', filename='js/game/menu.js') }}"></script>
+  
+</body>
 
 </html>

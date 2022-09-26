@@ -17,7 +17,6 @@ def index():
     number_of_online_users = online_players()
 
     return render_template('/home/home/home.html',
-
                            title='Red Boar Inn',
                            number_of_accounts=number_of_accounts,
                            number_of_online_users=number_of_online_users,
@@ -25,23 +24,43 @@ def index():
                            rank_characters_by_level=rank_characters_by_level)
 
 
-@home.route('/update')
+@home.route('/updates')
 def updates():
 
-    updates_notes = list_updates()
+    updates_notes = list_updates().__reversed__()
+    
+    html = []
+
+    for index, note in enumerate(updates_notes):
+        
+        html.append(
+            f"""
+            <div class="container-updates-main">
+                <div  id="version-update-{index}">
+
+                    <button type="button">
+                        <span> <strong> { note['version'] } </strong> { "-" } <small> { note['date'] } </small> </span>  
+                        <span>v</span>
+                    </button>
+
+                    <div> <p> { '<br>'.join(note['info']) } </p> </div>
+                    
+                </div>
+            </div>""")
+
+    add_html = "\n".join(html)
+
 
     return render_template('/home/updates/updates.html',
-
                            title='Updates',
-                           updates_notes=updates_notes)
+                           add_html=add_html)
 
 
 @home.route('/about')
 def about():
 
     return render_template('/home/about/about.html',
-
-                           title='About',)
+                           title='About')
 
 
 @home.before_request
