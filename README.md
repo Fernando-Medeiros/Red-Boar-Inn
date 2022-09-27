@@ -1,6 +1,7 @@
 <div align="center">
     <img align="center" src="https://img.shields.io/badge/Python-white?style=for-the-badge&logo=python&logoColor=yellow">
     <img align="center" src="https://img.shields.io/badge/Flask-white?style=for-the-badge&logo=flask&logoColor=black">    
+    <img align="center" src="https://img.shields.io/badge/Javascript-white?style=for-the-badge&logo=javascript&logoColor=yellow">
     <img align="center" src="https://img.shields.io/badge/HTML5-white?style=for-the-badge&logo=html5&logoColor=orange">
     <img align="center" src="https://img.shields.io/badge/CSS3-white?style=for-the-badge&logo=css3&logoColor=blue">
     <img align="center" src="https://img.shields.io/badge/Mongodb-white?style=for-the-badge&logo=mongodb&logoColor=green">   
@@ -12,9 +13,7 @@
 
 
 <div align="center">
-   <video width="1000px" controls>
-      <source src="src_readme/video1.mp4" type="video/mp4">
-   </video>
+   <img src="src/video1.gif">
 </div>
 
 <br>

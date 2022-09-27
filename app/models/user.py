@@ -83,6 +83,22 @@ class User(UserMixin):
     def return_user(self) -> dict:
         return self.__user
 
-    @return_user.setter
-    def return_user(self, **kwargs):
-        self.__user.update(**kwargs)
+    @property
+    def character(self) -> dict:
+        return self.__user['character']
+    
+    @property
+    def status(self) -> dict:
+        return self.__user['status']
+    
+    @property
+    def skills(self) -> dict:
+        return self.__user['skills']
+    
+    @property
+    def craft(self) -> dict:
+        return self.__user['craft']
+
+    @property
+    def inventory(self) -> dict:
+        return self.__user['inventory']

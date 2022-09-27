@@ -1,18 +1,23 @@
 {% extends 'game/base.html' %}
 
 
+{% block head %}
+<link href="{{ url_for('static', filename='css/game/profile.css') }}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+
 {% block body %}
 
 <!--SPRITE AND NAME-->
 <div class="max-width container-main">
     <div class="container-sprite">
-        <img src="{{ url_for('static', filename='img/sprites/' + current_user.return_user['character']['sprite'] ) }}"
+        <img src="{{ url_for('static', filename='img/sprites/' + current_user.character['sprite'] ) }}"
             width="70">
         <br>
-        <span> {{ current_user.return_user['character']['name']|title()}} </span>
+        <span> {{ current_user.character['name']|title()}} </span>
         <br>
-        <span> {{ current_user.return_user['character']['vocation'] }} -</span>
-        <span> {{ current_user.return_user['character']['job'] }} </span>
+        <span> {{ current_user.character['vocation'] }} -</span>
+        <span> {{ current_user.character['job'] }} </span>
 
     </div>
 </div>
@@ -24,8 +29,8 @@
 
         <div class="hp-en-margin-and-gap">
             <img src="{{ url_for('static', filename='img/icons/health.png') }}" width="16">
-            <span> {{ current_user.return_user['status']['health'] }} /</span>
-            <span> {{ current_user.return_user['status']['current_health'] }}</span>
+            <span> {{ current_user.status['health'] }} /</span>
+            <span> {{ current_user.status['current_health'] }}</span>
             <div class="bar-health">
                 <div> </div>
             </div>
@@ -33,8 +38,8 @@
 
         <div class="hp-en-margin-and-gap">
             <img src="{{ url_for('static', filename='img/icons/energy.png') }}" width="16">
-            <span> {{ current_user.return_user['status']['energy'] }} /</span>
-            <span> {{ current_user.return_user['status']['current_energy'] }}</span>
+            <span> {{ current_user.status['energy'] }} /</span>
+            <span> {{ current_user.status['current_energy'] }}</span>
             <div class="bar-energy">
                 <div> </div>
             </div>
@@ -44,27 +49,27 @@
         <div class="container-attributes">
             <div>
                 <img src="{{ url_for('static', filename='img/icons/terms.png') }}" width="25">
-                <span> {{ current_user.return_user['status']['vitality'] }} </span>
+                <span> {{ current_user.status['vitality'] }} </span>
             </div>
 
             <div>
                 <img src="{{ url_for('static', filename='img/icons/terms.png') }}" width="25">
-                <span> {{ current_user.return_user['status']['strength'] }} </span>
+                <span> {{ current_user.status['strength'] }} </span>
             </div>
 
             <div>
                 <img src="{{ url_for('static', filename='img/icons/terms.png') }}" width="25">
-                <span> {{ current_user.return_user['status']['wisdom'] }} </span>
+                <span> {{ current_user.status['wisdom'] }} </span>
             </div>
 
             <div>
                 <img src="{{ url_for('static', filename='img/icons/terms.png') }}" width="25">
-                <span> {{ current_user.return_user['status']['dexterity'] }} </span>
+                <span> {{ current_user.status['dexterity'] }} </span>
             </div>
 
             <div>
                 <img src="{{ url_for('static', filename='img/icons/terms.png') }}" width="25">
-                <span> {{ current_user.return_user['status']['creativity']}} </span>
+                <span> {{ current_user.status['creativity']}} </span>
             </div>
 
         </div>
@@ -174,13 +179,15 @@
             </div>
         </div>
     </div>
-
 </div>
 
 
 <!--FOOTER-->
 <footer class="footer">
     2022 The Red Boar Inn. All rights reserved.
-    </div>
+</footer>
 
-    {% endblock %}
+{% endblock %}
+
+{% block script %}
+{% endblock %}

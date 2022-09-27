@@ -7,8 +7,7 @@
 
   <link href="{{ url_for('static', filename='css/game/head.css') }}" type="text/css" rel="stylesheet">
   <link href="{{ url_for('static', filename='css/game/navbar_status.css') }}" type="text/css" rel="stylesheet">
-  <link href="{{ url_for('static', filename='css/game/profile.css') }}" type="text/css" rel="stylesheet">
-
+ 
   <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
 
   {% block head %}
@@ -21,12 +20,17 @@
   {% include 'game/navbar.html' %}
   {% include 'game/status.html' %}
 
+  {% block alert %}
+  {% endblock %}
 
   {% block body %}
   {% endblock %}
 
+  {% block script %}
+  {% endblock %}
+
   <script type="text/javascript" src="{{ url_for('static', filename='js/game/menu.js') }}"></script>
-  
+
 </body>
 
 </html>

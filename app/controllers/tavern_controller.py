@@ -1,6 +1,7 @@
-from flask import Blueprint, render_template, redirect, url_for, flash, request
-
+from flask import Blueprint, render_template, flash, request
 from flask_login import login_required
+
+from ..backend.posts_tavern_backend import get_posts, set_posts
 
 
 tavern = Blueprint('tavern', __name__)
@@ -10,6 +11,17 @@ tavern = Blueprint('tavern', __name__)
 @login_required
 def home():
 
-    return render_template('/game/tavern/tavern.html',
+    posts = get_posts()
 
-                           title='tavern')
+    if request.method == 'POST':
+
+        if set_posts(request.form['text']):
+
+            flash('Published!', 'alert-success')
+        
+        else:
+            flash('Say something!', 'alert-danger')
+        
+    return render_template('/game/tavern/tavern.html',
+                           title='Tavern Red Boar Inn',
+                           posts=posts)

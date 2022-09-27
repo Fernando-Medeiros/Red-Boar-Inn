@@ -1,6 +1,62 @@
 {% extends 'game/base.html' %}
 
 
+{% block head %}
+<link href="{{ url_for('static', filename='css/game/tavern.css') }}" type="text/css" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/home/alert.css') }}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+
+{% block alert %}
+<div class="max-width container-alert">
+    {% with posts = get_flashed_messages(with_categories=True) %}
+    {% if posts %}
+    {% for category, message in posts %}
+    <div class="alert {{ category }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+</div>
+{% endblock %}
+
+
 {% block body %}
-    <hr>    <h1>Tavern</h1>    <hr>
+
+<div class="max-width">
+
+    {% for post in posts | reverse() %}
+
+    <div class="body-posts">
+
+        <div class="column-img-name-date">
+            <img src="{{ url_for('static', filename='img/sprites/' + post['sprite'] ) }}" width="50px">
+            <span> {{ post['charname'] | title() }} </span>
+            <span> {{ post['date'][:10] }} </span>
+            <span> {{ post['date'][10:] }} </span>
+        </div>
+
+        <div class="post-info">
+            {{ post['info'] }}
+        </div>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+<div class="max-width">
+    <form method="POST" action="">
+        <textarea class="post-content" name="text" minlength="1" maxlength="200"></textarea>
+        <button class="button" type="submit"> submit </button>
+    </form>
+</div>
+
+
+{% endblock %}
+
+
+
+{% block script %}
 {% endblock %}
