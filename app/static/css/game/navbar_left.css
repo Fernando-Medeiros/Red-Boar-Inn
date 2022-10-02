@@ -1,0 +1,51 @@
+/* NAVBAR LEFT*/
+.navbar-left {
+    flex-direction: column;
+    position: fixed;
+    width: auto;
+    height: 100%;
+    padding: 1rem;
+    margin: 0px;
+    background: #181818;
+    justify-content: start;
+}
+
+.block-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: auto;
+    height: auto;
+    padding-top: 2rem;
+}
+
+.navbar-left div div {
+    width: auto;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.navbar-left span {
+    font-size: 0px;
+}
+
+.active div div {
+    width: 200px;
+    height: 40px;
+}
+
+.active span {
+    font-size: 1rem;
+    padding-left: .6rem;
+}
+
+
+/* MOBILE */
+.disabled-icons {
+    display: none;
+}
+
+.enable-icons {
+    display: flex;
+}

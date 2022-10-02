@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, url_for, redirect
 
-from app.backend.auth_login_backend import check_current_user
-from app.backend.home_info_backend import list_updates, qnt_users, online_players, show_rank
+from app.backend.home.auth_login_backend import check_current_user
+from app.backend.home.home_info_backend import list_updates, qnt_users, online_players, show_rank
 
 
 home = Blueprint("home", __name__)
@@ -27,7 +27,7 @@ def index():
 @home.route('/updates')
 def updates():
 
-    updates_notes = list_updates().__reversed__()
+    updates_notes = list_updates()
     
     html = []
 

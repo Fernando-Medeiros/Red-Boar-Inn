@@ -1,23 +1,41 @@
-<div class="container-navbar-main">
-  <div class="container-navbar-menu">
+<nav class="background">
 
-    <div class="navbar">
-      <a href="{{ url_for('home.index') }}">
-        <img src="{{ url_for('static', filename='img/logo.png') }}" width="50">
-      </a>
+  <!-- MOBILE -->
+  <nav id="nav-mobile" class="max-width-navbar background navbar-menu-mobile">
+
+    <a href="{{ url_for('home.index') }}"> Home </a>
+    <a href="{{ url_for('home.updates') }}"> Updates </a>
+    <a href="{{ url_for('home.about') }}"> About </a>
+
+    <div class="container-sign">
+
+      <a class="button-sign" href="{{ url_for('auth.create') }}"> <button>Sign up</button></a>
+      <a class="button-sign" href="{{ url_for('auth.login') }}"> <button>Sign in</button> </a>
+
     </div>
+
+  </nav>
+
+  <!-- DEFAULT -->
+  <div id="navbar" class="max-width-navbar navbar-menu">
+    <a class="logo-img" href="{{ url_for('home.index') }}">
+      <img src="{{ url_for('static', filename='img/logo.png') }}" width="40px">
+    </a>
 
     <div class="navbar">
       <a href="{{ url_for('home.index') }}"> Home </a>
       <a href="{{ url_for('home.updates') }}"> Updates </a>
       <a href="{{ url_for('home.about') }}"> About </a>
     </div>
-    
 
-    <div class="navbar ">
+    <div class="navbar">
       <a href="{{ url_for('auth.create') }}"> Sign up </a>
       <a href="{{ url_for('auth.login') }}"> Sign in </a>
     </div>
 
+    <button id="menu" class="button-menu">
+      <img src="{{ url_for('static', filename='img/icons/menu.png') }}" width="24">
+    </button>
+
   </div>
-</div>
+</nav>

@@ -2,7 +2,7 @@
 
 
 {% block head %}
-<link href="{{ url_for('static', filename='css/game/profile.css') }}" type="text/css" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/game/profile/profile.css') }}" type="text/css" rel="stylesheet">
 {% endblock %}
 
 
@@ -11,10 +11,9 @@
 <!--SPRITE AND NAME-->
 <div class="max-width container-main">
     <div class="container-sprite">
-        <img src="{{ url_for('static', filename='img/sprites/' + current_user.character['sprite'] ) }}"
-            width="70">
+        <img src="{{ url_for('static', filename='img/sprites/' + current_user.character['sprite'] ) }}" width="70">
         <br>
-        <span> {{ current_user.character['name']|title()}} </span>
+        <span translate="no"> {{ current_user.character['name']|title()}} </span>
         <br>
         <span> {{ current_user.character['vocation'] }} -</span>
         <span> {{ current_user.character['job'] }} </span>
@@ -181,13 +180,8 @@
     </div>
 </div>
 
-
-<!--FOOTER-->
-<footer class="footer">
-    2022 The Red Boar Inn. All rights reserved.
-</footer>
-
 {% endblock %}
+
 
 {% block script %}
 {% endblock %}

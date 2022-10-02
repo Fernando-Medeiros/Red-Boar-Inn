@@ -1,10 +1,14 @@
 {% extends 'home/base.html' %}
 
 
-{% block content %}
+{% block alert %}
+{% include 'home/alert.html' %}
+{% endblock %}
 
 
-<div class="container-body container-cards">
+{% block body %}
+
+<div class="max-width container-cards">
 
     <div class="container-cards card">
 

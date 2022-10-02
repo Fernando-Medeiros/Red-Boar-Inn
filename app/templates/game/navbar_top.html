@@ -1,0 +1,42 @@
+<nav class="max-width navbar-status">
+
+    <button type="button" id="menu">
+        <img src="{{ url_for('static', filename='img/icons/menu.png') }}" width="25">
+    </button>
+
+
+    <div class="icons-right grid-row">
+
+        <div class="grid-colum">
+            <a href="{{ url_for('profile.home') }}">
+                <span></span>
+                <img src="{{ url_for('static', filename='img/icons/users.png') }}" width="25">
+            </a>
+        </div>
+
+        <div class="grid-colum">
+            <a href="{{ url_for('profile.home') }}">
+                <img src="{{ url_for('static', filename='img/icons/message.png') }}" width="25">
+                <span></span>
+            </a>
+        </div>
+
+        <div class="grid-colum">
+            <a href="{{ url_for('profile.home') }}">
+                <img src="{{ url_for('static', filename='img/icons/notification.png') }}" width="25">
+                <span></span>
+            </a>
+        </div>
+
+        <div class="grid-colum">
+            <a href="{{ url_for('auth.logout') }}">
+                <img src="{{ url_for('static', filename='img/icons/logout.png') }}" width="25">
+            </a>
+        </div>
+
+    </div>
+</nav>
+
+<div class="max-width bar-experience">
+    <div> </div>
+</div>

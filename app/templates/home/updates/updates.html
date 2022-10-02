@@ -1,25 +1,26 @@
 {% extends 'home/base.html' %}
 
-{% block content %}
 
-<div class="container-body background-updates-page">
+{% block body %}
+
+<div class="max-width background-updates-page">
     <a href="{{ url_for('home.index') }}">
         <img src="{{ url_for('static', filename='img/logo.png') }}" width="81">
     </a>
 </div>
 
-<div class="container-body container-home-about gap-3">
+<div class="max-width container-home-about gap-3">
     <tr>
         {{add_html|safe}}
     </tr>
 </div>
-
-
 {% endblock %}
+
 
 {% block footer %}
 {% include 'home/footer.html' %}
 {% endblock %}
+
 
 {% block script %}
 <script type="text/javascript" src="{{ url_for('static', filename='js/home/updates.js') }}"></script>

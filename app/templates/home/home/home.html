@@ -1,16 +1,18 @@
 {% extends 'home/base.html' %}
 
+
 {% block navbar %}
 {% include 'home/navbar.html' %}
 {% endblock %}
 
-{% block content %}
 
-<div class="container-body container-home-image">
+{% block body %}
+
+<div class="max-width container-home-image">
 </div>
 
 
-<div class="container-body container-banner">
+<div class="max-width container-banner">
     <div class="banner-users">
         <h2> Join our player community </h2>
         <br>
@@ -18,7 +20,7 @@
     </div>
 </div>
 
-<div class="container-body container-banner">
+<div class="max-width container-banner">
     <div class="banner-users">
         <h2> Users {{ number_of_accounts }} </h2>
         <img src="{{ url_for('static', filename='img/icons/accounts.png') }}" width="30">
@@ -31,7 +33,7 @@
 
 </div>
 
-<div class="container-body container-home-about ">
+<div class="max-width container-home-about ">
     <h2>Story</h2> <br>
     <p>Dragonspear City is the heart of this world, and this is where we find ourselves,
         walking through the gates in search of adventure...</p>
@@ -54,16 +56,16 @@
     <p> --> You need to know the red boar inn.</p>
     <p>The red boar inn is the most famous inn in these lands and is for anyone who likes gold, adventure and a good
         beer.</p>
- 
+
     <p> --> This city is a world, I'll let you discover it for yourself...^^
         See you at the red boar inn!</p>
 </div>
 
-<div class="container-body  container-banner wrap">
+<div class="max-width  container-banner wrap">
     <div class="banner-users">
         <h2>RANK</h2>
 
-        <div class="container-body  container-banner banner-rank">
+        <div class="max-width  container-banner banner-rank">
             <div class="container-home-rank">
                 <h4> Character </h4>
             </div>
@@ -76,7 +78,7 @@
         </div>
 
         {% for char in rank_characters_by_level %}
-        <div class="container-body container-banner banner-rank">
+        <div class="max-width container-banner banner-rank">
             <div class="container-home-rank">
                 <span> {{ char.name }} </span>
             </div>
@@ -100,9 +102,8 @@
         <a class="button-a" href="{{ url_for('auth.create') }}"> <button> Create an Account </button> </a>
     </div>
 </div>
-
-
 {% endblock %}
+
 
 {% block footer %}
 {% include 'home/footer.html' %}

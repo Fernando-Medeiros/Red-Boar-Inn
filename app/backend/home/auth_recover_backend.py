@@ -7,9 +7,9 @@ import email.message
 from random import randint
 
 
-def send_mail(e_mail):  
+def send_mail(e_mail) -> bool:  
     
-    __user = app.db.USERS.find_one({'email': e_mail})
+    __user: dict = app.db.USERS.find_one({'email': e_mail})
 
     if __user:
     
@@ -39,21 +39,20 @@ def send_mail(e_mail):
 
 
 
-def validate_token(**kwargs):
+def validate_token(**kwargs) -> bool:
     
-    __token = str(kwargs['token']).strip()
+    __token: str = str(kwargs['token']).strip()
     
     if app.db.USERS.find_one({'token_pwd': __token}):
         return True
 
 
-
-def new_pwd(**kwargs):
+def new_pwd(**kwargs) -> bool:
 
     try:
-        token_pwd = generate_password_hash(str(randint(111111111111, 999999999999)))
+        token_pwd: str = generate_password_hash(str(randint(1, 999999999999)))
 
-        password = generate_password_hash(str(kwargs['password']).strip())
+        password: str = generate_password_hash(str(kwargs['password']).strip())
 
         if not password:
             raise ValueError() 
@@ -62,7 +61,7 @@ def new_pwd(**kwargs):
         return
 
     else:
-        app.db.USERS.find_one_and_update({'email': kwargs['email']},
+        app.db.USERS.find_one_and_update({'token_pwd': kwargs['token']},
         [
             {'$set': {'password': password}},
             {'$set': {'token_pwd': token_pwd}}

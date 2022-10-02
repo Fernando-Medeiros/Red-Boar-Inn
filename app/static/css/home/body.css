@@ -1,5 +1,5 @@
 /* CONTAINER BODY FOR PAGES - HOME - ABOUT - UPDATES */
-.container-body {
+.max-width {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -95,6 +95,7 @@
     align-items: center;
     width: 95%;
     height: 100px;
+    margin-top: 2rem;
     margin-bottom: 0.7rem;
     border-radius: 10px
 }

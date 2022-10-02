@@ -6,12 +6,15 @@ from flask_login import login_required
 profile = Blueprint('profile', __name__)
 
 
+tmp_folder = 'game/profile/'
+tmp_folder_sub = 'game/profile/sub/'
+
+
 @profile.route('/profile', methods=['GET', 'POST'])
 @login_required
 def home():
   
-    return render_template('/game/profile/profile.html',
-
+    return render_template(tmp_folder + 'profile.html',
                            title='profile')
 
 
@@ -19,7 +22,7 @@ def home():
 @login_required
 def vocation():
 
-    return render_template("game/profile/sub/vocation.html",
+    return render_template(tmp_folder_sub + 'vocation.html',
                            title='Vocation')
 
 
@@ -27,7 +30,7 @@ def vocation():
 @login_required
 def job():
 
-    return render_template("game/profile/sub/job.html",
+    return render_template(tmp_folder_sub + 'job.html',
                            title='Job')
 
 
@@ -35,7 +38,7 @@ def job():
 @login_required
 def status():
 
-    return render_template("game/profile/sub/status.html",
+    return render_template(tmp_folder_sub + 'status.html',
                            title='Status')
 
 
@@ -43,7 +46,7 @@ def status():
 @login_required
 def skills():
 
-    return render_template("game/profile/sub/skills.html",
+    return render_template(tmp_folder_sub + 'skills.html',
                            title='Skills')
 
 
@@ -51,7 +54,7 @@ def skills():
 @login_required
 def craft_skills():
 
-    return render_template("game/profile/sub/craft_skills.html",
+    return render_template(tmp_folder_sub + 'craft_skills.html',
                            title='Craft Skills')
 
 
@@ -59,5 +62,5 @@ def craft_skills():
 @login_required
 def settings():
 
-    return render_template("game/profile/sub/settings.html",
+    return render_template(tmp_folder_sub + 'settings.html',
                            title='Settings')

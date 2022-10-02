@@ -2,7 +2,7 @@ from flask import current_app as app
 from flask_login import current_user as c_User
 from flask_pymongo import ObjectId
 
-from ..models.posts import Post
+from ...models.posts import Post
 
 from random import randint
 import datetime
@@ -15,15 +15,15 @@ def get_posts() -> list | dict:
 
 def set_posts(text) -> bool:
     
-    date = datetime.datetime.today().strftime('%d/%m/%Y %H:%M:%S')
+    date: str = datetime.datetime.today().strftime('%d/%m/%Y %H:%M:%S')
     
     try:
-        _id = ObjectId(str(randint(111111111111111111111111, 999999999999999999999999)))
+        _id: str = ObjectId(str(randint(1, 999999999999999999999999)))
         
-        if not text:
+        text_field: str = text.strip()
+        
+        if not text_field:
             raise ValueError()
-
-        text_field = text.strip()
 
         post = Post()
 

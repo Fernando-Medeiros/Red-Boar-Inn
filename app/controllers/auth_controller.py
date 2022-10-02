@@ -6,9 +6,9 @@ from ..forms.form_new_account import FormNewAccount
 from ..forms.form_login import FormLogin
 from ..forms.form_recover_password import FormSendToken, FormValidateToken, FormNewPassword
 
-from ..backend.auth_login_backend import auth_login, check_current_user, set_offline_status
-from ..backend.auth_create_backend import auth_create, check_user, check_char_name
-from ..backend.auth_recover_backend import send_mail, new_pwd, validate_token
+from ..backend.home.auth_login_backend import auth_login, check_current_user, set_offline_status
+from ..backend.home.auth_create_backend import auth_create, check_user, check_char_name
+from ..backend.home.auth_recover_backend import send_mail, new_pwd, validate_token
 
 
 auth = Blueprint('auth', __name__)
@@ -96,14 +96,14 @@ def auth_token():
 
     form_auth_token = FormValidateToken()
   
-
     if form_auth_token.is_submitted():
 
         if validate_token(token=form_auth_token.token.data):
             
             flash('Valid Token! Choose your new password.', 'alert-success')
 
-            return redirect(url_for('auth.new_password'))
+            return redirect(url_for('auth.new_password',
+                                    token=form_auth_token.token.data))
             
         else:
             flash('Incorrect email or token!', 'alert-danger')
@@ -113,15 +113,15 @@ def auth_token():
                            form_auth_token=form_auth_token)
 
 
-@auth.route('/auth/recover/new_password', methods=['GET', 'POST'])
-def new_password():
-    
+@auth.route('/auth/recover/new_password/<token>', methods=['GET', 'POST'])
+def new_password(token):
+ 
     form_new_pwd = FormNewPassword()
 
     if form_new_pwd.is_submitted():
 
         if new_pwd(
-            email=form_new_pwd.email_auth.data,
+            token=token,
             password=form_new_pwd.password.data):
             
             flash('Password changed successfully!', 'alert-success')

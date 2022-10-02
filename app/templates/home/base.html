@@ -4,17 +4,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="{{ url_for('static', filename='css/home/head_and_footer.css') }}" type="text/css" rel="stylesheet">
-  <link href="{{ url_for('static', filename='css/home/alert.css') }}" type="text/css" rel="stylesheet">
-  <link href="{{ url_for('static', filename='css/home/forms.css') }}" type="text/css" rel="stylesheet">
-  <link href="{{ url_for('static', filename='css/home/body.css') }}" type="text/css" rel="stylesheet">
 
+  <!-- CSS HOME -->
+  <link href="{{ url_for('static', filename='css/home/navbar.css') }}" type="text/css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/home/alert.css') }}" type="text/css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/home/body.css') }}" type="text/css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/home/forms.css') }}" type="text/css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/home/footer.css') }}" type="text/css" rel="stylesheet">
+
+  <!-- API GOOGLE - FONT ROBOTO -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
+  <!-- FAVICON -->
   <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
 
+  <!-- TITLE -->
   {% block head %}
   <title> {% block title %} {{ title }} {% endblock %} </title>
   {% endblock %}
@@ -22,22 +28,14 @@
 </head>
 
 <body>
+
   {% block navbar %}
   {% endblock %}
 
-  <div class="container-body container-alert">
-    {% with posts = get_flashed_messages(with_categories=True) %}
-    {% if posts %}
-    {% for category, message in posts %}
-    <div class="alert {{ category }}">
-      {{ message }}
-    </div>
-    {% endfor %}
-    {% endif %}
-    {% endwith %}
-  </div>
+  {% block alert %}
+  {% endblock %}
 
-  {% block content %}
+  {% block body %}
   {% endblock %}
 
   {% block footer %}
@@ -45,6 +43,8 @@
 
   {% block script %}
   {% endblock %}
+
+  <script type="text/javascript" src="{{ url_for('static', filename='js/home/navbar.js') }}"></script>
 
 </body>
 

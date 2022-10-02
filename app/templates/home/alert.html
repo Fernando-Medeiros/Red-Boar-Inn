@@ -1,0 +1,11 @@
+<div class="max-width container-alert">
+    {% with posts = get_flashed_messages(with_categories=True) %}
+    {% if posts %}
+    {% for category, message in posts %}
+    <div class="alert {{ category }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+</div>
