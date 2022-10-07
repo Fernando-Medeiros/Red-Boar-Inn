@@ -80,10 +80,10 @@
         {% for char in rank_characters_by_level %}
         <div class="max-width container-banner banner-rank">
             <div class="container-home-rank">
-                <span> {{ char.name }} </span>
+                <span> {{ char.name | title() }} </span>
             </div>
             <div class="container-home-rank">
-                <span> {{char.vocation}} - {{ char.job }} </span>
+                <span> {{char.vocation | title() }} - {{ char.job | title() }} </span>
             </div>
             <div class="container-home-rank">
                 <span> {{ char.level }} </span>

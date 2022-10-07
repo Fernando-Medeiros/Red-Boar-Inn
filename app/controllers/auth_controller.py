@@ -7,7 +7,7 @@ from ..forms.form_login import FormLogin
 from ..forms.form_recover_password import FormSendToken, FormValidateToken, FormNewPassword
 
 from ..backend.home.auth_login_backend import auth_login, check_current_user, set_offline_status
-from ..backend.home.auth_create_backend import auth_create, check_user, check_char_name
+from ..backend.home.auth_create_backend import auth_create, check_user, check_char_name, check_gender
 from ..backend.home.auth_recover_backend import send_mail, new_pwd, validate_token
 
 
@@ -53,7 +53,8 @@ def create():
                 if auth_create(name=form.username.data,
                                 email=form.email.data,
                                 password=form.password.data,
-                                charname=form.charname.data):
+                                charname=form.charname.data,
+                                gender=check_gender(request.form)):
 
                     return redirect(url_for('home.index'))
 

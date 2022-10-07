@@ -14,36 +14,25 @@
 
 {% block body %}
 
-<div class="max-width">
+<div class="max-width min-height">
 
-    {% for post in posts | reverse() %}
+    <!-- POSTS -->
+    <tr>
+        {{add_html|safe}}
+    </tr>
 
-    <div class="body-posts">
+    <!-- FORM -->
+    <div class="max-width">
+        <form method="POST" action="">
 
-        <div class="column-img-name-date">
-            <img src="{{ url_for('static', filename='img/sprites/' + post['sprite'] ) }}" width="50px">
-            <span> {{ post['charname'] | title() }} </span>
-            <small> {{ post['date'][:10] }} </small>
-            <small> {{ post['date'][10:] }} </small>
-        </div>
+            <input class="post-content" type="text" name="text" minlength="1" maxlength="400"
+                placeholder="Say something.." required>
+            <button class="button" type="submit"> submit </button>
 
-        <div class="post-info">
-            {{ post['info'] }}
-        </div>
+        </form>
     </div>
 
-    {% endfor %}
-
 </div>
-
-<div class="max-width">
-    <form method="POST" action="">
-        <textarea class="post-content" name="text" minlength="1" maxlength="400" placeholder="Say something.."
-            required></textarea>
-        <button class="button" type="submit"> submit </button>
-    </form>
-</div>
-
 
 {% endblock %}
 

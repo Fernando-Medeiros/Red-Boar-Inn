@@ -1,127 +1,119 @@
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-space-evenly {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.icon-equipment {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+
+
 .container-main {
     display: flex;
+    flex-wrap: wrap;
     width: auto;
     height: auto;
     align-items: center;
     text-align: center;
     justify-content: space-around;
+    gap: 2rem;
 }
 
-/* SPRITE - NAME AND PROFESSION */
-.container-sprite {
-    width: auto;
+.container-hp-mp,
+.container-attributes,
+.container-status {
+    min-width: 21rem;
+    width: 100%;
     height: auto;
-    margin-top: 45px;
-}
-
-.container-sprite img {
-    margin-bottom: 15px;
+    padding: .2rem;
 }
 
 
-
-/* STATUS PRIMARY */
-.container-hp-mp-att {
-    width: 372px;
-    height: auto;
-    margin: 20px 5px 20px 5px;
-    background: #181818;
-}
-
-
-.hp-en-margin-and-gap {
-    margin: 5px;
-    gap: 10px;
-}
-
-
-.bar-health {
+/* HEALTH AND ENERGY  */
+.health-bar,
+.energy-bar,
+.current-health-bar,
+.current-energy-bar,
+.skill-bar {
+    display: inline;
     box-sizing: border-box;
-    width: auto;
-    height: 8px;
-    border-radius: 10px;
+    width: 75%;
+    height: 10px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.8rem;
+}
+
+.health-bar {
     background: #ff79798c;
 }
 
-.bar-health div {
-    box-sizing: border-box;
-    width: auto;
-    height: 8px;
-    border-radius: 10px;
-    background: #FF7979;
-}
-
-.bar-energy {
-    box-sizing: border-box;
-    width: auto;
-    height: 8px;
-    border-radius: 10px;
+.energy-bar {
     background: #79d7ff8c;
 }
 
-.bar-energy div {
-    box-sizing: border-box;
-    width: auto;
-    height: 8px;
-    border-radius: .6rem;
+.current-health-bar {
+    background: #FF7979;
+}
+
+.current-energy-bar {
     background: #79D7FF;
 }
 
+.skill-bar {
+    background: #7e79ff9a;
+}
 
-.container-attributes {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: auto;
+
+/* PRIMARY STATUS */
+.primary-status {
+    width: 100%;
     height: auto;
-    margin: 25px 0px 5px 0px;
+
+    border: #e6e6e609;
+    border-width: 0rem .1rem .1rem .1rem;
+    border-style: solid;
 }
 
-.container-attributes div img {
-    margin-right: 5px;
-}
 
-
-/* STATUS SECONDARY */
-.container-row-status-secondary {
-    display: flex;
-    flex-direction: row;
-    text-align: left;
-    width: 372px;
-    height: auto;
-    margin: 20px 5px 20px 5px;
-    padding: 5px;
-    background: #181818;
-}
-
-.container-column-status-secondary {
-    display: flex;
+/* SECONDARY STATUS */
+.container-column-33pct {
     flex-direction: column;
-    width: 50%;
-
+    display: flex;
+    width: 33%;
+    padding: .5rem
 }
 
 .mini-container-status div {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 10px 0px 10px;
-    margin: 5px 0px 5px 0px;
+    padding-left: .3rem;
+    padding-right: .3rem;
+    margin-top: .3rem;
+    margin-bottom: .3rem;
+    min-width: auto;
 
+    border: #e6e6e609;
+    border-width: 0rem 0rem 0.1rem 0rem;
+    border-style: solid;
 }
 
-.bar-progress {
-    width: 80%;
-    height: 6px;
-    border-radius: 10px;
-    background: #7e79ff9a;
-}
-
-.bar-progress div {
-    width: 80%;
-    height: 6px;
-    border-radius: .6rem;
-    background: #7E79FF;
+.mini-container-status img,
+.mini-container-status span,
+.primary-status img,
+.primary-status span {
+    padding-right: .5rem;
 }
 
 
@@ -130,7 +122,7 @@
 .container-submenu {
     width: 100%;
     height: auto;
-    margin: 20px 5px 20px 5px;
+    margin: 1.2rem .3rem 1.2rem .3rem;
 }
 
 .container-submenu div {
@@ -139,5 +131,5 @@
     justify-content: space-around;
     text-align: center;
     gap: 1rem;
-    padding: 5px;
+    padding: .3rem;
 }

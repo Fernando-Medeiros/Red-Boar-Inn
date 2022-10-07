@@ -14,12 +14,13 @@ class User(UserMixin):
 
         "character": {
             "name": 'change a new name',
+            "gender": "",
             "level": 1,
             "gold": 1,
             "jewel": 1,
             "sprite": 'sprite1.png',
-            "vocation": "Peasant",
-            "job": "Farmer"
+            "vocation": "peasant",
+            "job": "farmer"
         },
 
         "status": {
@@ -39,7 +40,7 @@ class User(UserMixin):
             "creativity": 1
         },
 
-        "skills": {
+        "skill": {
             "woodcutting": 1,
             "mining": 1,
             "herbalism": 1,
@@ -49,24 +50,48 @@ class User(UserMixin):
 
         "craft": {
             "food": 1,
-            "tools": 1,
-            "heavy_armor": 1,
-            "light_armor": 1,
-            "accessories": 1,
-            "axes_and_hammers": 1,
-            "bows_and_crossbows": 1,
-            "swords": 1,
-            "magic_staffs": 1,
-            "light_arms": 1
+            "tool": 1,
+            "armor": 1,
+            "robe": 1,
+            "accessory": 1,
+          
+            "shield": 1,
+            "axe": 1,
+            "bow": 1,
+            "sword": 1,
+            "stick": 1,
+            "dagger": 1
         },
 
         "inventory": {
             "apple": {
-                "qnt": 1,
-                "price": 1,
+                "qty": 1,
+                "level": 1,
+                "value": 1,
+                "status": 3,
                 "type": "food",
-                "sprite": "apple.png"
+                "description": "Just a bland fruit"
             }
+        },
+
+        "equipment": {
+            "head": "",
+            "neckacle": "",
+            "body": "",
+            "handL": "",
+            "handR": "",
+            "ringL": "",
+            
+            "ringR": {
+                "name":"bronze_ring",
+                "level": 1,
+                "value": 3,
+                "status": 3,
+                "type": "ring",
+                "description": "Worth a few coins"},
+
+            "legL": "",
+            "legR": ""
         }
 
     }
@@ -92,8 +117,8 @@ class User(UserMixin):
         return self.__user['status']
     
     @property
-    def skills(self) -> dict:
-        return self.__user['skills']
+    def skill(self) -> dict:
+        return self.__user['skill']
     
     @property
     def craft(self) -> dict:
@@ -102,3 +127,7 @@ class User(UserMixin):
     @property
     def inventory(self) -> dict:
         return self.__user['inventory']
+    
+    @property
+    def equipment(self) -> dict:
+        return self.__user['equipment']

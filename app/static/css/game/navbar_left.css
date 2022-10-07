@@ -32,7 +32,7 @@
 
 .active div div {
     width: 200px;
-    height: 40px;
+    height: auto;
 }
 
 .active span {

@@ -8,172 +8,265 @@
 
 {% block body %}
 
-<!--SPRITE AND NAME-->
-<div class="max-width container-main">
-    <div class="container-sprite">
-        <img src="{{ url_for('static', filename='img/sprites/' + current_user.character['sprite'] ) }}" width="70">
-        <br>
-        <span translate="no"> {{ current_user.character['name']|title()}} </span>
-        <br>
-        <span> {{ current_user.character['vocation'] }} -</span>
-        <span> {{ current_user.character['job'] }} </span>
 
+
+<!-- EQUIPMENT -->
+<div class="max-width">
+    <div class="icon-equipment">
+        <a href="{{ url_for('profile.equipment') }}">
+            <img src="{{ url_for('static', filename='img/items/armor/chain_mail.png') }}" width="35">
+            <br>
+            <span>Equipment</span>
+        </a>
     </div>
 </div>
 
 
-<!--HEALTH AND ENERGY BARS / PRIMARY STATUS-->
-<div class="max-width container-main">
-    <div class="container-hp-mp-att">
 
-        <div class="hp-en-margin-and-gap">
-            <img src="{{ url_for('static', filename='img/icons/health.png') }}" width="16">
-            <span> {{ current_user.status['health'] }} /</span>
-            <span> {{ current_user.status['current_health'] }}</span>
-            <div class="bar-health">
-                <div> </div>
-            </div>
-        </div>
+<div class="max-width min-height container-main background-global">
 
-        <div class="hp-en-margin-and-gap">
-            <img src="{{ url_for('static', filename='img/icons/energy.png') }}" width="16">
-            <span> {{ current_user.status['energy'] }} /</span>
-            <span> {{ current_user.status['current_energy'] }}</span>
-            <div class="bar-energy">
-                <div> </div>
-            </div>
-        </div>
+    <!--SPRITE AND NAME-->
+    <div>
+        <img src="{{ url_for('static', filename='img/sprites' + current_user.character['sprite'] ) }}" width="100">
 
-
-        <div class="container-attributes">
-            <div>
-                <img src="{{ url_for('static', filename='img/icons/terms.png') }}" width="25">
-                <span> {{ current_user.status['vitality'] }} </span>
-            </div>
-
-            <div>
-                <img src="{{ url_for('static', filename='img/icons/terms.png') }}" width="25">
-                <span> {{ current_user.status['strength'] }} </span>
-            </div>
-
-            <div>
-                <img src="{{ url_for('static', filename='img/icons/terms.png') }}" width="25">
-                <span> {{ current_user.status['wisdom'] }} </span>
-            </div>
-
-            <div>
-                <img src="{{ url_for('static', filename='img/icons/terms.png') }}" width="25">
-                <span> {{ current_user.status['dexterity'] }} </span>
-            </div>
-
-            <div>
-                <img src="{{ url_for('static', filename='img/icons/terms.png') }}" width="25">
-                <span> {{ current_user.status['creativity']}} </span>
-            </div>
-
+        <div>
+            <br>
+            <span translate="no"> {{ current_user.character['name']|title()}} </span>
+            <br> <br>
+            {{ current_user.character['vocation'] }} -
+            {{ current_user.character['job'] }}
         </div>
 
     </div>
-</div>
 
+    <!-- HEALTH AND ENERGY -->
 
-<!--SKILLS / SECONDARY STATUS-->
-<div class="max-width container-main">
-    <div class="container-row-status-secondary">
+    <div class="container-hp-mp">
 
-        <div class="container-column-status-secondary mini-container-status ">
+        <div class="flex-space-evenly">
+            <div>
+                <img src="{{ url_for('static', filename='img/icons/health.png') }}" width="16">
+                <span translate="no"> {{ current_user.status['health'] }} /</span>
+                <span translate="no"> {{ current_user.status['current_health'] }}</span>
+            </div>
 
-            <div> <span> attack </span> <span> {{current_user.return_user['status']['health'] }} </span> </div>
-            <div> <span> magic </span> <span> {{current_user.return_user['status']['health'] }} </span> </div>
-            <div> <span> defense </span> <span> {{current_user.return_user['status']['health'] }} </span> </div>
-            <div> <span> resistance </span> <span> {{current_user.return_user['status']['health'] }} </span> </div>
-            <div> <span> agility </span> <span> {{current_user.return_user['status']['health'] }} </span> </div>
-            <div> <span> creativity </span> <span> {{current_user.return_user['status']['health'] }} </span> </div>
-            <div> <span> block </span> <span> {{current_user.return_user['status']['health'] }} </span> </div>
-            <div> <span> dodge </span> <span> {{current_user.return_user['status']['health'] }} </span> </div>
-            <div> <span> critical </span> <span> {{current_user.return_user['status']['health'] }} </span> </div>
-            <div> <span> critical att </span> <span>{{current_user.return_user['status']['health'] }}</span> </div>
-
+            <div class="current-health-bar">
+                <div class="health-bar"> </div>
+            </div>
         </div>
 
 
-        <div class="container-column-status-secondary mini-container-status ">
+        <div class="flex-space-evenly">
 
-            <div> <img src="{{ url_for('static', filename='img/icons/safe.png') }}" width="25">
-                <div class="bar-progress"> </div>
-            </div>
-            <div> <img src="{{ url_for('static', filename='img/icons/safe.png') }}" width="25">
-                <div class="bar-progress"> </div>
-            </div>
-            <div> <img src="{{ url_for('static', filename='img/icons/safe.png') }}" width="25">
-                <div class="bar-progress"> </div>
-            </div>
-            <div> <img src="{{ url_for('static', filename='img/icons/safe.png') }}" width="25">
-                <div class="bar-progress"> </div>
-            </div>
-            <div> <img src="{{ url_for('static', filename='img/icons/safe.png') }}" width="25">
-                <div class="bar-progress"> </div>
-            </div>
-            <div> <img src="{{ url_for('static', filename='img/icons/safe.png') }}" width="25">
-                <div class="bar-progress"> </div>
-            </div>
-            <div> <img src="{{ url_for('static', filename='img/icons/safe.png') }}" width="25">
-                <div class="bar-progress"> </div>
-            </div>
-            <div> <img src="{{ url_for('static', filename='img/icons/safe.png') }}" width="25">
-                <div class="bar-progress"> </div>
+            <div>
+                <img src="{{ url_for('static', filename='img/icons/energy.png') }}" width="16">
+                <span translate="no"> {{ current_user.status['energy'] }} /</span>
+                <span translate="no"> {{ current_user.status['current_energy'] }}</span>
             </div>
 
+            <div class="current-energy-bar">
+                <div class="energy-bar"> </div>
+            </div>
         </div>
 
     </div>
-</div>
 
 
-<!--SUBMENU-->
-<div class="max-width container-main">
+    <!-- PRIMARY STATUS -->
+    <div class="container-attributes row">
+
+        <div class="primary-status">
+            <img src="{{ url_for('static', filename='img/items/scroll/vitality_scroll.png') }}" width="35">
+            <span> {{ current_user.status['vitality'] }} </span>
+            <br>
+            <small translate="no">Vitality</small>
+        </div>
+
+        <div class="primary-status">
+            <img src="{{ url_for('static', filename='img/items/scroll/strength_scroll.png') }}" width="35">
+            <span> {{ current_user.status['strength'] }} </span>
+            <br>
+            <small translate="no">Strength</small>
+        </div>
+
+        <div class="primary-status">
+            <img src="{{ url_for('static', filename='img/items/scroll/wisdom_scroll.png') }}" width="35">
+            <span> {{ current_user.status['wisdom'] }} </span>
+            <br>
+            <small translate="no">Wisdom</small>
+        </div>
+
+        <div class="primary-status">
+            <img src="{{ url_for('static', filename='img/items/scroll/dexterity_scroll.png') }}" width="35">
+            <span> {{ current_user.status['dexterity'] }} </span>
+            <br>
+            <small translate="no">Dexterity</small>
+        </div>
+
+        <div class="primary-status">
+            <img src="{{ url_for('static', filename='img/items/scroll/creativity_scroll.png') }}" width="35">
+            <span> {{ current_user.status['creativity']}} </span>
+            <br>
+            <small translate="no">Creativity</small>
+        </div>
+
+    </div>
+
+    <!-- SECONDARY STATUS -->
+
+    <div class="container-column-33pct mini-container-status ">
+        <div> <span> attack </span> {{current_user.status['health'] }} </div>
+        <div> <span> magic </span> {{current_user.status['health'] }} </div>
+        <div> <span> defense </span> {{current_user.status['health'] }} </div>
+        <div> <span> resistance </span> {{current_user.status['health'] }} </div>
+        <div> <span> agility </span> {{current_user.status['health'] }} </div>
+    </div>
+
+    <div class="container-column-33pct mini-container-status ">
+        <div> <span> creativity </span> {{current_user.status['health'] }} </div>
+        <div> <span> block </span> {{current_user.status['health'] }} </div>
+        <div> <span> dodge </span> {{current_user.status['health'] }} </div>
+        <div> <span> critical </span> {{current_user.status['health'] }} </div>
+        <div> <span> critical_att </span> {{current_user.status['health'] }} </div>
+    </div>
+
+
+    <!-- SKILLS -->
+    <div class="flex-space-evenly">
+
+        <!-- CRAFT -->
+        <div class="container-column-33pct mini-container-status">
+            <div>
+                <img src="{{ url_for('static', filename='img/items/craft/wood.png') }}" width="35">
+                lv.{{ current_user.skill['woodcutting']}}
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/items/craft/stoneblock.png') }}" width="35">
+                lv.{{ current_user.skill['mining']}}
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/items/craft/flower.png') }}" width="35">
+                lv.{{ current_user.skill['farming']}}
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/items/craft/herb.png') }}" width="35">
+                lv.{{ current_user.skill['herbalism']}}
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/items/craft/bone.png') }}" width="35">
+                lv.{{ current_user.skill['hunt']}}
+            </div>
+        </div>
+
+
+        <!-- WEAPONS -->
+        <div class="container-column-33pct mini-container-status">
+            <div>
+                <img src="{{ url_for('static', filename='img/items/sword/two_handed_sword.png') }}" width="35">
+                lv.{{ current_user.craft['sword']}}
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/items/dagger/rusty_dagger.png') }}" width="35">
+                lv.{{ current_user.craft['dagger']}}
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/items/stick/wanderers_stick.png') }}" width="35">
+                lv.{{ current_user.craft['stick']}}
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/items/axe/axe.png') }}" width="35">
+                lv.{{ current_user.craft['axe']}}
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/items/bow/bow.png') }}" width="35">
+                lv.{{ current_user.craft['bow']}}
+            </div>
+        </div>
+
+
+        <!-- FOOD / TOOL / EQUIPMENT -->
+        <div class="container-column-33pct mini-container-status">
+
+            <div>
+                <img src="{{ url_for('static', filename='img/items/food/cookie.png') }}" width="35">
+                lv.{{ current_user.craft['food']}}
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/items/tool/pickaxe.png') }}" width="35">
+                lv.{{ current_user.craft['tool']}}
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/items/armor/iron_armor.png') }}" width="35">
+                lv.{{ current_user.craft['armor']}}
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/items/robe/robe.png') }}" width="35">
+                lv.{{ current_user.craft['robe']}}
+            </div>
+
+            <div>
+                <img src="{{ url_for('static', filename='img/items/ring/golden_ring.png') }}" width="35">
+                lv.{{ current_user.craft['accessory']}}
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--SUBMENU-->
     <div class="container-submenu">
 
         <div>
             <div>
                 <a href="{{ url_for('profile.vocation') }}">
-                    <img src="{{ url_for('static', filename='img/icons/vocation.png') }}" width="25"> <br>
-                    <span> Vocation </span>
+                    <img src="{{ url_for('static', filename='img/icons/vocation.png') }}" width="30"> <br>
+                    Vocation
                 </a>
             </div>
 
             <div>
                 <a href="{{ url_for('profile.status') }}">
-                    <img src="{{ url_for('static', filename='img/icons/status.png') }}" width="25"> <br>
-                    <span> Status </span>
+                    <img src="{{ url_for('static', filename='img/icons/status.png') }}" width="30"> <br>
+                    Status
                 </a>
             </div>
 
             <div>
                 <a href="{{ url_for('profile.craft_skills') }}">
-                    <img src="{{ url_for('static', filename='img/icons/craft_skills.png') }}" width="25"> <br>
-                    <span> Craft skills </span>
+                    <img src="{{ url_for('static', filename='img/icons/craft_skills.png') }}" width="30"> <br>
+                    Crafts
                 </a>
             </div>
 
             <div>
                 <a href="{{ url_for('profile.job') }}">
-                    <img src="{{ url_for('static', filename='img/icons/job.png') }}" width="25"> <br>
-                    <span> Job </span>
+                    <img src="{{ url_for('static', filename='img/icons/job.png') }}" width="30"> <br>
+                    Job
                 </a>
             </div>
 
             <div>
                 <a href="{{ url_for('profile.skills') }}">
-                    <img src="{{ url_for('static', filename='img/icons/skills.png') }}" width="25"> <br>
-                    <span> Skills </span>
+                    <img src="{{ url_for('static', filename='img/icons/skills.png') }}" width="30"> <br>
+                    Skills
                 </a>
             </div>
 
             <div>
                 <a href="{{ url_for('profile.settings') }}">
-                    <img src="{{ url_for('static', filename='img/icons/settings.png') }}" width="25"> <br>
-                    <span> Settings </span>
+                    <img src="{{ url_for('static', filename='img/icons/settings.png') }}" width="30"> <br>
+                    Settings
                 </a>
             </div>
         </div>

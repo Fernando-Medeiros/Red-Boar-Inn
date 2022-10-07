@@ -3,7 +3,7 @@
     margin: 0px;
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
-    color: white;
+    color: #e6e6e6e1;
 }
 
 a {
@@ -17,9 +17,10 @@ a :hover {
 }
 
 body {
-    background: linear-gradient(rgba(0, 0, 0, 25), rgba(0, 0, 0, 0.7)), url(/static/img/pictures/img5.png);
+    background: linear-gradient(rgba(0, 0, 0, 25), rgba(0, 0, 0, 0.80)), url(/static/img/pictures/img5.png);
     background-position: left;
-    background-size: cover
+    background-size: cover;
+        /* background: #141E30; */
 }
 
 .max-width {
@@ -27,4 +28,14 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding: .6rem;
+}
+
+.min-height {
+    min-height: 42.2rem;
+}
+
+.background-global {
+    background: linear-gradient(#181818d7, rgba(0, 0, 0, 0.5));
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }

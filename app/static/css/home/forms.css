@@ -36,6 +36,7 @@
     border-radius: 0.3rem;
     padding-left: 10px;
     font-size: 1rem;
+    background-color: white;
 }
 
 .input-remember-me {
@@ -60,6 +61,15 @@
     margin-bottom: 0.5rem;
 }
 
+.container-gender-img {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: center;
+
+    margin-bottom: 1rem;
+    padding: .5rem;
+    border: solid rgba(128, 128, 128, 0.377) .1rem;
+}
 
 /* BUTTONS A*/
 .button-a {

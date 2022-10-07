@@ -1,6 +1,6 @@
 [default]
-TITLE = "Red Boar Inn"
 DEBUG = false
+TITLE = "Red Boar Inn"
 
 EXTENSIONS = [
 "app.extensions.configuration:init_app"
@@ -20,4 +20,5 @@ MONGO_URI_UPDATES = "@jinja {{env.DATABASE_URL_UPDATES}}"
 
 
 [test]
+SECRET_KEY = 'secret'
 WTF_CSRF_ENABLED = false

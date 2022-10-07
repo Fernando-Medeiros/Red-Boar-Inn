@@ -20,6 +20,15 @@ def check_char_name(**kwargs) -> bool:
         return True
 
 
+def check_gender(form: dict) -> str:
+        
+    try:
+        form['woman']
+        return 'woman'
+
+    except:
+        return 'man'
+
 
 def auth_create(**kwargs) -> bool:
 
@@ -28,7 +37,7 @@ def auth_create(**kwargs) -> bool:
         name: str = kwargs['name'].strip()
         email: str = kwargs['email'].strip()
         charname: str = kwargs['charname'].strip()
-
+        gender: str = kwargs['gender'].strip()
 
         _password: str = generate_password_hash(kwargs['password'])
 
@@ -47,9 +56,14 @@ def auth_create(**kwargs) -> bool:
             email=email,
             password=_password,
             token_pwd=_token_pwd,
-            date=date)
+            date=date
+            )
 
-        _new_account.character['name'] = charname
+        _new_account.character.update(
+            name=charname,
+            gender=gender,
+            sprite=f'/{gender}/peasant.png'
+            )
 
 
     except Exception as ErrorCreateNewUser:

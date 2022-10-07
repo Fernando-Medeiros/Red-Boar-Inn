@@ -114,6 +114,30 @@
                         {% endif %}
                     </div>
 
+                    <div class="form-group">
+                        <label>The character's gender</label>
+                    </div>
+
+                    <div class="container-gender-img">
+
+                        <div class="input-remember-me">
+                            <input id="man" name="man" type="checkbox" checked>
+                            <img src="{{ url_for('static', filename='img/icons/man.png') }}" width="25">
+                        </div>
+
+
+                        <div class="input-remember-me">
+                            <input id="woman" name="woman" type="checkbox">
+                            <img src="{{ url_for('static', filename='img/icons/woman.png') }}" width="25">
+                        </div>
+
+
+                        <img id="sprite" src="{{ url_for('static', filename='img/sprites/man/peasant.png' )}}"
+                            width="90">
+
+                    </div>
+
+
                 </fieldset>
 
                 <div class="button-a"> <button type="submit"> Next </button> </div>
@@ -127,4 +151,9 @@
 
     </div>
 </div>
+{% endblock %}
+
+
+{% block script %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/home/auth_create.js') }}"></script>
 {% endblock %}

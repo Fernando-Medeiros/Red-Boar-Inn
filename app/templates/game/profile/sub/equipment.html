@@ -1,0 +1,108 @@
+{% extends 'game/base.html' %}
+
+
+
+{% block head %}
+<link href="{{ url_for('static', filename='css/game/profile/equipment.css') }}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+
+{% block body %}
+
+<div class="max-width min-height background-global">
+
+    <!-- HELMET -->
+    <div class="item ">
+        <div>
+            <img src="{{ add_html['head']['sprite'] }}" width="35">
+            <h3>{{ add_html['head']['name'] }}</h3>
+            <p>{{ add_html['head']['level'] }}</p>
+            <p>{{ add_html['head']['status'] }}</p>
+        </div>
+    </div>
+
+
+    <!-- NECKLACE -->
+    <div class="item">
+        <div>
+            <img src="{{ add_html['neckacle']['sprite'] }}" width="35">
+            <h3>{{ add_html['neckacle']['name'] }}</h3>
+            <p>{{ add_html['neckacle']['level'] }}</p>
+            <p>{{ add_html['neckacle']['status'] }}</p>
+        </div>
+    </div>
+
+
+    <!-- ARMOR / GLOVES L-R -->
+    <div class="item">
+        <div>
+            <img src="{{ add_html['handL']['sprite'] }}" width="35">
+            <h3>{{ add_html['handL']['name'] }}</h3>
+            <p>{{ add_html['handL']['level'] }}</p>
+            <p>{{ add_html['handL']['status'] }}</p>
+        </div>
+
+        <div>
+            <img src="{{ add_html['body']['sprite'] }}" width="35">
+            <h3>{{ add_html['body']['name'] }}</h3>
+            <p>{{ add_html['body']['level'] }}</p>
+            <p>{{ add_html['body']['status'] }}</p>
+        </div>
+
+        <div>
+            <img src="{{ add_html['handR']['sprite'] }}" width="35">
+            <h3>{{ add_html['handR']['name'] }}</h3>
+            <p>{{ add_html['handR']['level'] }}</p>
+            <p>{{ add_html['handR']['status'] }}</p>
+        </div>
+    </div>
+
+    <div class="container-sprite-char-background">
+        <img class="img-sprite-background"
+            src="{{ url_for('static', filename='img/sprites/' + current_user.character['sprite'] ) }}" width="70">
+    </div>
+
+    <!-- RINGS L-R -->
+    <div class="item">
+        <div>
+            <img src="{{ add_html['ringL']['sprite'] }}" width="35">
+            <h3>{{ add_html['ringL']['name'] }}</h3>
+            <p>{{ add_html['ringL']['level'] }}</p>
+            <p>{{ add_html['ringL']['status'] }}</p>
+        </div>
+
+        <div>
+            <img src="{{ add_html['ringR']['sprite'] }}" width="35">
+            <h3>{{ add_html['ringR']['name'] }}</h3>
+            <p>{{ add_html['ringR']['level'] }}</p>
+            <p>{{ add_html['ringR']['status'] }}</p>
+        </div>
+
+    </div>
+
+
+    <!-- BOOTS L-R -->
+    <div class="item">
+        <div>
+            <img src="{{ add_html['legL']['sprite'] }}" width="35">
+            <h3>{{ add_html['legL']['name'] }}</h3>
+            <p>{{ add_html['legL']['level'] }}</p>
+            <p>{{ add_html['legL']['status'] }}</p>
+        </div>
+
+        <div>
+            <img src="{{ add_html['legR']['sprite'] }}" width="35">
+            <h3>{{ add_html['legR']['name'] }}</h3>
+            <p>{{ add_html['legR']['level'] }}</p>
+            <p>{{ add_html['legR']['status'] }}</p>
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock %}
+
+
+{% block script %}
+{% endblock %}

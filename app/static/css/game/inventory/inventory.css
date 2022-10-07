@@ -1,0 +1,53 @@
+/* INFORMATION */
+.information {
+    display: flex;
+    justify-content: space-between;
+    color: #e6e6e609;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+/*  ITEM TABLE */
+.background {
+    background: linear-gradient(#181818d7, rgba(0, 0, 0, 0.5));
+}
+
+.column,
+.row-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background: #181818;
+
+    margin-bottom: 1.5rem;
+    height: auto;
+    padding: 0.5rem;
+
+    border: #e6e6e609;
+    border-width: 0rem 0rem 0.1rem 0rem;
+    border-style: solid;
+}
+
+.column div,
+.row-items div {
+    width: 100%;
+    height: auto;
+}
+
+.column a {
+    color: #ceafff;
+}
+
+.row-items span {
+    color: #E6E6E6;
+}
+
+.row-items {
+    background: transparent;
+}
+
+.checkbox {
+    margin-right: 1.5rem;
+}

@@ -10,6 +10,8 @@ from ..controllers.tavern_controller import tavern
 from ..controllers.inventory_controller import inventory
 from ..controllers.options_controller import options
 
+from ..controllers.message_controller import message
+
 
 def register_routes(app):
 
@@ -24,8 +26,9 @@ def register_routes(app):
         craft,
         tavern,
         inventory,
-        options
-        
+        options,
+
+        message        
     ]
 
     for route in routes:
