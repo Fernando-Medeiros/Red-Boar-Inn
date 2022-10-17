@@ -7,4 +7,4 @@ from wtforms import StringField, BooleanField, PasswordField
 class FormLogin(FlaskForm):
     email = StringField('Email address', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired(), Length(8, 20)])
-    keep_on = BooleanField('Remember me')
+    remember = BooleanField('Remember me')

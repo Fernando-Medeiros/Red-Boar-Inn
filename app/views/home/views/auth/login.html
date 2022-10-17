@@ -1,0 +1,82 @@
+{% extends 'home/base.html' %}
+
+
+{% block alert %}
+{% include 'home/alert.html' %}
+{% endblock %}
+
+
+{% block body %}
+
+<div class="max-width container-cards">
+
+    <div class="container-cards card">
+
+        <div>
+            <a href="{{ url_for('home.index') }}">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" width="81">
+            </a>
+        </div>
+
+        <div class="container-cards">
+
+            <form method="POST" action="">
+
+                {{ form.csrf_token }}
+
+                <fieldset style="border: none">
+
+                    <div class="form-group">
+                        {{ form.email.label }}
+
+                        {% if form.email.errors %}
+                        {{ form.email (class='is_invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                            {{ error }}
+                            {% endfor %}
+                        </div>
+
+                        {% else %}
+                        {{ form.email }}
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.password.label }}
+
+                        {% if form.password.errors %}
+                        {{ form.password (class='is-invalid') }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                            {{ error }}
+                            {% endfor %}
+                        </div>
+
+                        {% else %}
+                        {{ form.password }}
+                        {% endif %}
+                    </div>
+
+
+                    <div class="input-remember-me">
+                        {{ form.remember }}
+                        {{ form.remember.label }}
+                    </div>
+
+                </fieldset>
+
+                <div class="button-a"> <button type='submit'> Sign in </button> </div>
+
+            </form>
+        </div>
+
+        <a class="button-b" href="{{ url_for('auth.create') }}"> <button> New account </button> </a>
+
+        <a style="color: black" href="{{ url_for('auth.recover') }}"> Forgot your password? </a>
+
+
+    </div>
+</div>
+
+{% endblock %}

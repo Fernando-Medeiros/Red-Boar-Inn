@@ -1,0 +1,206 @@
+{% extends 'game/base.html' %}
+
+
+{% block head %}
+<link href="{{ url_for('static', filename='css/game/profile/profile.css') }}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+
+{% block body %}
+
+
+<div class="max-width">
+    <div class="container-shortcuts">
+
+        <div class="grid-column">
+
+            <div>
+                <!-- JEWEL / LEVEL -->
+                <div>
+                    <img src="{{ url_for('static', filename='img/icons/jewel.png') }}" width="24">
+                    <span> {{ current_user.character['jewel'] }} </span>
+                </div>
+
+                <!-- GOLD / EXPERIENCE -->
+                <div>
+                    <img src="{{ url_for('static', filename='img/icons/gold.png') }}" width="24">
+                    <span> {{ current_user.character['gold'] }} </span>
+                </div>
+            </div>
+
+
+            <div>
+                <span translate="no"> Lv: {{ current_user.character['level'] }} </span>
+
+                <div>
+                    <span translate="no"> Xp: {{ current_user.status['experience'] }} /</span>
+                    <span> {{ current_user.status['next_experience'] }} </span>
+                </div>
+            </div>
+
+
+            <div class="flex-end">
+                <!-- VOCATION -->
+                <a href="{{ url_for('profile.vocation') }}">
+                    <img src="{{ url_for('static', filename='img/icons/vocation.png') }}" width="40">
+                    <br>
+                    <span>Vocation</span>
+                </a>
+
+                <!-- EQUIPMENT -->
+                <a href="{{ url_for('profile.equipment') }}">
+                    <img src="{{ url_for('static', filename='img/icons/equipment.png') }}" width="40">
+                    <br>
+                    <span>Equipment</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class="max-width min-height container-main background-global">
+
+
+
+        <!--SPRITE AND NAME-->
+        <div>
+            <img src="{{ url_for('static', filename='img/sprites' + current_user.character['sprite'] ) }}" width="100">
+
+            <div>
+                <br>
+                <span translate="no"> {{ current_user.character['name']|title()}} </span>
+                <br> <br>
+                {{ current_user.character['vocation'] }} -
+                {{ current_user.character['job'] }}
+            </div>
+
+        </div>
+
+
+
+        <!-- HEALTH AND ENERGY -->
+        <div class="container-hp-mp">
+
+            <div class="flex-space-evenly">
+                <div>
+                    <img src="{{ url_for('static', filename='img/icons/health.png') }}" width="16">
+                    <span translate="no"> {{ current_user.status['health'] }} /</span>
+                    <span translate="no"> {{ current_user.status['current_health'] }}</span>
+                </div>
+
+                <div class="current-health-bar">
+                    <div class="health-bar"> </div>
+                </div>
+            </div>
+
+
+            <div class="flex-space-evenly">
+
+                <div>
+                    <img src="{{ url_for('static', filename='img/icons/energy.png') }}" width="16">
+                    <span translate="no"> {{ current_user.status['energy'] }} /</span>
+                    <span translate="no"> {{ current_user.status['current_energy'] }}</span>
+                </div>
+
+                <div class="current-energy-bar">
+                    <div class="energy-bar"> </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <!-- PRIMARY STATUS -->
+        <div class="container-attributes row">
+
+            <div class="primary-status">
+                <img src="{{ url_for('static', filename='img/items/scroll/vitality_scroll.png') }}" width="40">
+                <span> {{ current_user.status['vitality'] }} </span>
+                <br>
+                <small translate="no">Vitality</small>
+            </div>
+
+            <div class="primary-status">
+                <img src="{{ url_for('static', filename='img/items/scroll/strength_scroll.png') }}" width="40">
+                <span> {{ current_user.status['strength'] }} </span>
+                <br>
+                <small translate="no">Strength</small>
+            </div>
+
+            <div class="primary-status">
+                <img src="{{ url_for('static', filename='img/items/scroll/wisdom_scroll.png') }}" width="40">
+                <span> {{ current_user.status['wisdom'] }} </span>
+                <br>
+                <small translate="no">Wisdom</small>
+            </div>
+
+            <div class="primary-status">
+                <img src="{{ url_for('static', filename='img/items/scroll/dexterity_scroll.png') }}" width="40">
+                <span> {{ current_user.status['dexterity'] }} </span>
+                <br>
+                <small translate="no">Dexterity</small>
+            </div>
+
+            <div class="primary-status">
+                <img src="{{ url_for('static', filename='img/items/scroll/creativity_scroll.png') }}" width="40">
+                <span> {{ current_user.status['creativity']}} </span>
+                <br>
+                <small translate="no">Creativity</small>
+            </div>
+
+        </div>
+
+
+
+        <!-- POINTS TO ASSIGN -->
+        <div class="points-to-assign">
+            <span>
+                Points to assign: <strong>{{current_user.status['points']}}</strong>
+            </span>
+        </div>
+
+
+
+        <!--SUBMENU-->
+        <div class="container-submenu">
+
+            <div>
+                <div>
+                    <a href="{{ url_for('profile.status') }}">
+                        <img src="{{ url_for('static', filename='img/icons/status.png') }}" width="30"> <br>
+                        Status
+                    </a>
+                </div>
+
+                <div>
+                    <a href="{{ url_for('profile.job') }}">
+                        <img src="{{ url_for('static', filename='img/icons/job.png') }}" width="30"> <br>
+                        Job
+                    </a>
+                </div>
+
+                <div>
+                    <a href="{{ url_for('profile.skills') }}">
+                        <img src="{{ url_for('static', filename='img/icons/skills.png') }}" width="30"> <br>
+                        Skills
+                    </a>
+                </div>
+
+                <div>
+                    <a href="{{ url_for('profile.settings') }}">
+                        <img src="{{ url_for('static', filename='img/icons/settings.png') }}" width="30"> <br>
+                        Settings
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
+
+
+    {% block script %}
+    {% endblock %}

@@ -1,0 +1,172 @@
+{% extends 'game/base.html' %}
+
+
+{% block head %}
+<link href="{{ url_for('static', filename='css/game/arena/arena.css') }}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+
+{% block body %}
+
+
+<!-- INFO -->
+<div class="max-width container-top-info-arena">
+    <span>Online: {{online}}</span>
+    <span>Total: {{offline}}</span>
+</div>
+
+
+
+<!-- ARENA -->
+<div class="max-width">
+
+    <!-- ARENA -->
+    <div class="container-body-arena background-arena">
+
+        <!-- CHAR -->
+        <div class="arena-container-content">
+            <img style="transform: scaleX(-1)" width="85px"
+                src="{{ url_for('static', filename='img/sprites' + current_user.character['sprite'] ) }}">
+            <p>{{current_user.character['name'] | title() }}</p>
+
+            <div class="current-health-bar">
+                <div class="health-bar">
+                </div>
+            </div>
+
+            <!-- BUTTONS -->
+            <div class="action-buttons">
+                <button id="attack"> Attack </button>
+                <button id="flee"> Flee </button>
+            </div>
+        </div>
+
+
+        <!-- OPPONENT -->
+        <div class="arena-container-content">
+            <tr>
+                {{opponent|safe}}
+            </tr>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<!-- INFO / ACTIONS / RANK / NEWS -->
+<div class="max-width min-height background-global">
+
+    <div class="container-characters-arena">
+
+
+        <form method="POST" action="">
+            <!--  CHANGE OPPONENT ONLINE OU BOOT-AI-->
+            <div class="action-buttons-find">
+                <button name="find-opponent" id="find-opponent" type="submit" value="opponent"> Find opponent online
+                </button>
+                <button name="find-boot" id="find-boot" type="submit" value="boot"> Find opponent Ai </button>
+            </div>
+        </form>
+
+
+
+        <!-- NEWS -->
+        <div class="container-news">
+
+            <!-- NEW 1 -->
+            <div class="box-news background-global">
+                <h4>About the Arena</h4>
+                <span>The arena is under construction, but you can find opponents to train.</span>
+                <span>New commands will be added soon: skills, items, defense.</span>
+
+            </div>
+
+            <!-- NEW 2 -->
+            <div class="box-news background-global">
+                <h4>About Rank</h4>
+                <span>Initially the game will have two classifications: <br>
+                    By level;<br>
+                    By victories.</span>
+            </div>
+
+        </div>
+
+
+
+        <!-- RANK -->
+        <div class="container-body-ranks">
+
+            <!-- ATTRIBUTES -->
+            <div class="action-button-rank">
+                <button id="button-by-level" class="container-button-ranks">
+                    <span>Rank by Level</span>
+                    v
+                </button>
+            </div>
+
+            <!-- BY LEVEL -->
+            <div id="info-by-level" class="container-ranks inactive">
+                <p>Name</p>
+                <p>Vocation</p>
+                <p>Level</p>
+                <p>Victory</p>
+                <p></p>
+                <tr>
+                    {{add_html_rank_level|safe}}
+                </tr>
+            </div>
+
+            <!-- ATTRIBUTES -->
+            <div class="action-button-rank">
+                <button id="button-by-victory" class="container-button-ranks">
+                    <span>Rank by Victory</span>
+                    v
+                </button>
+            </div>
+            <!-- BY VICTORIES -->
+            <div id="info-by-victory" class="container-ranks inactive">
+                <p>Name</p>
+                <p>Vocation</p>
+                <p>Level</p>
+                <p>Victory</p>
+                <p></p>
+                <tr>
+                    {{add_html_rank_victory|safe}}
+                </tr>
+            </div>
+
+        </div>
+
+
+
+
+        <!-- ATTRIBUTES -->
+        <div class="action-button-log">
+            <button id="button-logs" class="container-logs">
+                <span>Winner</span>
+                <span>Loser</span>
+                <span>Date</span>
+                v
+            </button>
+        </div>
+
+        <!-- LOGS -->
+        <div id="logs" class="container-logs inactive">
+            <tr>
+                {{add_html_logs|safe}}
+            </tr>
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}
+
+
+{% block script %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/game/arena.js') }}"></script>
+{% endblock %}

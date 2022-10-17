@@ -1,0 +1,100 @@
+{% extends 'home/base.html' %}
+
+
+{% block navbar %}
+{% include 'home/navbar.html' %}
+{% endblock %}
+
+
+{% block body %}
+
+<div class="max-width container-home-image">
+</div>
+
+
+<div class="max-width container-banner">
+    <div class="banner-users">
+        <h2> Join our player community </h2>
+        <br>
+        <span> Create an account and start exploring the world now </span>
+    </div>
+</div>
+
+<div class="max-width container-banner">
+    <div class="banner-users">
+        <h2> Users {{ number_of_accounts }} </h2>
+        <img src="{{ url_for('static', filename='img/icons/accounts.png') }}" width="30">
+    </div>
+
+    <div class="banner-users">
+        <h2> Online {{ number_of_online_users }} </h2>
+        <img src="{{ url_for('static', filename='img/icons/online.png') }}" width="30">
+    </div>
+
+</div>
+
+<div class="max-width container-home-about ">
+    <h2>Story</h2> <br>
+    <p>Dragonspear City is the heart of this world, and this is where we find ourselves,
+        walking through the gates in search of adventure...</p>
+    <hr>
+
+    <p>There are many adventurers, merchants and gypsies who arrive in this city, people of all types and ages,
+        with different ideas of living, always looking for something.</p>
+
+    <p> --> If you like battles, you'll find countless people here to challenge and prove your strength;
+        Look for the gladiator guild next to the town hall.</p>
+    <p> --> Looking for good items?
+        you can go to market in the west district.
+        You can find many items and even craft your own, because the king is famous for funding new craftsmen.</p>
+    <p> --> Well, if you're the type who likes to get slapped with monsters, the Adventurer's Guild is in the South
+        district.
+        You can get your quests there.
+        Be careful what you accept...
+        Believe it! every day I see the most bizarre things walking through this gate.</p>
+
+    <p> --> You need to know the red boar inn.</p>
+    <p>The red boar inn is the most famous inn in these lands and is for anyone who likes gold, adventure and a good
+        beer.</p>
+
+    <p> --> This city is a world, I'll let you discover it for yourself...^^
+        See you at the red boar inn!</p>
+</div>
+
+<div class="max-width  container-banner wrap">
+    <div class="banner-users">
+        <h2>RANK</h2>
+
+        <div class="max-width  container-banner banner-rank">
+            <div class="container-home-rank">
+                <h4> Character </h4>
+            </div>
+            <div class="container-home-rank">
+                <h4> Profession </h4>
+            </div>
+            <div class="container-home-rank">
+                <h4> Level </h4>
+            </div>
+        </div>
+
+        <tr>
+            {{add_html_rank|safe}}
+        </tr>
+    </div>
+
+    <div class="container-home-join">
+        <p>Freedom to choose your play style</p>
+        <p>Build your fame and make your mark in this world</p>
+        <p>Have fun with your friends</p>
+        <br>
+        <h2> Join our player community </h2>
+        <br>
+        <a class="button-a" href="{{ url_for('auth.create') }}"> <button> Create an Account </button> </a>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+{% include 'home/footer.html' %}
+{% endblock %}

@@ -5,7 +5,7 @@ from .extensions.blueprints import register_routes
 
 def create_app():
 
-    app = Flask(__name__)
+    app = Flask(__name__, template_folder='views')
 
     FlaskDynaconf(app, extensions_list=True, load_dotenv=True)
 

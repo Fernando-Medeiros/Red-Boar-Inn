@@ -22,8 +22,8 @@ function activateMobileMenu() {
 
     window.onresize = () => {
 
-        if (window.innerWidth <= 800) {
-
+        if (window.innerWidth <= 1280) {
+            
             if (!navbar.classList.value.includes('disabled-icons')) {
                 navbar.classList.toggle("disabled-icons")
             }
@@ -34,7 +34,7 @@ function activateMobileMenu() {
 
     // when refreshing the page
 
-    if (window.innerWidth <= 800) {
+    if (window.innerWidth <= 1280) {
 
         if (!navbar.classList.value.includes('disabled-icons')) {
             navbar.classList.toggle("disabled-icons")

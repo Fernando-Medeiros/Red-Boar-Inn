@@ -1,0 +1,34 @@
+{% extends 'game/base.html' %}
+
+
+{% block head %}
+<link href="{{ url_for('static', filename='css/game/inventory/inventory.css') }}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+
+{% block body %}
+
+<div class="max-width">
+    <div class="information">
+        <p> Items </p>
+        <p> {{ qty_items }} - <small>Items in inventory</small> </p>
+    </div>
+</div>
+
+
+<div class="max-width background-global">
+    <div class="container">
+        <!-- ITEMS -->
+        <tr>
+            {{add_html_items|safe}}
+        </tr>
+    </div>
+
+</div>
+
+
+{% endblock %}
+
+
+{% block script %}
+{% endblock %}

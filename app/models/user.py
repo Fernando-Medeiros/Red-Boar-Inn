@@ -1,8 +1,61 @@
 from flask_login import UserMixin
 
 
-class User(UserMixin):
-    
+
+class Base:
+
+    def basic_items(self, inventory):
+        items = {
+            "apple": {
+                "qty": 1,
+                "level": 1,
+                "value": 1,
+                "status": 3,
+                "type": "food",
+                "description": "Just a bland fruit"
+            },
+            "health_potion": {
+                "qty": 1,
+                "level": 1,
+                "value": 1,
+                "status": 4,
+                "type": "potion",
+                "description": "Just a bland potion"
+            },
+            "energy_potion": {
+                "qty": 1,
+                "level": 1,
+                "value": 1,
+                "status": 4,
+                "type": "potion",
+                "description": "Just a bland potion"
+            }
+            }
+        inventory.update(items)
+
+    def basic_equipment(self, equipment):
+        items = {
+            "head": "",
+            "neckacle": "",
+            "body": "",
+            "handL": "",
+            "handR": "",
+            "ringL": "",
+            "ringR": {
+                "name":"bronze_ring",
+                "level": 1,
+                "value": 3,
+                "status": 3,
+                "type": "ring",
+                "description": "Worth a few coins"},
+            "legL": "",
+            "legR": ""
+        }
+        equipment.update(items)
+
+
+
+class User(UserMixin, Base):
     __user = {
         "_id":'',
         "name": '',
@@ -22,7 +75,6 @@ class User(UserMixin):
             "vocation": "peasant",
             "job": "farmer"
         },
-
         "status": {
             "points": 25,
             "experience": 1,
@@ -39,7 +91,6 @@ class User(UserMixin):
             "dexterity": 1,
             "creativity": 1
         },
-
         "skill": {
             "woodcutting": 1,
             "mining": 1,
@@ -47,14 +98,12 @@ class User(UserMixin):
             "farming": 1,
             "hunt": 1
         },
-
         "craft": {
             "food": 1,
             "tool": 1,
             "armor": 1,
             "robe": 1,
             "accessory": 1,
-          
             "shield": 1,
             "axe": 1,
             "bow": 1,
@@ -62,42 +111,21 @@ class User(UserMixin):
             "stick": 1,
             "dagger": 1
         },
-
-        "inventory": {
-            "apple": {
-                "qty": 1,
-                "level": 1,
-                "value": 1,
-                "status": 3,
-                "type": "food",
-                "description": "Just a bland fruit"
-            }
-        },
-
-        "equipment": {
-            "head": "",
-            "neckacle": "",
-            "body": "",
-            "handL": "",
-            "handR": "",
-            "ringL": "",
-            
-            "ringR": {
-                "name":"bronze_ring",
-                "level": 1,
-                "value": 3,
-                "status": 3,
-                "type": "ring",
-                "description": "Worth a few coins"},
-
-            "legL": "",
-            "legR": ""
+        "inventory": {},
+        "equipment": {},
+        "arena": {
+            "victory": 0,
+            "defeat": 0
         }
-
     }
 
-    def get_id(self) -> str:
+    def __init__(self) -> None:
+        super().__init__()
+        self.basic_items(self.inventory)
+        self.basic_equipment(self.equipment)
 
+
+    def get_id(self) -> str:
         try:
             return str(self.__user['_id'])
         except AttributeError:
@@ -131,3 +159,8 @@ class User(UserMixin):
     @property
     def equipment(self) -> dict:
         return self.__user['equipment']
+    
+    @property
+    def arena(self) -> dict:
+        return self.__user['arena']
+    

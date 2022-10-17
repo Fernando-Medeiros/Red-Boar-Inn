@@ -1,0 +1,40 @@
+{% extends 'game/base.html' %}
+
+
+{% block head %}
+<link href="{{ url_for('static', filename='css/game/profile/status.css') }}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+
+{% block body %}
+
+
+<div>
+    <!-- INFO -->
+</div>
+
+
+<div class="max-width background-global">
+    <div class="grid-column">
+
+        <!-- STATUS -->
+        <div class="grid-column-status">
+            <tr>
+                {{add_html_status|safe}}
+            </tr>
+        </div>
+
+        <div class="grid-column-status">
+            <tr>
+                {{add_html_craft_skills|safe}}
+            </tr>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+{% block script %}
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'game/base.html' %}
+
+
+
+{% block head %}
+<link href="{{ url_for('static', filename='css/game/profile/equipment.css') }}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+
+{% block body %}
+
+<div class="max-width min-height background-global">
+
+    <!-- HELMET -->
+    <div class="item ">
+        <div>
+            <img src="{{ dict_equipments['head']['sprite'] }}" width="35">
+            <h3>{{ dict_equipments['head']['name'] }}</h3>
+            <p>{{ dict_equipments['head']['level'] }}</p>
+            <p>{{ dict_equipments['head']['status'] }}</p>
+        </div>
+    </div>
+
+
+    <!-- NECKLACE -->
+    <div class="item">
+        <div>
+            <img src="{{ dict_equipments['neckacle']['sprite'] }}" width="35">
+            <h3>{{ dict_equipments['neckacle']['name'] }}</h3>
+            <p>{{ dict_equipments['neckacle']['level'] }}</p>
+            <p>{{ dict_equipments['neckacle']['status'] }}</p>
+        </div>
+    </div>
+
+
+    <!-- ARMOR / GLOVES L-R -->
+    <div class="item">
+        <div>
+            <img src="{{ dict_equipments['handL']['sprite'] }}" width="35">
+            <h3>{{ dict_equipments['handL']['name'] }}</h3>
+            <p>{{ dict_equipments['handL']['level'] }}</p>
+            <p>{{ dict_equipments['handL']['status'] }}</p>
+        </div>
+
+        <div>
+            <img src="{{ dict_equipments['body']['sprite'] }}" width="35">
+            <h3>{{ dict_equipments['body']['name'] }}</h3>
+            <p>{{ dict_equipments['body']['level'] }}</p>
+            <p>{{ dict_equipments['body']['status'] }}</p>
+        </div>
+
+        <div>
+            <img src="{{ dict_equipments['handR']['sprite'] }}" width="35">
+            <h3>{{ dict_equipments['handR']['name'] }}</h3>
+            <p>{{ dict_equipments['handR']['level'] }}</p>
+            <p>{{ dict_equipments['handR']['status'] }}</p>
+        </div>
+    </div>
+
+    <div class="container-sprite-char-background">
+        <img class="img-sprite-background"
+            src="{{ url_for('static', filename='img/sprites/' + current_user.character['sprite'] ) }}" width="70">
+    </div>
+
+    <!-- RINGS L-R -->
+    <div class="item">
+        <div>
+            <img src="{{ dict_equipments['ringL']['sprite'] }}" width="35">
+            <h3>{{ dict_equipments['ringL']['name'] }}</h3>
+            <p>{{ dict_equipments['ringL']['level'] }}</p>
+            <p>{{ dict_equipments['ringL']['status'] }}</p>
+        </div>
+
+        <div>
+            <img src="{{ dict_equipments['ringR']['sprite'] }}" width="35">
+            <h3>{{ dict_equipments['ringR']['name'] }}</h3>
+            <p>{{ dict_equipments['ringR']['level'] }}</p>
+            <p>{{ dict_equipments['ringR']['status'] }}</p>
+        </div>
+
+    </div>
+
+
+    <!-- BOOTS L-R -->
+    <div class="item">
+        <div>
+            <img src="{{ dict_equipments['legL']['sprite'] }}" width="35">
+            <h3>{{ dict_equipments['legL']['name'] }}</h3>
+            <p>{{ dict_equipments['legL']['level'] }}</p>
+            <p>{{ dict_equipments['legL']['status'] }}</p>
+        </div>
+
+        <div>
+            <img src="{{ dict_equipments['legR']['sprite'] }}" width="35">
+            <h3>{{ dict_equipments['legR']['name'] }}</h3>
+            <p>{{ dict_equipments['legR']['level'] }}</p>
+            <p>{{ dict_equipments['legR']['status'] }}</p>
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock %}
+
+
+{% block script %}
+{% endblock %}

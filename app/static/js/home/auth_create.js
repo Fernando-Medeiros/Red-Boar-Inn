@@ -13,7 +13,6 @@ function showSprite() {
         }
     })
 
-
     woman.addEventListener("click", function () {
         if (woman.checked) {
 
