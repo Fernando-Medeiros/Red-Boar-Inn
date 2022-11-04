@@ -8,149 +8,161 @@
 
 {% block body %}
 
-<div class="max-width container-cards">
 
-    <div class="container-cards card">
+<main class="container mt-7 m-auto p-2 bg-black-10 grid gap-2">
 
-        <div>
+
+    <!-- FORM NEW ACCOUNT -->
+    <section id="form" class="m-auto p-2 bg-gray-900/10 rounded w-[340px] md:m-auto md:w-[400px]">
+
+        <div class="w-full p-1 flex justify-center">
             <a href="{{ url_for('home.index') }}">
                 <img src="{{ url_for('static', filename='img/logo.png') }}" width="81">
             </a>
         </div>
 
-        <div class="container-cards">
-            <form method="POST" action="">
+        <form method="POST" action="" class="p-2 flex flex-col gap-4">
 
-                {{ form.csrf_token }}
+            {{ form.csrf_token }}
 
-                <fieldset style="border: none">
+            <fieldset class="flex flex-col gap-4">
 
-                    <div class="form-group">
-                        {{ form.username.label }}
+                <div class="flex flex-col gap-1 w-full">
+                    {{ form.username.label }}
 
-                        {% if form.username.errors %}
-                        {{ form.username (class='is-invalid') }}
+                    {% if form.username.errors %}
+                    {{ form.username (class='border-2 border-red-700/75') }}
 
-                        <div class="invalid-feedback">
-                            {% for error in form.username.errors %}
-                            {{ error }}
-                            {% endfor %}
-                        </div>
-
-                        {% else %}
-                        {{ form.username }}
-                        {% endif %}
+                    <div class="alert-danger">
+                        {% for error in form.username.errors %}
+                        {{ error }}
+                        {% endfor %}
                     </div>
 
+                    {% else %}
+                    {{ form.username(class='px-2 rounded') }}
+                    {% endif %}
+                </div>
 
+                <div class="flex flex-col gap-1 w-full">
+                    {{ form.charname.label }}
 
-                    <div class="form-group">
-                        {{ form.charname.label }}
+                    {% if form.charname.errors %}
+                    {{ form.charname (class='border-2 border-red-700/75')}}
 
-                        {% if form.charname.errors %}
-                        {{ form.charname (class='is-invalid') }}
-
-                        <div class="invalid-feedback">
-                            {% for error in form.charname.errors %}
-                            {{ error }}
-                            {% endfor %}
-                        </div>
-
-                        {% else %}
-                        {{ form.charname }}
-                        {% endif %}
+                    <div class="alert-danger">
+                        {% for error in form.charname.errors %}
+                        {{ error }}
+                        {% endfor %}
                     </div>
 
+                    {% else %}
+                    {{ form.charname(class='px-2 rounded') }}
+                    {% endif %}
+                </div>
 
-                    <div class="form-group">
-                        {{ form.email.label }}
+                <div class="flex flex-col gap-1 w-full">
+                    {{ form.email.label }}
 
-                        {% if form.email.errors %}
-                        {{ form.email (class='is-invalid') }}
+                    {% if form.email.errors %}
+                    {{ form.email (class='border-2 border-red-700/75') }}
 
-                        <div class="invalid-feedback">
-                            {% for error in form.email.errors %}
-                            {{ error }}
-                            {% endfor %}
-                        </div>
-
-                        {% else %}
-                        {{ form.email }}
-                        {% endif %}
+                    <div class="alert-danger">
+                        {% for error in form.email.errors %}
+                        {{ error }}
+                        {% endfor %}
                     </div>
 
+                    {% else %}
+                    {{ form.email(class='px-2 rounded') }}
+                    {% endif %}
+                </div>
 
-                    <div class="form-group">
-                        {{ form.password.label }}
+                <div class="flex flex-col gap-1 w-full">
+                    {{ form.password.label }}
 
-                        {% if form.password.errors %}
-                        {{ form.password (class='is-invalid') }}
+                    {% if form.password.errors %}
+                    {{ form.password (class='border-2 border-red-700/75')}}
 
-                        <div class="invalid-feedback">
-                            {% for error in form.password.errors %}
-                            {{ error }}
-                            {% endfor %}
-                        </div>
-
-                        {% else %}
-                        {{ form.password }}
-                        {% endif %}
+                    <div class="alert-danger">
+                        {% for error in form.password.errors %}
+                        {{ error }}
+                        {% endfor %}
                     </div>
 
-                    <div class="form-group">
-                        {{ form.auth.label }}
+                    {% else %}
+                    {{ form.password(class='px-2 rounded') }}
+                    {% endif %}
+                </div>
 
-                        {% if form.auth.errors %}
-                        {{ form.auth (class='is-invalid') }}
+                <div class="flex flex-col gap-1 w-full">
+                    {{ form.auth.label }}
 
-                        <div class="invalid-feedback">
-                            {% for error in form.auth.errors %}
-                            {{ error }}
-                            {% endfor %}
-                        </div>
+                    {% if form.auth.errors %}
+                    {{ form.auth (class='border-2 border-red-700/75')}}
 
-                        {% else %}
-                        {{ form.auth }}
-                        {% endif %}
+                    <div class="alert-danger">
+                        {% for error in form.auth.errors %}
+                        {{ error }}
+                        {% endfor %}
                     </div>
 
-                    <div class="form-group">
-                        <label>The character's gender</label>
+                    {% else %}
+                    {{ form.auth(class='px-2 rounded') }}
+                    {% endif %}
+                </div>
+
+
+                <div class="flex flex-col w-full mt-4">
+                    <label>The character's gender</label>
+                </div>
+
+                <!-- SELECT GENDER -->
+                <section id="gender" class="border p-2 grid grid-cols-2">
+
+
+                    <div class="flex flex-col-2 justify-between p-2">
+
+                        <span class="flex flex-col justify-around">
+                            <div class="flex gap-3">
+                                <input id="man" name="man" type="checkbox" checked class="w-[20px]">
+                                <ion-icon name="male-outline" class="text-2xl"></ion-icon>
+                            </div>
+
+                            <div class="flex gap-3">
+                                <input id="woman" name="woman" type="checkbox" class="w-[20px]">
+                                <ion-icon name="female-outline" class="text-2xl"></ion-icon>
+                            </div>
+                        </span>
                     </div>
 
-                    <div class="container-gender-img">
-
-                        <div class="input-remember-me">
-                            <input id="man" name="man" type="checkbox" checked>
-                            <img src="{{ url_for('static', filename='img/icons/man.png') }}" width="25">
-                        </div>
-
-
-                        <div class="input-remember-me">
-                            <input id="woman" name="woman" type="checkbox">
-                            <img src="{{ url_for('static', filename='img/icons/woman.png') }}" width="25">
-                        </div>
-
-
+                    <div class="flex flex-col gap-3 items-center">
                         <img id="sprite" src="{{ url_for('static', filename='img/sprites/man/peasant.png' )}}"
                             width="90">
-
+                        <p> Peasand - Farmer </p>
                     </div>
 
+                </section>
 
-                </fieldset>
+            </fieldset>
 
-                <div class="button-a"> <button type="submit"> Next </button> </div>
+            <button type='submit' class="flex items-center justify-center text-white p-2 w-6/12 m-auto border rounded
+            h-14 bg-gradient-to-r from-sky-500 to-indigo-500
+            hover:border-white">
+                Next
+            </button>
 
-            </form>
-        </div>
+        </form>
 
-        <a class="button-b" href="{{ url_for('auth.login') }}">
-            <button> Already have an account? Log in </button>
-        </a>
+        <span class="m-auto mt-5 p-2 flex justify-center">
+            <a href="{{ url_for('auth.login') }}">
+                Already have an account? Log in
+            </a>
+        </span>
 
-    </div>
-</div>
+    </section>
+</main>
+
 {% endblock %}
 
 

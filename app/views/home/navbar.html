@@ -1,41 +1,75 @@
-<nav class="background">
+<nav class="fixed z-40 w-screen self-start h-auto bg-black/90 text-[#BEBDBF]
+            md:bg-black/95">
 
-  <!-- MOBILE -->
-  <nav id="nav-mobile" class="max-width-navbar background navbar-menu-mobile">
+  <!-- NAVBAR -->
+  <nav id="navbar" class="container m-auto h-auto p-2 flex-wrap justify-center gap-3 items-center hidden
+                          md:justify-between md:flex">
 
-    <a href="{{ url_for('home.index') }}"> Home </a>
-    <a href="{{ url_for('home.updates') }}"> Updates </a>
-    <a href="{{ url_for('home.about') }}"> About </a>
+    <div class="w-auto h-auto flex flex-wrap justify-center items-center gap-5
+                md:justify-between md:gap-20">
 
-    <div class="container-sign">
+      <!-- BRAND -->
+      <a class="w-[40px] flex" href="{{ url_for('home.index') }}">
+        <img src="{{ url_for('static', filename='img/logo.png') }}">
+      </a>
 
-      <a class="button-sign" href="{{ url_for('auth.create') }}"> <button>Sign up</button></a>
-      <a class="button-sign" href="{{ url_for('auth.login') }}"> <button>Sign in</button> </a>
+      <!-- PAGES -->
+      <div class="flex justify-between gap-20">
+        <a class="hover:text-white" href="{{ url_for('home.index') }}"> Home </a>
+        <a class="hover:text-white" href="{{ url_for('home.updates') }}"> Updates </a>
+        <a class="hover:text-white" href="{{ url_for('home.about') }}"> About </a>
+      </div>
 
+    </div>
+
+    <!-- LOGIN / NEW ACCOUNT -->
+    <div class="flex justify-between w-48 items-center">
+      <a class="hover:text-white" href="{{ url_for('auth.create') }}"> Sign up </a>
+      <a class="hover:text-white items-center" href="{{ url_for('auth.login') }}"> Sign in </a>
     </div>
 
   </nav>
 
-  <!-- DEFAULT -->
-  <div id="navbar" class="max-width-navbar navbar-menu">
-    <a class="logo-img" href="{{ url_for('home.index') }}">
-      <img src="{{ url_for('static', filename='img/logo.png') }}" width="40px">
-    </a>
 
-    <div class="navbar">
-      <a href="{{ url_for('home.index') }}"> Home </a>
-      <a href="{{ url_for('home.updates') }}"> Updates </a>
-      <a href="{{ url_for('home.about') }}"> About </a>
+
+
+  <!-- MOBILE -->
+  <nav class="container py-2 px-4 m-auto md:hidden">
+
+    <div class="flex w-full h-auto justify-between items-center">
+      <!-- BRAND -->
+      <a class="w-[30px]" href="{{ url_for('home.index') }}">
+        <img src="{{ url_for('static', filename='img/logo.png') }}">
+      </a>
+
+      <div class="flex gap-5 items-center">
+        <p translate="no"> Red Boar Inn</p>
+
+        <!-- MENU ICON -->
+        <button id="menu">
+          <ion-icon class="text-3xl" name="menu-outline"></ion-icon>
+        </button>
+      </div>
+
     </div>
 
-    <div class="navbar">
-      <a href="{{ url_for('auth.create') }}"> Sign up </a>
-      <a href="{{ url_for('auth.login') }}"> Sign in </a>
+    <!-- HIDDEN -->
+    <div id="pages" class="flex flex-col justify-center items-center gap-5 mt-3 hidden">
+      <!-- PAGES -->
+      <div class="flex justify-between gap-20 md:hidden">
+        <a class="hover:text-white" href="{{ url_for('home.index') }}"> Home </a>
+        <a class="hover:text-white" href="{{ url_for('home.updates') }}"> Updates </a>
+        <a class="hover:text-white" href="{{ url_for('home.about') }}"> About </a>
+      </div>
+
+      <!-- LOGIN / NEW ACCOUNT -->
+      <div class="flex justify-between w-48 md:hidden">
+        <a class="hover:text-white" href="{{ url_for('auth.create') }}"> Sign up </a>
+        <a class="hover:text-white" href="{{ url_for('auth.login') }}"> Sign in </a>
+      </div>
     </div>
 
-    <button id="menu" class="button-menu">
-      <img src="{{ url_for('static', filename='img/icons/menu.png') }}" width="24">
-    </button>
+  </nav>
 
-  </div>
+
 </nav>

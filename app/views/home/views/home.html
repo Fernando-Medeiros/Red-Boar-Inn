@@ -1,99 +1,140 @@
 {% extends 'home/base.html' %}
 
-
 {% block navbar %}
 {% include 'home/navbar.html' %}
 {% endblock %}
 
-
 {% block body %}
 
-<div class="max-width container-home-image">
-</div>
+<main class="container m-auto p-2 flex flex-col gap-10">
 
+    <section id="section1" class="w-full h-auto mt-[95px] p-2 bg-black/10 rounded">
 
-<div class="max-width container-banner">
-    <div class="banner-users">
-        <h2> Join our player community </h2>
-        <br>
-        <span> Create an account and start exploring the world now </span>
-    </div>
-</div>
-
-<div class="max-width container-banner">
-    <div class="banner-users">
-        <h2> Users {{ number_of_accounts }} </h2>
-        <img src="{{ url_for('static', filename='img/icons/accounts.png') }}" width="30">
-    </div>
-
-    <div class="banner-users">
-        <h2> Online {{ number_of_online_users }} </h2>
-        <img src="{{ url_for('static', filename='img/icons/online.png') }}" width="30">
-    </div>
-
-</div>
-
-<div class="max-width container-home-about ">
-    <h2>Story</h2> <br>
-    <p>Dragonspear City is the heart of this world, and this is where we find ourselves,
-        walking through the gates in search of adventure...</p>
-    <hr>
-
-    <p>There are many adventurers, merchants and gypsies who arrive in this city, people of all types and ages,
-        with different ideas of living, always looking for something.</p>
-
-    <p> --> If you like battles, you'll find countless people here to challenge and prove your strength;
-        Look for the gladiator guild next to the town hall.</p>
-    <p> --> Looking for good items?
-        you can go to market in the west district.
-        You can find many items and even craft your own, because the king is famous for funding new craftsmen.</p>
-    <p> --> Well, if you're the type who likes to get slapped with monsters, the Adventurer's Guild is in the South
-        district.
-        You can get your quests there.
-        Be careful what you accept...
-        Believe it! every day I see the most bizarre things walking through this gate.</p>
-
-    <p> --> You need to know the red boar inn.</p>
-    <p>The red boar inn is the most famous inn in these lands and is for anyone who likes gold, adventure and a good
-        beer.</p>
-
-    <p> --> This city is a world, I'll let you discover it for yourself...^^
-        See you at the red boar inn!</p>
-</div>
-
-<div class="max-width  container-banner wrap">
-    <div class="banner-users">
-        <h2>RANK</h2>
-
-        <div class="max-width  container-banner banner-rank">
-            <div class="container-home-rank">
-                <h4> Character </h4>
-            </div>
-            <div class="container-home-rank">
-                <h4> Profession </h4>
-            </div>
-            <div class="container-home-rank">
-                <h4> Level </h4>
-            </div>
+        <div class="flex flex-wrap flex-row-auto justify-around m-auto p-1 mb-5 w-full h-auto rounded bg-black/10">
+            {% for img in sprite_list %}
+            <img class="w-16 md:w-24" src="{{ url_for('static', filename='img/sprites/' + img) }}">
+            {% endfor %}
         </div>
 
-        <tr>
-            {{add_html_rank|safe}}
-        </tr>
-    </div>
+        <div class="grid grid grid-row-2 items-center text-center p-2 m-auto mb-5 w-fit h-auto">
+            <span class="text-4xl py-2">
+                Join our player community
+            </span>
+            <span class="text-2xl py-2">
+                Create an account and start exploring the world now
+            </span>
+        </div>
 
-    <div class="container-home-join">
-        <p>Freedom to choose your play style</p>
-        <p>Build your fame and make your mark in this world</p>
-        <p>Have fun with your friends</p>
-        <br>
-        <h2> Join our player community </h2>
-        <br>
-        <a class="button-a" href="{{ url_for('auth.create') }}"> <button> Create an Account </button> </a>
-    </div>
-</div>
+        <div class="flex flex-cols-2 justify-around gap-2 m-auto p-2 text-xl items-center">
+
+            <div class="flex gap-5 items-center p-2 w-full border rounded">
+                <ion-icon name="people-outline" class="text-4xl"></ion-icon>
+                <h2> Users </h2> {{ number_of_accounts }}
+            </div>
+
+            <div class="flex gap-5 items-center p-2 w-full border rounded">
+                <ion-icon name="person-outline" class="text-4xl"></ion-icon>
+                <h2> Online </h2> {{ number_of_online_users }}
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="section2" class="w-full h-auto p-2 grid grid-cols-1 gap-5 md:grid-cols-2">
+
+        <div class="bg-black/10 rounded">
+            <span class="flex text-center justify-center w-full m-auto text-1xl border-b border-gray-400/25 ">
+                <p> RANK </p>
+            </span>
+
+            <div class="grid grid-cols-3 m-auto text-center p-2 text-lg border-b border-gray-400/25">
+                <p> Character </p>
+                <p> Profession </p>
+                <p> Level </p>
+            </div>
+
+            <tr class="bg-gray-600/10">
+                {{add_html_rank|safe}}
+            </tr>
+        </div>
+
+
+        <div class="grid grid-row-auto items-center justify-center text-center p-2 gap-3 rounded bg-black/10">
+
+            <span class="flex flex-col gap-3">
+                <p>Freedom to choose your play style</p>
+                <p>Build your fame and make your mark in this world</p>
+                <p>Have fun with your friends</p>
+                <h2> Join our player community </h2>
+            </span>
+
+            <div class="items-center flex gap-2 text-white">
+                <a href="{{ url_for('auth.create') }}" class="m-auto">
+                    <button class="flex items-center text-center gap-3 p-2 w-auto border rounded
+                    h-14 bg-gradient-to-r from-sky-500 to-indigo-500
+                    hover:border-white">
+                        <ion-icon name="person-add-outline" class="text-4xl"></ion-icon>
+                        Create an Account
+                    </button>
+                </a>
+
+                <a href="{{ url_for('auth.login') }}" class="m-auto">
+                    <button class="flex items-center text-center gap-3 p-2 w-auto border rounded
+                    h-14 bg-gradient-to-r from-sky-500 to-indigo-500
+                    hover:border-white">
+                        <ion-icon name="log-in-outline" class="text-4xl"></ion-icon>
+                        Sign in
+                    </button>
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section id="section3" class="w-full h-auto p-2 bg-black/10 rounded">
+        <span class="grid p-4 gap-3 text-xl">
+            <h2>Story</h2>
+            <p>Dragonspear City is the heart of this world, and this is where we find ourselves,
+                walking through the gates in search of adventure...</p>
+            <hr>
+
+            <p>There are many adventurers, merchants and gypsies who arrive in this city, people of all types and ages,
+                with different ideas of living, always looking for something.</p>
+
+            <p> --> If you like battles, you'll find countless people here to challenge and prove your strength;
+                Look for the gladiator guild next to the town hall.</p>
+            <p> --> Looking for good items?
+                you can go to market in the west district.
+                You can find many items and even craft your own, because the king is famous for funding new craftsmen.
+            </p>
+            <p> --> Well, if you're the type who likes to get slapped with monsters, the Adventurer's Guild is in the
+                South
+                district.
+                You can get your quests there.
+                Be careful what you accept...
+                Believe it! every day I see the most bizarre things walking through this gate.</p>
+
+            <p> --> You need to know the red boar inn.</p>
+            <p>The red boar inn is the most famous inn in these lands and is for anyone who likes gold, adventure and a
+                good
+                beer.</p>
+
+            <p> --> This city is a world, I'll let you discover it for yourself...^^
+                See you at the red boar inn!</p>
+        </span>
+    </section>
+
+</main>
+
 {% endblock %}
 
+{% block script %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/home/navbar.js') }}"></script>
+{% endblock %}
 
 {% block footer %}
 {% include 'home/footer.html' %}

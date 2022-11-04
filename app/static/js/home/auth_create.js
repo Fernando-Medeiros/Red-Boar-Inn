@@ -1,7 +1,6 @@
-let man = document.querySelector("#man");
-let woman = document.querySelector("#woman");
-let sprite = document.querySelector("#sprite");
-
+let man = document.querySelector("#man")
+let woman = document.querySelector("#woman")
+let sprite = document.querySelector("#sprite")
 
 function showSprite() {
 

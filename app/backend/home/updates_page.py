@@ -9,18 +9,27 @@ class UpdatePage(Database):
 
         for index, note in enumerate(updates):
             html.append(
-                f"""
-                <div class="container-updates-main">
-                    <div  id="version-update-{index}">
+                f"""                    
+                <div id="version{index}" class="flex flex-wrap w-full h-auto p-2 gap-3 bg-gray-800/5 rounded border border-black/25
+                                                hover:border-black">
 
-                        <button type="button">
-                            <span> <strong> { note['version'] } </strong> { "-" } <small> { note['date'] } </small> </span>  
-                            <span>v</span>
-                        </button>
-
-                        <div> <p> { '<br>'.join(note['info']) } </p> </div>
+                    <button type="button" class="p-2 m-auto w-full flex gap-5 justify-between">
                         
+                        <span class="bold text-xl flex items-center">
+                            { note['version'] }
+                            <p class="text-[12px]"> - { note['date'] } </p>     
+                        </span>  
+                        <ion-icon name="chevron-down-outline" class="text-2xl"></ion-icon>
+
+                    </button>
+
+
+                    <div id="p_update{index}" class="hidden p-2">
+                        <p>
+                            { ' <br> '.join(note['info']) }
+                        </p>
                     </div>
+                    
                 </div>
                 """
                 )

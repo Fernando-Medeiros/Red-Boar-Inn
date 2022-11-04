@@ -5,30 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- CSS HOME -->
-  <link href="{{ url_for('static', filename='css/home/global.css') }}" type="text/css" rel="stylesheet">
-  <link href="{{ url_for('static', filename='css/home/navbar.css') }}" type="text/css" rel="stylesheet">
-  <link href="{{ url_for('static', filename='css/home/alert.css') }}" type="text/css" rel="stylesheet">
-  <link href="{{ url_for('static', filename='css/home/body.css') }}" type="text/css" rel="stylesheet">
-  <link href="{{ url_for('static', filename='css/home/forms.css') }}" type="text/css" rel="stylesheet">
-  <link href="{{ url_for('static', filename='css/home/footer.css') }}" type="text/css" rel="stylesheet">
-
-  <!-- API GOOGLE - FONT ROBOTO -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
   <!-- FAVICON -->
   <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
 
+  <!-- TAILWIND -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
   <!-- TITLE -->
   {% block head %}
-  <title> {% block title %} {{ title }} {% endblock %} </title>
+  <title> {{ title }} | Red Boar Inn </title>
   {% endblock %}
 
 </head>
 
-<body>
+<body class="font-primary bg-[#BEBDBF] text-black">
 
   {% block navbar %}
   {% endblock %}
@@ -45,7 +35,9 @@
   {% block script %}
   {% endblock %}
 
-  <script type="text/javascript" src="{{ url_for('static', filename='js/home/navbar.js') }}"></script>
+  <!-- IONICONS -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
 

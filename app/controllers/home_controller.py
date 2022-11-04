@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, request, url_for, redirect
+from os import listdir
 
 from app.backend.home.auth_login import check_current_user
 from app.backend.home.home_page import HomePage
@@ -17,11 +18,17 @@ def index():
     number_of_online_users = home.online_players()
     add_html_rank = home.render_by_level()
 
+    man = [f'man/{img}' for img in listdir('app/static/img/sprites/man')]
+    woman = [f'woman/{img}' for img in listdir('app/static/img/sprites/woman')]
+    
+    sprite_list = man + woman
+    
     return render_template('/home/views/home.html',
-                           title='Red Boar Inn',
+                           title='Home',
                            number_of_accounts=number_of_accounts,
                            number_of_online_users=number_of_online_users,
-                           add_html_rank=add_html_rank)
+                           add_html_rank=add_html_rank,
+                           sprite_list=sprite_list)
 
 
 @home.route('/updates')

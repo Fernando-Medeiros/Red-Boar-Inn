@@ -4,6 +4,7 @@
     <img align="center" src="https://img.shields.io/badge/Javascript-white?style=for-the-badge&logo=javascript&logoColor=yellow">
     <img align="center" src="https://img.shields.io/badge/HTML5-white?style=for-the-badge&logo=html5&logoColor=orange">
     <img align="center" src="https://img.shields.io/badge/CSS3-white?style=for-the-badge&logo=css3&logoColor=blue">
+    <img align="center" src="https://img.shields.io/badge/tailwindcss-white?style=for-the-badge&logo=tailwindcss&logoColor=blue">
     <img align="center" src="https://img.shields.io/badge/Mongodb-white?style=for-the-badge&logo=mongodb&logoColor=green">   
 </div>
 

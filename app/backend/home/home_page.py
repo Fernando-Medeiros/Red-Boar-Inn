@@ -43,16 +43,10 @@ class HomePage(Database):
             for char in chars:                    
                 html.append(
                     f"""
-                    <div class="max-width container-banner banner-rank">
-                        <div class="container-home-rank">
-                            <span> {char['name'].title()} </span>
-                        </div>
-                        <div class="container-home-rank">
-                            <span> {char['vocation'].title()} - {char['job'].title()} </span>
-                        </div>
-                        <div class="container-home-rank">
-                            <span> {char['level']} </span>
-                        </div>
+                    <div class="grid grid-cols-3 m-auto p-2 text-center items-center border-b border-gray-400/20">                        
+                        <span> {char['name'].title()} </span>                                           
+                        <span> {char['vocation'].title()} - {char['job'].title()} </span>                                               
+                        <span> {char['level']} </span>                       
                     </div>
                     """
                     )

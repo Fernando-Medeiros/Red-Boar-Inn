@@ -1,42 +1,30 @@
-<nav class="max-width navbar-status">
+<nav class="container m-auto p-2 flex justify-between items-center">
 
-    <button type="button" id="menu">
-        <img src="{{ url_for('static', filename='img/icons/menu.png') }}" width="25">
+    <button type="button" id="menu" class="z-50 px-2">
+        <ion-icon name="menu-outline" class="text-3xl"></ion-icon>
     </button>
 
 
-    <div class="icons-right grid-row">
+    <div class="flex jutify-between gap-7">
 
-        <div class="grid-colum">
-            <a href="{{ url_for('message.friend') }}">
-                <span></span>
-                <img src="{{ url_for('static', filename='img/icons/users.png') }}" width="25">
-            </a>
-        </div>
+        <a href="{{ url_for('message.friend') }}">
+            <ion-icon name="people-outline" class="text-3xl"></ion-icon>
+        </a>
 
-        <div class="grid-colum">
-            <a href="{{ url_for('message.home') }}">
-                <img src="{{ url_for('static', filename='img/icons/message.png') }}" width="25">
-                <span></span>
-            </a>
-        </div>
+        <a href="{{ url_for('message.home') }}">
+            <ion-icon name="chatbox-ellipses-outline" class="text-3xl"></ion-icon>
+        </a>
 
-        <div class="grid-colum">
-            <a href="{{ url_for('message.notification') }}">
-                <img src="{{ url_for('static', filename='img/icons/notification.png') }}" width="25">
-                <span></span>
-            </a>
-        </div>
+        <a href="{{ url_for('message.notification') }}">
+            <ion-icon name="notifications-outline" class="text-3xl"></ion-icon>
+        </a>
 
-        <div class="grid-colum">
-            <a href="{{ url_for('auth.logout') }}">
-                <img src="{{ url_for('static', filename='img/icons/logout.png') }}" width="25">
-            </a>
-        </div>
+        <a href="{{ url_for('auth.logout') }}">
+            <ion-icon name="log-out-outline" class="text-3xl"></ion-icon>
+        </a>
 
     </div>
 </nav>
 
-<div class="max-width bar-experience">
-    <div> </div>
+<div class="container m-auto h-[10px] my-2 rounded-full bg-green-400/25">
 </div>

@@ -8,67 +8,74 @@
 
 {% block body %}
 
-<div class="max-width container-cards">
+<main class="container mt-7 m-auto p-2 bg-black-10 grid gap-2">
 
-    <div class="container-cards card">
 
-        <div>
+    <!-- FORM AUTH TOKEN -->
+    <section id="form" class="m-auto p-2 bg-gray-900/10 rounded w-[340px] md:m-auto md:w-[400px]">
+
+        <div class="w-full p-1 flex justify-center">
             <a href="{{ url_for('home.index') }}">
                 <img src="{{ url_for('static', filename='img/logo.png') }}" width="81">
             </a>
         </div>
 
-        <div class="container-cards">
+        <form method="POST" action="" class="p-2 flex flex-col gap-4">
 
             <form method="POST" action="">
 
                 {{ form_auth_token.csrf_token }}
 
-                <fieldset style="border: none">
+                <fieldset class="flex flex-col gap-4">
 
-                    <div class="form-group">
+                    <div class="flex flex-col gap-1 w-full">
                         {{ form_auth_token.email.label }}
 
                         {% if form_auth_token.email.errors %}
-                        {{ form_auth_token.email (class='is-invalid') }}
-                        <div class="invalid-feedback">
+                        {{ form_auth_token.email (class='border-2 border-red-700/75') }}
+                        <div class="alert-danger">
                             {% for error in form_auth_token.email.errors %}
                             {{ error }}
                             {% endfor %}
                         </div>
                         {% else %}
-                        {{ form_auth_token.email }}
+                        {{ form_auth_token.email(class='px-2 rounded') }}
                         {% endif %}
                     </div>
 
 
-                    <div class="form-group">
+                    <div class="flex flex-col gap-1 w-full">
 
                         {{ form_auth_token.token.label }}
 
                         {% if form_auth_token.token.errors %}
-                        {{ form_auth_token.token (class='is-invalid') }}
-                        <div class="invalid-feedback">
+                        {{ form_auth_token.token (class='border-2 border-red-700/75') }}
+                        <div class="alert-danger">
                             {% for error in form_auth_token.token.errors %}
                             {{ error }}
                             {% endfor %}
                         </div>
                         {% else %}
-                        {{ form_auth_token.token }}
+                        {{ form_auth_token.token(class='px-2 rounded') }}
                         {% endif %}
                     </div>
 
                 </fieldset>
 
-                <div class="button-a"> <button type="submit"> Confirm Token </button> </div>
+                <button type='submit' class="flex items-center justify-center text-white p-2 w-6/12 m-auto border rounded
+                h-14 bg-gradient-to-r from-sky-500 to-indigo-500
+                hover:border-white">
+                    Confirm Token
+                </button>
             </form>
-        </div>
 
+            <span class="flex justify-center p-2 mt-5">
+                <a href="{{ url_for('auth.login') }}">
+                    Return Log in
+                </a>
+            </span>
 
-        <a class="button-b" href="{{ url_for('auth.login') }}"> <button> Return Log in </button> </a>
-
-
-    </div>
-</div>
+    </section>
+</main>
 
 {% endblock %}

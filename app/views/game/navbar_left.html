@@ -1,54 +1,75 @@
-<nav class="navbar-left">
+<nav id="navbar" class="z-40 fixed w-auto h-screen bg-[#070707] p-2 hidden md:list-item">
 
-    <div class="block-menu">
+    <!-- MOBILE -->
+    <div id="navbar-left-mobile" class="flex flex-col gap-10 p-2 justify-around h-auto mt-[70px] hidden">
 
-        <div>
-            <a href="{{ url_for('profile.home') }}">
-                <img src="{{ url_for('static', filename='img/icons/profile.png') }}" width="25">
-                <span> Profile </span>
-            </a>
-        </div>
+        <a href="{{ url_for('profile.home') }}" class="flex gap-4 items-center">
+            <ion-icon name="person-outline" class="text-3xl"></ion-icon>
+        </a>
 
-        <div>
-            <a href="{{ url_for('world.home') }}">
-                <img src="{{ url_for('static', filename='img/icons/world.png') }}" width="25">
-                <span> World </span>
-            </a>
-        </div>
+        <a href="{{ url_for('world.home') }}" class="flex gap-4 items-center">
+            <ion-icon name="map-outline" class="text-3xl"></ion-icon>
+        </a>
 
-        <div>
-            <a href="{{ url_for('arena.home') }}">
-                <img src="{{ url_for('static', filename='img/icons/arena.png') }}" width="25">
-                <span> Arena </span>
-            </a>
-        </div>
+        <a href="{{ url_for('arena.home') }}" class="flex gap-4 items-center">
+            <ion-icon name="trophy-outline" class="text-3xl"></ion-icon>
+        </a>
 
-        <div>
-            <a href="{{ url_for('market.home') }}">
-                <img src="{{ url_for('static', filename='img/icons/market.png') }}" width="25">
-                <span> Market </span>
-            </a>
-        </div>
+        <a href="{{ url_for('market.home') }}" class="flex gap-4 items-center">
+            <ion-icon name="bookmarks-outline" class="text-3xl"></ion-icon>
+        </a>
 
-        <div>
-            <a href="{{ url_for('craft.home') }}">
-                <img src="{{ url_for('static', filename='img/icons/craft.png') }}" width="25">
-                <span> Craft </span>
-            </a>
-        </div>
+        <a href="{{ url_for('craft.home') }}" class="flex gap-4 items-center">
+            <ion-icon name="cube-outline" class="text-3xl"></ion-icon>
+        </a>
 
-        <div>
-            <a href="{{ url_for('tavern.home') }}">
-                <img src="{{ url_for('static', filename='img/icons/tavern.png') }}" width="25">
-                <span> Tavern </span>
-            </a>
-        </div>
+        <a href="{{ url_for('tavern.home') }}" class="flex gap-4 items-center">
+            <ion-icon name="beer-outline" class="text-3xl"></ion-icon>
+        </a>
 
-        <div>
-            <a href="{{ url_for('inventory.home') }}">
-                <img src="{{ url_for('static', filename='img/icons/inventory.png') }}" width="25">
-                <span> Inventory </span>
-            </a>
-        </div>
+        <a href="{{ url_for('inventory.home') }}" class="flex gap-4 items-center">
+            <ion-icon name="bag-outline" class="text-3xl"></ion-icon>
+        </a>
+    </div>
+
+
+    <!-- DEFAULT -->
+    <div id="navbar-left-default" class="flex flex-col gap-10 p-2 justify-around h-auto mt-[70px]">
+
+        <a href="{{ url_for('profile.home') }}" class="flex gap-4 items-center">
+            <ion-icon name="person-outline" class="text-3xl"></ion-icon>
+            <span> Profile </span>
+        </a>
+
+        <a href="{{ url_for('world.home') }}" class="flex gap-4 items-center">
+            <ion-icon name="map-outline" class="text-3xl"></ion-icon>
+            <span> World </span>
+        </a>
+
+        <a href="{{ url_for('arena.home') }}" class="flex gap-4 items-center">
+            <ion-icon name="trophy-outline" class="text-3xl"></ion-icon>
+            <span> Arena </span>
+        </a>
+
+        <a href="{{ url_for('market.home') }}" class="flex gap-4 items-center">
+            <ion-icon name="bookmarks-outline" class="text-3xl"></ion-icon>
+            <span> Market </span>
+        </a>
+
+        <a href="{{ url_for('craft.home') }}" class="flex gap-4 items-center">
+            <ion-icon name="cube-outline" class="text-3xl"></ion-icon>
+            <span> Craft </span>
+        </a>
+
+        <a href="{{ url_for('tavern.home') }}" class="flex gap-4 items-center">
+            <ion-icon name="beer-outline" class="text-3xl"></ion-icon>
+            <span> Tavern </span>
+        </a>
+
+        <a href="{{ url_for('inventory.home') }}" class="flex gap-4 items-center">
+            <ion-icon name="bag-outline" class="text-3xl"></ion-icon>
+            <span> Inventory </span>
+        </a>
+
     </div>
 </nav>
