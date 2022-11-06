@@ -1,210 +1,30 @@
 {% extends 'game/base.html' %}
 
 
-{% block head %}
-<link href="{{ url_for('static', filename='css/game/profile/vocation.css') }}" type="text/css" rel="stylesheet">
-{% endblock %}
-
-
 {% block body %}
 
 
-<!-- INFO -->
-<div class="max-width column-att">
-    <span>
-        <h4>Vocation</h4>
-    </span>
-    <span>
-        <h4>Description</h4>
-    </span>
-</div>
+<main class="m-auto p-2 grid gap-7 rounded bg-gradient-to-b from-[#181818d7] to-black/40  md:ml-[150px] ">
 
 
-<!-- CLASSES -->
-<div class="max-width min-height background-global">
+    <!-- BANNER -->
+    <section class="p-2 w-full h-[75px] flex justify-around items-center rounded md:h-[100px]"
+        style="background: linear-gradient(rgba(0, 0, 0, 50), rgba(0, 0, 0, 0.50)), url(/static/img/pictures/img2.png); background-position: center; background-size: cover">
+        <h1 class="text-xl">
+            Choose a Vocation
+        </h1>
+    </section>
 
 
+    <!-- VOCATIONS -->
+    <section class="p-2 w-full grid gap-10 md:gap-5">
+        <tr>
+            {{add_html_vocations|safe}}
+        </tr>
+    </section>
 
-    <!-- MAGE / WITCH -->
-    <div>
-        <div class="grid-column">
+</main>
 
-            <img src="{{ url_for('static', filename='img/sprites/man/mage.png')}}">
-
-            <span class="grid-column">
-
-                <h4>Mage</h4>
-                <p>Description</p>
-                <button translate="no"> info </button>
-
-                <span>
-                    <p>........</p>
-                </span>
-            </span>
-        </div>
-
-        <!-- More info -->
-        <div></div>
-
-    </div>
-
-    <div>
-        <div class="grid-column">
-
-            <img src="{{ url_for('static', filename='img/sprites/woman/witch.png')}}">
-
-
-            <span class="grid-column">
-
-                <h4>Witch</h4>
-                <p>Description</p>
-                <button translate="no"> info </button>
-
-                <span>
-                    <p>........</p>
-                </span>
-            </span>
-        </div>
-
-        <!-- More info -->
-        <div></div>
-    </div>
-
-
-
-
-    <!-- WARRIORS -->
-    <div>
-        <div class="grid-column">
-
-            <img src="{{ url_for('static', filename='img/sprites/man/warrior.png')}}">
-
-            <span class="grid-column">
-
-                <h4>Warrior</h4>
-                <p>Description</p>
-                <button translate="no"> info </button>
-
-                <span>
-                    <p>........</p>
-                </span>
-            </span>
-
-        </div>
-
-        <!-- More info -->
-        <div></div>
-    </div>
-
-    <div>
-        <div class="grid-column">
-
-            <img src="{{ url_for('static', filename='img/sprites/woman/warrior.png')}}">
-
-            <span class="grid-column">
-
-                <h4>warrior</h4>
-                <p>Description</p>
-                <button translate="no"> info </button>
-
-                <span>
-                    <p>........</p>
-                </span>
-            </span>
-        </div>
-
-        <!-- More info -->
-        <div></div>
-    </div>
-
-
-
-
-    <!-- THIEFS -->
-    <div class="grid-column">
-
-        <img src="{{ url_for('static', filename='img/sprites/man/thief.png')}}">
-
-        <span class="grid-column">
-
-            <h4>Thief</h4>
-            <p>Description</p>
-            <button translate="no"> info </button>
-
-            <span>
-                <p>........</p>
-            </span>
-        </span>
-    </div>
-
-    <div>
-        <div class="grid-column">
-
-            <img src="{{ url_for('static', filename='img/sprites/woman/thief.png')}}">
-
-            <span class="grid-column">
-
-                <h4>Thief</h4>
-                <p>Description</p>
-                <button translate="no"> info </button>
-
-                <span>
-                    <p>........</p>
-                </span>
-            </span>
-        </div>
-
-        <!-- More info -->
-        <div></div>
-    </div>
-
-
-
-
-    <!-- CRAFTSMAN / CRAFTSWOMAN -->
-    <div>
-        <div class="grid-column">
-
-            <img src="{{ url_for('static', filename='img/sprites/man/craftsman.png')}}">
-
-            <span class="grid-column">
-
-                <h4>Craftsman</h4>
-                <p>Description</p>
-                <button translate="no"> info </button>
-
-                <span>
-                    <p>........</p>
-                </span>
-            </span>
-        </div>
-
-        <!-- More info -->
-        <div></div>
-    </div>
-
-    <div>
-        <div class="grid-column">
-
-            <img src="{{ url_for('static', filename='img/sprites/woman/craftswoman.png')}}">
-
-            <span class="grid-column">
-
-                <h4>Craftswoman</h4>
-                <p>Description</p>
-                <button translate="no"> info </button>
-
-                <span>
-                    <p>........</p>
-                </span>
-            </span>
-        </div>
-
-        <!-- More info -->
-        <div></div>
-    </div>
-
-</div>
 
 {% endblock %}
 

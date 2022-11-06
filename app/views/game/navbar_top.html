@@ -1,30 +1,33 @@
-<nav class="container m-auto p-2 flex justify-between items-center">
+<nav class="p-2 m-auto md:ml-[150px]">
 
-    <button type="button" id="menu" class="z-50 px-2">
-        <ion-icon name="menu-outline" class="text-3xl"></ion-icon>
-    </button>
+    <nav class="flex justify-between items-center m-auto">
 
+        <button type="button" id="menu" class="z-50 px-2">
+            <ion-icon name="menu-outline" class="text-3xl"></ion-icon>
+        </button>
 
-    <div class="flex jutify-between gap-7">
+        <div class="flex jutify-between gap-7">
 
-        <a href="{{ url_for('message.friend') }}">
-            <ion-icon name="people-outline" class="text-3xl"></ion-icon>
-        </a>
+            <a href="{{ url_for('message.friend') }}">
+                <ion-icon name="people-outline" class="text-3xl"></ion-icon>
+            </a>
 
-        <a href="{{ url_for('message.home') }}">
-            <ion-icon name="chatbox-ellipses-outline" class="text-3xl"></ion-icon>
-        </a>
+            <a href="{{ url_for('message.home') }}">
+                <ion-icon name="chatbox-ellipses-outline" class="text-3xl"></ion-icon>
+            </a>
 
-        <a href="{{ url_for('message.notification') }}">
-            <ion-icon name="notifications-outline" class="text-3xl"></ion-icon>
-        </a>
+            <a href="{{ url_for('message.notification') }}">
+                <ion-icon name="notifications-outline" class="text-3xl"></ion-icon>
+            </a>
 
-        <a href="{{ url_for('auth.logout') }}">
-            <ion-icon name="log-out-outline" class="text-3xl"></ion-icon>
-        </a>
+            <a href="{{ url_for('auth.logout') }}">
+                <ion-icon name="log-out-outline" class="text-3xl"></ion-icon>
+            </a>
 
+        </div>
+    </nav>
+
+    <div id="EXPBAR" class="m-auto h-[10px] my-2 rounded-full bg-green-400/25">
     </div>
-</nav>
 
-<div class="container m-auto h-[10px] my-2 rounded-full bg-green-400/25">
-</div>
+</nav>

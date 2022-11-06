@@ -12,7 +12,8 @@
 
 
     <!-- FORM LOGIN -->
-    <section id="form" class="m-auto p-2 bg-gray-900/10 rounded w-[340px] md:m-auto md:w-[400px]">
+    <section id="form"
+        class="m-auto p-2 bg-gray-900/10 rounded w-[340px] md:m-auto md:w-[400px] border border-[#BEBDBF]/25">
 
         <div class="w-full p-1 flex justify-center">
             <a href="{{ url_for('home.index') }}">
@@ -38,7 +39,7 @@
                     </div>
 
                     {% else %}
-                    {{ form.email(class='px-2 rounded') }}
+                    {{ form.email(class='px-2 rounded text-black') }}
                     {% endif %}
                 </div>
 
@@ -54,7 +55,7 @@
                     </div>
 
                     {% else %}
-                    {{ form.password(class='px-2 rounded') }}
+                    {{ form.password(class='px-2 rounded text-black') }}
                     {% endif %}
                 </div>
 
@@ -66,7 +67,7 @@
 
             </fieldset>
 
-            <button type='submit' class="flex items-center justify-center text-white p-2 w-6/12 m-auto border rounded
+            <button type='submit' class="flex items-center justify-center text-white p-2 w-6/12 m-auto border border-gray-500/75 rounded
                     h-14 bg-gradient-to-r from-sky-500 to-indigo-500
                     hover:border-white">
                 Sign in
@@ -76,11 +77,11 @@
 
 
         <span class="flex justify-around p-2 mt-5">
-            <a href="{{ url_for('auth.create') }}">
+            <a href="{{ url_for('auth.create') }}" class="hover:text-white">
                 New account
             </a>
 
-            <a href="{{ url_for('auth.recover') }}">
+            <a href="{{ url_for('auth.recover') }}" class="hover:text-white">
                 Forgot your password?
             </a>
         </span>

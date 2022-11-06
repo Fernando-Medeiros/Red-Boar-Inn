@@ -45,8 +45,13 @@ class Status:
 
         for sts in status:
             html.append(f"""
-            <div>
-            {sts.title()} - {status[sts]}
+            <div class="flex justify-between border-b border-gray-500/50 p-2">
+                <p>
+                    {sts.title()}
+                </p>
+                <p>
+                    {status[sts]}
+                </p>
             </div>
             """
             )
@@ -60,7 +65,6 @@ class CraftSkills:
     def __init__(self):
         self.settings()
         
-
     def settings(self):
         self.skills = [
             'woodcutting',
@@ -84,7 +88,6 @@ class CraftSkills:
             'accessory'
         ]
 
-
     def render_craft_skills(self):
         html = []
         width = '40px'
@@ -92,24 +95,25 @@ class CraftSkills:
 
         for item in self.skills:
             skills.append(f"""
-                <div>
-                    <img src="{ url_for('static', filename='img/icons/' + item + '.png') }" width={width}>
-                    lv.{c_User.skill[item]} - {item.title()}
+                <div class="w-full h-full p-2 gap-3 grid text-center items-center border border-gray-500/50">
+                    
+                    <img class="m-auto" src="{ url_for('static', filename='img/icons/' + item + '.png') }" width={width}>
+                    Lv.{c_User.skill[item]} - {item.title()}
                 </div>
             """)
 
         for item in self.weapons:
             weapons.append(f"""
-                <div>
-                    <img src="{ url_for('static', filename='img/icons/' + item + '.png') }" width={width}>
+                <div class="w-full h-full p-2 gap-3 grid text-center items-center border border-gray-500/50">
+                    <img class="m-auto" src="{ url_for('static', filename='img/icons/' + item + '.png') }" width={width}>
                     lv.{c_User.craft[item]} - {item.title()}
                 </div>
             """)
 
         for item in self.foods_tools_equipments:
             others.append(f"""
-                <div>
-                    <img src="{ url_for('static', filename='img/icons/' + item + '.png') }" width={width}>
+                <div class="w-full h-full p-2 gap-3 grid text-center items-center border border-gray-500/50">
+                    <img class="m-auto" src="{ url_for('static', filename='img/icons/' + item + '.png') }" width={width}>
                     lv.{c_User.craft[item]} - {item.title()}
                 </div>
             """)

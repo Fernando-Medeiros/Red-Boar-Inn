@@ -1,30 +1,26 @@
 {% extends 'game/base.html' %}
 
 
-{% block head %}
-<link href="{{ url_for('static', filename='css/game/inventory/inventory.css') }}" type="text/css" rel="stylesheet">
-{% endblock %}
-
-
 {% block body %}
 
-<div class="max-width">
-    <div class="information">
+
+<main class="m-auto p-2 grid gap-10 rounded bg-gradient-to-b from-[#181818d7] to-black/40  md:ml-[150px] ">
+
+    <!-- SECTION 1 -->
+    <section class="flex justify-between p-2">
         <p> Items </p>
         <p> {{ qty_items }} - <small>Items in inventory</small> </p>
-    </div>
-</div>
+    </section>
 
-
-<div class="max-width background-global">
-    <div class="container">
+    <!-- SECTION 2 -->
+    <section class="p-2 gap-2 flex flex-cols flex-wrap justify-around items-center border border-gray-400/25">
         <!-- ITEMS -->
         <tr>
             {{add_html_items|safe}}
         </tr>
-    </div>
+    </section>
 
-</div>
+</main>
 
 
 {% endblock %}

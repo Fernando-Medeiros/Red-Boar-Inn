@@ -12,7 +12,7 @@
 
 
     <!-- FORM SEND EMAIL-RECOVER -->
-    <section id="form" class="m-auto p-2 bg-gray-900/10 rounded w-[340px] md:m-auto md:w-[400px]">
+    <section id="form" class="m-auto p-2 bg-gray-900/10 rounded w-[340px] md:m-auto md:w-[400px] border border-[#BEBDBF]/25">
 
         <div class="w-full p-1 flex justify-center">
             <a href="{{ url_for('home.index') }}">
@@ -37,13 +37,13 @@
                         {% endfor %}
                     </div>
                     {% else %}
-                    {{ form.email(class='px-2 rounded') }}
+                    {{ form.email(class='px-2 rounded text-black') }}
                     {% endif %}
                 </div>
 
             </fieldset>
 
-            <button type='submit' class="flex items-center justify-center text-white p-2 w-6/12 m-auto border rounded
+            <button type='submit' class="flex items-center justify-center text-white p-2 w-6/12 m-auto border border-gray-500/75 rounded
             h-14 bg-gradient-to-r from-sky-500 to-indigo-500
             hover:border-white">
                 Send Token Reset
@@ -52,10 +52,10 @@
         </form>
 
         <span class="flex justify-around p-2 mt-5">
-            <a href="{{ url_for('auth.login') }}">
+            <a href="{{ url_for('auth.login') }}" class="hover:text-white">
                 Return Log in
             </a>
-            <a href="{{ url_for('auth.auth_token') }}">
+            <a href="{{ url_for('auth.auth_token') }}" class="hover:text-white">
                 Already have token?
             </a>
         </span>

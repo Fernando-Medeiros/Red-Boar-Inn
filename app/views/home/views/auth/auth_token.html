@@ -12,7 +12,8 @@
 
 
     <!-- FORM AUTH TOKEN -->
-    <section id="form" class="m-auto p-2 bg-gray-900/10 rounded w-[340px] md:m-auto md:w-[400px]">
+    <section id="form"
+        class="m-auto p-2 bg-gray-900/10 rounded w-[340px] md:m-auto md:w-[400px] border border-[#BEBDBF]/25">
 
         <div class="w-full p-1 flex justify-center">
             <a href="{{ url_for('home.index') }}">
@@ -39,7 +40,7 @@
                             {% endfor %}
                         </div>
                         {% else %}
-                        {{ form_auth_token.email(class='px-2 rounded') }}
+                        {{ form_auth_token.email(class='px-2 rounded text-black') }}
                         {% endif %}
                     </div>
 
@@ -56,20 +57,20 @@
                             {% endfor %}
                         </div>
                         {% else %}
-                        {{ form_auth_token.token(class='px-2 rounded') }}
+                        {{ form_auth_token.token(class='px-2 rounded text-black') }}
                         {% endif %}
                     </div>
 
                 </fieldset>
 
-                <button type='submit' class="flex items-center justify-center text-white p-2 w-6/12 m-auto border rounded
+                <button type='submit' class="flex items-center justify-center text-white p-2 w-6/12 m-auto border border-gray-500/75 rounded
                 h-14 bg-gradient-to-r from-sky-500 to-indigo-500
                 hover:border-white">
                     Confirm Token
                 </button>
             </form>
 
-            <span class="flex justify-center p-2 mt-5">
+            <span class="flex justify-center p-2 mt-5 hover:text-white">
                 <a href="{{ url_for('auth.login') }}">
                     Return Log in
                 </a>

@@ -31,7 +31,7 @@ class Tavern(Database):
                 raise Exception()
 
         except Exception as ErroCreatePost:
-            return
+            return False
         else:
             self.db_tavern_insert_one(post.return_post)
             return True
@@ -46,17 +46,30 @@ class Tavern(Database):
 
             html.append(
                 f"""
-                <div class="body-posts">
+                <div class="w-full p-2 flex flex-row-2 border border-gray-400/25
+                    rounded bg-gradient-to-b from-[#181818d7] to-black/40">
 
-                    <div class="column-img-name-date">
-                        <img src="{sprite}" width="50px">
-                        <span> { post['charname'].title() } </span>
-                        <small> { post['date'][:10] } </small>
-                        <small> { post['date'][10:] } </small>
+
+                    <div class="grid grid-cols gap-2 p-1 items-center w-max">
+                        <img src="{sprite}" width="50px">                                             
                     </div>
 
-                    <div class="post-info">
+                    <div class="grid grid-col-2 w-full p-1 items-center border border-gray-400/25
+                        bg-gradient-to-b from-[#181818d7] to-black/40 ">
+
+                        <span class="text-1xl flex items-center gap-3">
+                            <p class="text-indigo-500">
+                                { post['charname'].title() }
+                            </p>
+                            <small>
+                            { post['date'][:10] } - { post['date'][10:] }
+                            </small>
+                        </span>
+                        
+                        <span class="h-full min-h-[60px] p-2">
                         { post['info'] }
+                        </span>
+
                     </div>
                 </div>
                 """

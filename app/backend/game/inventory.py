@@ -15,12 +15,15 @@ class Inventory:
 
             html.append(
                 f"""
-                <div class="card-item background-global">
+                <div class="p-2 rounded border border-gray-400/25 items-center">
 
-                    <img src="{sprite}" width="35">
-                    <span>{name}</span>
+                    <img src="{sprite}" width="35" class="m-auto">
                     
-                    <div class="grid-columns">
+                    <p class="text-xl text-center py-2">
+                    {name}
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-5">
                     
                         <div class="color-card-info">
                             <p translate="no"> Qty: </p>
@@ -30,7 +33,7 @@ class Inventory:
                             <p> Type: </p>
                         </div>
             
-                        <div>
+                        <div class="text-center">
                             <p>{item['qty']}</p>
                             <p>{item['level']}</p>
                             <p>{item['value']}</p>

@@ -1,167 +1,216 @@
 {% extends 'game/base.html' %}
 
 
-{% block head %}
-<link href="{{ url_for('static', filename='css/game/arena/arena.css') }}" type="text/css" rel="stylesheet">
-{% endblock %}
-
-
 {% block body %}
 
 
-<!-- INFO -->
-<div class="max-width container-top-info-arena">
-    <span>Online: {{online}}</span>
-    <span>Total: {{offline}}</span>
-</div>
+<main class="m-auto p-2 grid gap-2 rounded bg-gradient-to-b from-[#181818d7] to-black/40  md:ml-[150px]">
 
 
+    <!-- INFO -->
+    <section class="flex flex-col gap-3 p-2">
+        <p>Online: {{online}}</p>
+        <p>Total: {{offline}}</p>
+    </section>
 
-<!-- ARENA -->
-<div class="max-width">
 
     <!-- ARENA -->
-    <div class="container-body-arena background-arena">
+    <section class="grid grid-cols-2 gap-5 justify-around p-2 rounded"
+        style="background: linear-gradient(rgba(0, 0, 0, 50), rgba(0, 0, 0, 0.50)), url(/static/img/pictures/img2.png); background-position: center; background-size: cover">
 
         <!-- CHAR -->
-        <div class="arena-container-content">
-            <img style="transform: scaleX(-1)" width="85px"
+        <div class="w-full items-center text-center">
+
+            <img style="transform: scaleX(-1)" width="85px" class="m-auto p-2"
                 src="{{ url_for('static', filename='img/sprites' + current_user.character['sprite'] ) }}">
-            <p>{{current_user.character['name'] | title() }}</p>
 
-            <div class="current-health-bar">
-                <div class="health-bar">
-                </div>
-            </div>
+            <p class="text-1xl p-2">
+                {{current_user.character['name'] | title() }}
+            </p>
 
-            <!-- BUTTONS -->
-            <div class="action-buttons">
-                <button id="attack"> Attack </button>
-                <button id="flee"> Flee </button>
-            </div>
+            <p id="char_health" value="{{ current_user.character['health'] }}">
+                {{ current_user.status['current_health'] }} / {{ current_user.status['health'] }}
+            </p>
+
+            <div id="ENERGYPBAR" class="flex w-full h-5 rounded-full bg-red-400/50 border border-gray-400/75 "></div>
         </div>
 
-
         <!-- OPPONENT -->
-        <div class="arena-container-content">
+        <div class="w-full items-center text-center">
             <tr>
                 {{opponent|safe}}
             </tr>
         </div>
 
-    </div>
-</div>
+    </section>
 
 
+    <!-- ARENA -->
+    <section class="grid gap-5 p-2 md:grid-cols-2 md:justify-around">
 
+        <div class="w-full flex gap-5 py-2 justify-between items-center">
+            <button id="attack" class="flex items-center justify-center p-2 w-full gap-2
+            rounded border border-gray-500/50 bg-gray-500/20">
+                <ion-icon name="contract-outline"></ion-icon>
+                Attack
+            </button>
 
-<!-- INFO / ACTIONS / RANK / NEWS -->
-<div class="max-width min-height background-global">
+            <button id="skills" class="flex items-center justify-center p-2 w-full gap-2
+            rounded border border-gray-500/50 bg-gray-500/20">
+                <ion-icon name="book-outline"></ion-icon>
+                Skills
+            </button>
+        </div>
 
-    <div class="container-characters-arena">
+        <div class="w-full flex gap-5 py-2 justify-between items-center">
+            <button id="itens" class="flex items-center justify-center p-2 w-full gap-2
+            rounded border border-gray-500/50 bg-gray-500/20">
+                <ion-icon name="flask-outline"></ion-icon>
+                Itens
+            </button>
 
-
-        <form method="POST" action="">
-            <!--  CHANGE OPPONENT ONLINE OU BOOT-AI-->
-            <div class="action-buttons-find">
-                <button name="find-opponent" id="find-opponent" type="submit" value="opponent"> Find opponent online
+            <a href="{{ url_for( 'arena.home' ) }}" class="flex items-center justify-center p-2 w-full gap-2
+            rounded border border-gray-500/50 bg-gray-500/20">
+                <ion-icon name="skull-outline"></ion-icon>
+                <button id="flee">
+                    Flee
                 </button>
-                <button name="find-boot" id="find-boot" type="submit" value="boot"> Find opponent Ai </button>
-            </div>
-        </form>
-
-
-
-        <!-- NEWS -->
-        <div class="container-news">
-
-            <!-- NEW 1 -->
-            <div class="box-news background-global">
-                <h4>About the Arena</h4>
-                <span>The arena is under construction, but you can find opponents to train.</span>
-                <span>New commands will be added soon: skills, items, defense.</span>
-
-            </div>
-
-            <!-- NEW 2 -->
-            <div class="box-news background-global">
-                <h4>About Rank</h4>
-                <span>Initially the game will have two classifications: <br>
-                    By level;<br>
-                    By victories.</span>
-            </div>
+            </a>
 
         </div>
 
+    </section>
 
 
-        <!-- RANK -->
-        <div class="container-body-ranks">
+    <!-- ACTIONS -->
+    <!--  CHANGE OPPONENT ONLINE OU BOOT-AI-->
+    <section class="gap-5">
+        <form method="POST" action="" class="flex justify-around gap-5 p-2">
+            <button name="find-opponent" id="find-opponent" type="submit" value="opponent" class="flex items-center justify-center p-2 w-full break-words
+            rounded border border-gray-500/50 bg-gray-500/20">
+                Find opponent online
+            </button>
 
-            <!-- ATTRIBUTES -->
-            <div class="action-button-rank">
-                <button id="button-by-level" class="container-button-ranks">
-                    <span>Rank by Level</span>
-                    v
-                </button>
+            <button name="find-boot" id="find-boot" type="submit" value="boot" class="flex items-center justify-center p-2 w-full break-words
+            rounded border border-gray-500/50 bg-gray-500/20">
+                Find opponent Ai
+            </button>
+        </form>
+    </section>
+
+</main>
+
+
+
+<main class="m-auto p-2 grid gap-10 rounded bg-gradient-to-b from-[#181818d7] to-black/40  md:ml-[150px]">
+
+    <!-- INFO - NEWS -->
+    <section>
+        <button id="button-news"
+            class="flex flex-row w-full justify-between p-2 text-1xl items-center rounded border border-gray-500/50 bg-gray-500/20">
+            News
+            <ion-icon name="chevron-down-outline"></ion-icon>
+        </button>
+
+        <div id="news" class="grid gap-5 md:grid-cols-2 mt-2">
+            <div class="p-2">
+                <h4 class="h-10">
+                    About the Arena
+                </h4>
+                <p>
+                    The arena is under construction, but you can find opponents to train.
+                </p>
+                <p>
+                    New commands will be added soon: skills, items, defense.
+                </p>
             </div>
 
+            <div class="p-2">
+                <h4 class="h-10">
+                    About Rank
+                </h4>
+                <p>
+                    Initially the game will have two classifications:
+                    <li>By level</li>
+                    <li>By victories</li>
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="grid gap-5 md:grid-cols-2 md:justify-between">
+
+        <!-- RANK -->
+        <section>
+            <!-- ATTRIBUTES -->
+            <button id="button-by-level"
+                class="flex flex-row w-full justify-between p-2 text-1xl items-center rounded border border-gray-500/50 bg-gray-500/20">
+                Rank by Level
+                <ion-icon name="chevron-down-outline"></ion-icon>
+            </button>
+
             <!-- BY LEVEL -->
-            <div id="info-by-level" class="container-ranks inactive">
+            <div class="grid grid-cols-5 items-center text-center p-2 border border-gray-500/50">
                 <p>Name</p>
                 <p>Vocation</p>
                 <p>Level</p>
                 <p>Victory</p>
-                <p></p>
+                <ion-icon name="image-outline" class="m-auto"></ion-icon>
+            </div>
+            <div id="info-by-level" class="hidden">
                 <tr>
                     {{add_html_rank_level|safe}}
                 </tr>
             </div>
+        </section>
 
+        <!-- RANK BY VICTORIES -->
+        <section>
             <!-- ATTRIBUTES -->
-            <div class="action-button-rank">
-                <button id="button-by-victory" class="container-button-ranks">
-                    <span>Rank by Victory</span>
-                    v
-                </button>
-            </div>
+            <button id="button-by-victory"
+                class="flex flex-row w-full justify-between p-2 text-1xl items-center rounded border border-gray-500/50 bg-gray-500/20">
+                Rank by Victory
+                <ion-icon name="chevron-down-outline"></ion-icon>
+            </button>
+
             <!-- BY VICTORIES -->
-            <div id="info-by-victory" class="container-ranks inactive">
+            <div class="grid grid-cols-5 items-center text-center p-2 border border-gray-500/50">
                 <p>Name</p>
                 <p>Vocation</p>
                 <p>Level</p>
                 <p>Victory</p>
-                <p></p>
+                <ion-icon name="image-outline" class="m-auto"></ion-icon>
+            </div>
+            <div id="info-by-victory" class="hidden">
                 <tr>
                     {{add_html_rank_victory|safe}}
                 </tr>
             </div>
+        </section>
 
-        </div>
+    </section>
 
 
-
-
+    <!-- LOG -->
+    <section>
         <!-- ATTRIBUTES -->
-        <div class="action-button-log">
-            <button id="button-logs" class="container-logs">
-                <span>Winner</span>
-                <span>Loser</span>
-                <span>Date</span>
-                v
-            </button>
-        </div>
+        <button id="button-logs"
+            class="grid grid-cols-3 w-full text-1xl items-center rounded border border-gray-500/50 bg-gray-500/20">
+            <p>Winner</p>
+            <p>Loser</p>
+            <p>Date</p>
+        </button>
 
         <!-- LOGS -->
-        <div id="logs" class="container-logs inactive">
+        <div id="logs">
             <tr>
                 {{add_html_logs|safe}}
             </tr>
         </div>
+    </section>
 
-    </div>
-
-</div>
+</main>
 
 
 {% endblock %}

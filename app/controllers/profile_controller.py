@@ -31,9 +31,11 @@ def home():
 def vocation():
 
     vocation = Vocation()
+    add_html_vocations = vocation.render_vocation()
 
     return render_template(tmp_folder_sub + 'vocation.html',
-                           title='Vocation')
+                           title='Vocation',
+                           add_html_vocations=add_html_vocations)
 
 
 

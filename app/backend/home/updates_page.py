@@ -10,8 +10,8 @@ class UpdatePage(Database):
         for index, note in enumerate(updates):
             html.append(
                 f"""                    
-                <div id="version{index}" class="flex flex-wrap w-full h-auto p-2 gap-3 bg-gray-800/5 rounded border border-black/25
-                                                hover:border-black">
+                <div id="version{index}" class="flex flex-wrap w-full h-auto p-2 gap-3 bg-gray-800/5 rounded border border-[#BEBDBF]/10
+                                                hover:border-[#BEBDBF]/25">
 
                     <button type="button" class="p-2 m-auto w-full flex gap-5 justify-between">
                         

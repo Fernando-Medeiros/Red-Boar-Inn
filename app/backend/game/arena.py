@@ -52,11 +52,13 @@ class Classification(Database):
             for char in chars:                    
                 html.append(
                     f"""
-                    <p>{char['name'].title()}</p>
-                    <p>{char['vocation'].title()}</p>
-                    <p>{char['level']}</p>
-                    <p>{char['victory']}</p>
-                    <img width="45px" src=static/img/sprites{char['sprite']}>
+                    <div class="grid grid-cols-5 items-center text-center rounded border border-gray-500/50 p-2">
+                        <p class="break-words">{char['name'].title()}</p>
+                        <p>{char['vocation'].title()}</p>
+                        <p>{char['level']}</p>
+                        <p>{char['victory']}</p>
+                        <img width="45px" src=static/img/sprites{char['sprite']} class="m-auto">
+                    </div>
                     """
                     )
         add_html = "\n".join(html)
@@ -72,11 +74,13 @@ class Classification(Database):
             for char in chars:                    
                 html.append(
                     f"""
-                    <p>{char['name'].title()}</p>
-                    <p>{char['vocation'].title()}</p>
-                    <p>{char['level']}</p>
-                    <p>{char['victory']}</p>
-                    <img width="45px" src=static/img/sprites{char['sprite']}>
+                    <div class="grid grid-cols-5 items-center text-center rounded border border-gray-500/50 p-2">
+                        <p class="break-words">{char['name'].title()}</p>
+                        <p>{char['vocation'].title()}</p>
+                        <p>{char['level']}</p>
+                        <p>{char['victory']}</p>
+                        <img width="45px" src=static/img/sprites{char['sprite']} class="m-auto">
+                    </div>
                     """
                     )
         add_html = "\n".join(html)
@@ -156,9 +160,11 @@ class BattleLog(Database):
             for log in logs:                    
                 html.append(
                     f"""
-                    <p>{log['winner'].title()}</p>
-                    <p>{log['loser'].title()}</p>
-                    <p>{log['date']}</p>
+                    <div class="grid grid-cols-3 text-center rounded p-2 py-2 border border-gray-500/50">
+                        <p>{log['winner'].title()}</p>
+                        <p>{log['loser'].title()}</p>
+                        <p>{log['date']}</p>
+                    </div>
                     """
                     )
         add_html = "\n".join(html)
@@ -185,21 +191,24 @@ class Battle(Opponents, BattleLog):
         if opponent:              
             html.append(
                 f"""
-                <img id="opponent" width="85px" src=static/img/sprites{opponent['sprite']}>
-                <p>{opponent['name'].title()}</p>
-                
-                <div id="current_health" class="current-health-bar" value={opponent['current_health']}>
+                <img id="opponent"
+                    width="85px"
+                    class="m-auto p-2"
+                    src=static/img/sprites{opponent['sprite']}>
 
-                    <span id="health" class="health-bar" value={opponent['health']}>
-                    </span>
-
-                </div>
+                <p class="text-1xl p-2">
+                    {opponent['name'].title()}
+                </p>
                 
-                  <!-- BUTTONS -->
-                <div class="action-buttons">
-                    <button style="opacity: 0"></button>
-                    <button style="opacity: 0"></button>
-                </div>                
+                <p id="opponent_health" value={opponent['health']}></p>
+
+                <div class="w-full h-5 rounded-full items-center justify-center  border border-gray-400/75 ">
+                    
+                    <div id="opponent_current_health" value={opponent['current_health']}
+                            class="relative w-full h-5 rounded-full bg-red-400/50">                                            
+                    </div>                 
+
+                </div>             
                 """
                 )
         add_html = "\n".join(html)

@@ -1,12 +1,6 @@
 {% extends 'game/base.html' %}
 
 
-{% block head %}
-<link href="{{ url_for('static', filename='css/game/tavern/tavern.css') }}" type="text/css" rel="stylesheet">
-<link href="{{ url_for('static', filename='css/home/alert.css') }}" type="text/css" rel="stylesheet">
-{% endblock %}
-
-
 {% block alert %}
 {% include 'game/alert.html' %}
 {% endblock %}
@@ -14,28 +8,34 @@
 
 {% block body %}
 
-<div class="max-width min-height">
+<main class="m-auto p-2 grid gap-10 rounded bg-gradient-to-b from-[#181818d7] to-black/40  md:ml-[150px] ">
 
-    <!-- POSTS -->
-    <tr>
-        {{add_html|safe}}
-    </tr>
+    <!-- SECTION 1 -->
+    <section class="grid grid-cols gap-7 p-2 items-center">
 
-    <!-- FORM -->
-    <div class="max-width">
-        <form method="POST" action="">
+        <!-- POSTS -->
+        <tr>
+            {{add_html|safe}}
+        </tr>
 
-            <input class="post-content" type="text" name="text" minlength="1" maxlength="400"
-                placeholder="Say something.." required>
-            <button class="button" type="submit"> submit </button>
+        <!-- FORM -->
+        <form method="POST" action="" class="flex flex-row-2 gap-3">
+
+            <input type="text" name="text" minlength="1" maxlength="400" placeholder="Say something.." required
+                class="h-auto p-2 rounded w-full text-black">
+
+            <button type="submit" class="flex items-center justify-center text-white p-2 w-max border rounded
+            h-14 bg-gradient-to-r from-sky-500 to-indigo-500
+            hover:border-white md:w-32 md:m-auto">
+                <ion-icon name="send-outline" class="text-2xl"></ion-icon>
+            </button>
 
         </form>
-    </div>
+    </section>
 
-</div>
+</main>
 
 {% endblock %}
-
 
 
 {% block script %}

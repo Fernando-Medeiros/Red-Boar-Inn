@@ -1,9 +1,9 @@
-function showLogs() {
-    let button_logs = document.querySelector("#button-logs")
-    let logs = document.querySelector("#logs")
+function showNews() {
+    let button_news = document.querySelector("#button-news")
+    let news = document.querySelector("#news")
 
-    button_logs.addEventListener("click", function () {
-        logs.classList.toggle('active')
+    button_news.addEventListener("click", function () {
+        news.classList.toggle('hidden')
     })
 }
 
@@ -13,7 +13,7 @@ function showRankLevel() {
     let info = document.querySelector("#info-by-level")
 
     button_rank.addEventListener("click", function () {
-        info.classList.toggle('active')
+        info.classList.toggle('hidden')
     })
 }
 
@@ -23,31 +23,33 @@ function showRankVictory() {
     let info = document.querySelector("#info-by-victory")
 
     button_rank.addEventListener("click", function () {
-        info.classList.toggle('active')
+        info.classList.toggle('hidden')
     })
 }
 
 
 function attack() {
     let attack = document.querySelector("#attack")
-    let opponent_img = document.querySelector("#opponent")
-    let health = document.querySelector("#health")
-    let current_health = document.querySelector("#current_health")
+    let health = document.querySelector("#opponent_health")
+    let current_health = document.querySelector("#opponent_current_health")
 
-    health.replaceChildren((current_health.getAttribute('value') + '/' + health.getAttribute('value')))
+    // SET C_HP / T_HP
+    health.replaceChildren((current_health.getAttribute('value') + ' / ' + health.getAttribute('value')))
 
     attack.addEventListener("click", function () {
-        var hit = current_health.setAttribute('value', current_health.getAttribute('value') - 5)
 
-        var max_size = 112
+        // DAMAGE
+        current_health.setAttribute('value', current_health.getAttribute('value') - 5)
+
+        var max_size = health.scrollWidth
         var current_size = health.getAttribute('value') / max_size
 
-        health.setAttribute('style', 'width:'.concat(max_size) + 'px')
+        // UPDATE HEALTH BAR
         current_health.setAttribute('style', 'width:'.concat(current_health.getAttribute('value') / current_size) + 'px')
 
-        health.replaceChildren((current_health.getAttribute('value') + '/' + health.getAttribute('value')))
+        // SET NEW C_HP / T_HP
+        health.replaceChildren((current_health.getAttribute('value') + ' / ' + health.getAttribute('value')))
     })
-
 }
 
 function flee() {
@@ -58,7 +60,7 @@ function flee() {
 
 }
 
-showLogs()
+showNews()
 showRankLevel()
 showRankVictory()
 

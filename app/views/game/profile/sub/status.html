@@ -1,36 +1,30 @@
 {% extends 'game/base.html' %}
 
 
-{% block head %}
-<link href="{{ url_for('static', filename='css/game/profile/status.css') }}" type="text/css" rel="stylesheet">
-{% endblock %}
-
-
 {% block body %}
 
 
-<div>
-    <!-- INFO -->
-</div>
+<main class="m-auto p-2 grid gap-10 rounded bg-gradient-to-b from-[#181818d7] to-black/40  md:ml-[150px] ">
 
-
-<div class="max-width background-global">
-    <div class="grid-column">
-
-        <!-- STATUS -->
-        <div class="grid-column-status">
+    <!-- STATUS -->
+    <section class="p-2">
+        <div class="grid">
             <tr>
                 {{add_html_status|safe}}
             </tr>
         </div>
+    </section>
 
-        <div class="grid-column-status">
+    <!-- CRAFT SKILLS -->
+    <section class="p-2">
+        <div class="grid grid-cols-3 gap-3 items-center text-center md:grid-cols-5">
             <tr>
                 {{add_html_craft_skills|safe}}
             </tr>
         </div>
-    </div>
-</div>
+    </section>
+
+</main>
 
 
 {% endblock %}

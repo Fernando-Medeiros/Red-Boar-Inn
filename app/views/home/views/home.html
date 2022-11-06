@@ -27,12 +27,12 @@
 
         <div class="flex flex-cols-2 justify-around gap-2 m-auto p-2 text-xl items-center">
 
-            <div class="flex gap-5 items-center p-2 w-full border rounded">
+            <div class="flex gap-5 items-center p-2 w-full rounded border border-[#BEBDBF]/25">
                 <ion-icon name="people-outline" class="text-4xl"></ion-icon>
                 <h2> Users </h2> {{ number_of_accounts }}
             </div>
 
-            <div class="flex gap-5 items-center p-2 w-full border rounded">
+            <div class="flex gap-5 items-center p-2 w-full rounded border border-[#BEBDBF]/25">
                 <ion-icon name="person-outline" class="text-4xl"></ion-icon>
                 <h2> Online </h2> {{ number_of_online_users }}
             </div>
@@ -72,7 +72,7 @@
 
             <div class="items-center flex gap-2 text-white">
                 <a href="{{ url_for('auth.create') }}" class="m-auto">
-                    <button class="flex items-center text-center gap-3 p-2 w-auto border rounded
+                    <button class="flex items-center text-center gap-3 p-2 w-auto border border-gray-500/75 rounded
                     h-14 bg-gradient-to-r from-sky-500 to-indigo-500
                     hover:border-white">
                         <ion-icon name="person-add-outline" class="text-4xl"></ion-icon>
@@ -81,7 +81,7 @@
                 </a>
 
                 <a href="{{ url_for('auth.login') }}" class="m-auto">
-                    <button class="flex items-center text-center gap-3 p-2 w-auto border rounded
+                    <button class="flex items-center text-center gap-3 p-2 w-auto border border-gray-500/75 rounded
                     h-14 bg-gradient-to-r from-sky-500 to-indigo-500
                     hover:border-white">
                         <ion-icon name="log-in-outline" class="text-4xl"></ion-icon>

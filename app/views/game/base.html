@@ -5,12 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- CSS GAME -->
-  <link href="{{ url_for('static', filename='css/game/global.css') }}" type="text/css" rel="stylesheet">
-  <link href="{{ url_for('static', filename='css/game/navbar_left.css') }}" type="text/css" rel="stylesheet">
-  <link href="{{ url_for('static', filename='css/game/navbar_top.css') }}" type="text/css" rel="stylesheet">
-  <link href="{{ url_for('static', filename='css/game/footer.css') }}" type="text/css" rel="stylesheet">
-
   <!-- FAVICON -->
   <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
 
@@ -24,19 +18,23 @@
 
 </head>
 
-<body>
+<body class="font-primary bg-[#181818] text-gray-100/75">
+
   {% include 'game/navbar_left.html' %}
-  {% include 'game/navbar_top.html' %}
 
-  {% block alert %}
-  {% endblock %}
+  <main class="container m-auto">
 
-  {% block body %}
-  {% endblock %}
+    {% include 'game/navbar_top.html' %}
 
-  {% block footer %}
-  {% include 'game/footer.html' %}
-  {% endblock %}
+    {% block alert %}
+    {% endblock %}
+
+    {% block body %}
+    {% endblock %}
+
+    {% include 'game/footer.html' %}
+
+  </main>
 
   {% block script %}
   {% endblock %}
