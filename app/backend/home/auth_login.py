@@ -6,7 +6,7 @@ from flask_pymongo import ObjectId
 
 from ..database import Database
 from ...models.user import User
-from ...extensions.configuration import login_manager
+from setup import login_manager
 
 import datetime
 
@@ -56,8 +56,12 @@ class AuthLogin(Database):
 
             remember = kwargs['remember']
             
+            if password == False:
+                raise
+
         except:
             self.flash_error_auth_login()
+
         else:
             if find_user and password:
 
@@ -69,5 +73,3 @@ class AuthLogin(Database):
                 self.update_model(user.return_user['_id'], user.return_user)
                 
                 return True
-        
-        self.flash_error_auth_login()

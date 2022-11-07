@@ -1,5 +1,21 @@
 from flask_login import UserMixin
+from setup import database_sql as db
 
+
+class Users(db.Model, UserMixin):
+    __tablename__ = 'Users'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(35), nullable=False)
+    email = db.Column(db.String(50), nullable=False, unique=True)
+    password = db.Column(db.String(150), nullable=False)
+    token_pwd = db.Column(db.String(150), nullable=False)
+    created_at = db.Column(db.DateTime, nullable=False)
+    online = db.Column(db.Boolean) 
+    admin = db.Column(db.Boolean) 
+
+    def __str__(self) -> str:
+        return self.name
 
 
 class Base:

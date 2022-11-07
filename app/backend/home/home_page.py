@@ -5,7 +5,7 @@ class HomePage(Database):
 
     def __init__(self):
         self.by_level = []
-        self.__classification()
+        self._classification()
 
 
     def qnt_users(self) -> int:
@@ -16,7 +16,7 @@ class HomePage(Database):
         return self.db_find(online=True).__len__()
     
 
-    def __classification(self):
+    def _classification(self):
 
         users: list[dict] = self.db_find()
 

@@ -5,7 +5,7 @@ class UpdatePage(Database):
 
     def render_updates(self) -> str:
         html = []
-        updates: list[dict] = self.db_updates_find()[:14].__reversed__()
+        updates: list[dict] = self.db_updates_find().__reversed__()
 
         for index, note in enumerate(updates):
             html.append(

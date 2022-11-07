@@ -1,44 +1,93 @@
-from base import Base
-from ...extensions.configuration import db_sql as database
+from flask_login import UserMixin
+from setup import database_sql as db
 
 
-class Hat(Base):
+class Hat(db.Model, UserMixin):
     __tablename__ = 'hats'
+    
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(35), nullable=False, unique=True)
+    level = db.Column(db.Integer, nullable=False, default=1)
+    value = db.Column(db.Float, nullable=False)
+    status = db.Column(db.Integer, nullable=False)
+    description = db.Column(db.String(200), nullable=False)
+    
+    type = db.Column(db.String(10), default='hat')
 
-    type = database.Column(database.String(10), default='hat')
 
-
-class Helmet(Base):
+class Helmet(db.Model, UserMixin):
     __tablename__ = 'helmets'
+    
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(35), nullable=False, unique=True)
+    level = db.Column(db.Integer, nullable=False, default=1)
+    value = db.Column(db.Float, nullable=False)
+    status = db.Column(db.Integer, nullable=False)
+    description = db.Column(db.String(200), nullable=False)
+    
+    type = db.Column(db.String(10), default='helmet')
 
-    type = database.Column(database.String(10), default='helmet')
 
-
-class Armor(Base):
+class Armor(db.Model, UserMixin):
     __tablename__ = 'armors'
+    
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(35), nullable=False, unique=True)
+    level = db.Column(db.Integer, nullable=False, default=1)
+    value = db.Column(db.Float, nullable=False)
+    status = db.Column(db.Integer, nullable=False)
+    description = db.Column(db.String(200), nullable=False)
+    
+    type = db.Column(db.String(10), default='armor')
 
-    type = database.Column(database.String(10), default='armor')
 
-
-class Glove(Base):
+class Glove(db.Model, UserMixin):
     __tablename__ = 'gloves'
+    
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(35), nullable=False, unique=True)
+    level = db.Column(db.Integer, nullable=False, default=1)
+    value = db.Column(db.Float, nullable=False)
+    status = db.Column(db.Integer, nullable=False)
+    description = db.Column(db.String(200), nullable=False)
+    
+    type = db.Column(db.String(10), default='glove')
 
-    type = database.Column(database.String(10), default='glove')
 
-
-class Boot(Base):
+class Boot(db.Model, UserMixin):
     __tablename__ = 'boots'
+    
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(35), nullable=False, unique=True)
+    level = db.Column(db.Integer, nullable=False, default=1)
+    value = db.Column(db.Float, nullable=False)
+    status = db.Column(db.Integer, nullable=False)
+    description = db.Column(db.String(200), nullable=False)
+    
+    type = db.Column(db.String(10), default='boot')
 
-    type = database.Column(database.String(10), default='boot')
 
-
-class Ring(Base):
+class Ring(db.Model, UserMixin):
     __tablename__ = 'rings'
+    
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(35), nullable=False, unique=True)
+    level = db.Column(db.Integer, nullable=False, default=1)
+    value = db.Column(db.Float, nullable=False)
+    status = db.Column(db.Integer, nullable=False)
+    description = db.Column(db.String(200), nullable=False)
+    
+    type = db.Column(db.String(10), default='ring')
 
-    type = database.Column(database.String(10), default='ring')
 
-
-class Necklace(Base):
+class Necklace(db.Model, UserMixin):
     __tablename__ = 'necklaces'
-   
-    type = database.Column(database.String(10), default='necklace')
+    
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(35), nullable=False, unique=True)
+    level = db.Column(db.Integer, nullable=False, default=1)
+    value = db.Column(db.Float, nullable=False)
+    status = db.Column(db.Integer, nullable=False)
+    description = db.Column(db.String(200), nullable=False)
+    
+    type = db.Column(db.String(10), default='necklace')

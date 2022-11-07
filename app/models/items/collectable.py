@@ -1,26 +1,52 @@
-from base import Base
-from ...extensions.configuration import db_sql as database
+from flask_login import UserMixin
+from setup import database_sql as db
 
 
-class Craft(Base):
-    __tablename__ = 'crafts'
+class Material(db.Model, UserMixin):
+    __tablename__ = 'material'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(35), nullable=False, unique=True)
+    level = db.Column(db.Integer, nullable=False, default=1)
+    value = db.Column(db.Float, nullable=False)
+    description = db.Column(db.String(200), nullable=False)
     
-    type = database.Column(database.String(10), default='craft')
+    type = db.Column(db.String(10), default='material')
 
 
-class Jewel(Base):
+class Jewel(db.Model, UserMixin):
     __tablename__ = 'jewelry'
+    
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(35), nullable=False, unique=True)
+    level = db.Column(db.Integer, nullable=False, default=1)
+    value = db.Column(db.Float, nullable=False)
+    status = db.Column(db.Integer, nullable=False)
+    description = db.Column(db.String(200), nullable=False)
+    
+    type = db.Column(db.String(10), default='jewel')
 
-    type = database.Column(database.String(10), default='jewel')
 
-
-class Key(Base):
+class Key(db.Model, UserMixin):
     __tablename__ = 'keys'
+    
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(35), nullable=False, unique=True)
+    level = db.Column(db.Integer, nullable=False, default=1)
+    value = db.Column(db.Float, nullable=False)
+    description = db.Column(db.String(200), nullable=False)
+    
+    type = db.Column(db.String(10), default='key')
 
-    type = database.Column(database.String(10), default='key')
 
-
-class Book(Base):
+class Book(db.Model,  UserMixin):
     __tablename__ = 'books'
     
-    type = database.Column(database.String(10), default='book')
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(35), nullable=False, unique=True)
+    level = db.Column(db.Integer, nullable=False, default=1)
+    value = db.Column(db.Float, nullable=False)
+    status = db.Column(db.Integer, nullable=False)
+    description = db.Column(db.String(200), nullable=False)
+    
+    type = db.Column(db.String(10), default='book')

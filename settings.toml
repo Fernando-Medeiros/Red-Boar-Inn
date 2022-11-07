@@ -1,9 +1,12 @@
 [default]
 DEBUG = false
 TITLE = "Red Boar Inn"
+SQLALCHEMY_TRACK_MODIFICATIONS = false
+SQLALCHEMY_DATABASE_URI = "@jinja {{env.DATABASE_URL_SQL}}"
+
 
 EXTENSIONS = [
-"app.extensions.configuration:init_app"
+"setup:init_app"
 ]
 
 

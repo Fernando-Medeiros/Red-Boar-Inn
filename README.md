@@ -10,7 +10,7 @@
 
 <hr>
 
-<h1 align="center">The Red Boar Inn</h1>
+<h1 align="center">The Red Boar Inn - v.0.1.6</h1>
 
 
 <div align="center">
@@ -58,21 +58,65 @@ See you at the red boar inn!</p>
 <br>
 <hr>
 
+
 ### Scope
 
 The current scope is provided below:
 ...
 
-<br>
 <hr>
+
 
 
 ### Install Dependencies
 <br>
 
 ```
-pip install -r requeriments.txt
+pip install -r requirements.txt
 ```
 
 <br>
+<hr>
+
+
+
+### Run the Migration
+<br>
+
+```
+flask db init
+```
+
+```
+flask db migrate
+```
+
+<br>
+
+### Create Database
+<br>
+
+
+```
+flask shell
+```
+
+```
+app.db_sql.create_all()
+```
+
+<br>
+
+### To Update
+<br>
+
+
+```
+flask db upgrade
+```
+
+```
+flask db migrate
+```
+
 <hr>

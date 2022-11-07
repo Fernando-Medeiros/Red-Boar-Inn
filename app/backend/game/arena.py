@@ -1,7 +1,7 @@
 from flask_login import current_user as c_User
 
 from ..database import Database
-from ...models.log_arena import ArenaBattleLog
+from ...models.log import ArenaBattleLog
 
 from random import choice
 

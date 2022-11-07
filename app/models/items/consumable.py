@@ -1,20 +1,41 @@
-from base import Base
-from ...extensions.configuration import db_sql as database
+from flask_login import UserMixin
+from setup import database_sql as db
 
 
-class Food(Base):
+class Food(db.Model, UserMixin):
     __tablename__ = 'foods'
+    
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(35), nullable=False, unique=True)
+    level = db.Column(db.Integer, nullable=False, default=1)
+    value = db.Column(db.Float, nullable=False)
+    status = db.Column(db.Integer, nullable=False)
+    description = db.Column(db.String(200), nullable=False)
+    
+    type = db.Column(db.String(10), default='food')
 
-    type = database.Column(database.String(10), default='food')
 
-
-class Potion(Base):
+class Potion(db.Model, UserMixin):
     __tablename__ = 'potions'
+    
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(35), nullable=False, unique=True)
+    level = db.Column(db.Integer, nullable=False, default=1)
+    value = db.Column(db.Float, nullable=False)
+    status = db.Column(db.Integer, nullable=False)
+    description = db.Column(db.String(200), nullable=False)
+    
+    type = db.Column(db.String(10), default='potion')
 
-    type = database.Column(database.String(10), default='potion')
 
-
-class Scroll(Base):
+class Scroll(db.Model, UserMixin):
     __tablename__ = 'scrolls'
-
-    type = database.Column(database.String(10), default='scroll')
+    
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(35), nullable=False, unique=True)
+    level = db.Column(db.Integer, nullable=False, default=1)
+    value = db.Column(db.Float, nullable=False)
+    status = db.Column(db.Integer, nullable=False)
+    description = db.Column(db.String(200), nullable=False)
+    
+    type = db.Column(db.String(10), default='scroll')
