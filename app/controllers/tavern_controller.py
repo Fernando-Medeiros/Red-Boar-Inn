@@ -1,8 +1,7 @@
-from flask import Blueprint, render_template, flash, url_for, request, redirect
+from flask import Blueprint, flash, redirect, render_template, request, url_for
 from flask_login import login_required
 
 from ..backend.game.tavern import Tavern
-
 
 tavern = Blueprint('tavern', __name__)
 

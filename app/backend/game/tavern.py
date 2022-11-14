@@ -1,8 +1,9 @@
+import json
+
 from flask import url_for
 from flask_login import current_user as c_User
 
 from ..database import Database
-from ...models.posts import Post
 
 
 class Tavern(Database):
@@ -19,8 +20,10 @@ class Tavern(Database):
             
             text_field: str = text.strip()
             
-            post = Post()
-            post.return_post.update(
+            with open('app/models/post.json', 'r', encoding='utf-8') as jsonfile:
+                post = json.load(jsonfile)             
+        
+            post.update(
                 _id=_id,
                 date=date,
                 charname=c_User.character['name'],
@@ -33,7 +36,7 @@ class Tavern(Database):
         except Exception as ErroCreatePost:
             return False
         else:
-            self.db_tavern_insert_one(post.return_post)
+            self.db_tavern_insert_one(post)
             return True
 
 

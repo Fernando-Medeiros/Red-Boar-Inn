@@ -11,7 +11,8 @@ class FlashNewAccount:
   
     def flash_email_already_exists(self):
         flash(
-            'E-mail already registered, Please choose another email or reset your password.', self.alert_danger)
+            'E-mail already registered, Please choose another email or reset your password.',
+            self.alert_danger)
 
 
     def flash_charname_already_exists(self):

@@ -1,14 +1,13 @@
-from flask import Blueprint, render_template, redirect, url_for, request
+from flask import Blueprint, redirect, render_template, request, url_for
 from flask_login import login_required, logout_user
 
-from ..forms.form_new_account import FormNewAccount
-from ..forms.form_login import FormLogin
-from ..forms.form_recover_password import FormSendToken, FormValidateToken, FormNewPassword
-
-from ..backend.home.auth_login import check_current_user, AuthLogin
 from ..backend.home.auth_create import CreateNewAccount
+from ..backend.home.auth_login import AuthLogin, check_current_user
 from ..backend.home.auth_recover import AuthRecover
-
+from ..forms.form_login import FormLogin
+from ..forms.form_new_account import FormNewAccount
+from ..forms.form_recover_password import (FormNewPassword, FormSendToken,
+                                           FormValidateToken)
 
 auth = Blueprint('auth', __name__)
 

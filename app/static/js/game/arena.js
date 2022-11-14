@@ -28,6 +28,7 @@ function showRankVictory() {
 }
 
 
+
 function attack() {
     let attack = document.querySelector("#attack")
     let health = document.querySelector("#opponent_health")

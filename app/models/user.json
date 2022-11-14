@@ -1,0 +1,101 @@
+{
+    "_id": "",
+    "name": "",
+    "email": "",
+    "password": "",
+    "token_pwd": "",
+    "date": "",
+    "online": true,
+    "character": {
+        "name": "change a new name",
+        "gender": "",
+        "level": 1,
+        "gold": 1,
+        "jewel": 1,
+        "sprite": "sprite1.png",
+        "vocation": "peasant",
+        "job": "farmer"
+    },
+    "status": {
+        "points": 25,
+        "experience": 1,
+        "next_experience": 25,
+        "health": 30,
+        "energy": 10,
+        "current_health": 30,
+        "current_energy": 10,
+        "strength": 1,
+        "vitality": 1,
+        "wisdom": 1,
+        "dexterity": 1,
+        "creativity": 1
+    },
+    "skill": {
+        "woodcutting": 1,
+        "mining": 1,
+        "herbalism": 1,
+        "farming": 1,
+        "hunt": 1
+    },
+    "craft": {
+        "food": 1,
+        "tool": 1,
+        "armor": 1,
+        "robe": 1,
+        "accessory": 1,
+        "shield": 1,
+        "axe": 1,
+        "bow": 1,
+        "sword": 1,
+        "stick": 1,
+        "dagger": 1
+    },
+    "inventory": {
+        "apple": {
+            "qty": 1,
+            "level": 1,
+            "value": 1,
+            "status": 3,
+            "type": "food",
+            "description": "Just a bland fruit"
+        },
+        "health_potion": {
+            "qty": 1,
+            "level": 1,
+            "value": 1,
+            "status": 4,
+            "type": "potion",
+            "description": "Just a bland potion"
+        },
+        "energy_potion": {
+            "qty": 1,
+            "level": 1,
+            "value": 1,
+            "status": 4,
+            "type": "potion",
+            "description": "Just a bland potion"
+        }
+    },
+    "equipment": {
+        "head": "",
+        "neckacle": "",
+        "body": "",
+        "handL": "",
+        "handR": "",
+        "ringL": "",
+        "ringR": {
+            "name": "bronze_ring",
+            "level": 1,
+            "value": 3,
+            "status": 3,
+            "type": "ring",
+            "description": "Worth a few coins"
+        },
+        "legL": "",
+        "legR": ""
+    },
+    "arena": {
+        "victory": 0,
+        "defeat": 0
+    }
+}

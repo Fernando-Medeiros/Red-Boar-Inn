@@ -1,9 +1,9 @@
+import json
+from random import choice
+
 from flask_login import current_user as c_User
 
 from ..database import Database
-from ...models.log import ArenaBattleLog
-
-from random import choice
 
 
 class Classification(Database):
@@ -17,8 +17,11 @@ class Classification(Database):
 
         users: list[dict] = self.db_find()
 
-        by_level: list[tuple(int, str)] = [(char['character']['level'], char['character']['name']) for char in users]
-        by_victory: list[tuple(int, str)] = [(char['arena']['victory'], char['character']['name']) for char in users]
+        by_level: list[tuple(int, str)] = [
+            (char['character']['level'], char['character']['name']) for char in users]
+
+        by_victory: list[tuple(int, str)] = [
+            (char['arena']['victory'], char['character']['name']) for char in users]
         
         by_level = sorted(by_level, reverse=True)
         by_victory = sorted(by_victory, reverse=True)
@@ -52,12 +55,14 @@ class Classification(Database):
             for char in chars:                    
                 html.append(
                     f"""
-                    <div class="grid grid-cols-5 items-center text-center rounded border border-gray-500/50 p-2">
+                    <div class="grid grid-cols-5 items-center text-center rounded border
+                                border-gray-500/50 p-2">
                         <p class="break-words">{char['name'].title()}</p>
                         <p>{char['vocation'].title()}</p>
                         <p>{char['level']}</p>
                         <p>{char['victory']}</p>
-                        <img width="45px" src=static/img/sprites{char['sprite']} class="m-auto">
+                        <img width="45px" src=static/img/sprites{char['sprite']}
+                        class="m-auto">
                     </div>
                     """
                     )
@@ -74,12 +79,14 @@ class Classification(Database):
             for char in chars:                    
                 html.append(
                     f"""
-                    <div class="grid grid-cols-5 items-center text-center rounded border border-gray-500/50 p-2">
+                    <div class="grid grid-cols-5 items-center text-center rounded
+                                border border-gray-500/50 p-2">
                         <p class="break-words">{char['name'].title()}</p>
                         <p>{char['vocation'].title()}</p>
                         <p>{char['level']}</p>
                         <p>{char['victory']}</p>
-                        <img width="45px" src=static/img/sprites{char['sprite']} class="m-auto">
+                        <img width="45px" src=static/img/sprites{char['sprite']}
+                        class="m-auto">
                     </div>
                     """
                     )
@@ -134,9 +141,11 @@ class BattleLog(Database):
             if status == 'defeat':
                 winner: str = kwargs['name']
                 loser: str = c_User.character['name']
-                            
-            log = ArenaBattleLog()
-            log.return_log.update(
+
+            with open('app/models/log.json', 'r', encoding='utf-8') as jsonfile:
+                log = json.load(jsonfile)               
+        
+            log.update(
                 _id=_id,
                 winner=winner,
                 loser=loser,
@@ -148,7 +157,7 @@ class BattleLog(Database):
         except Exception as ErroCreateLog:
             return
         else:
-            self.db_arena_insert_one(log.return_log)
+            self.db_arena_insert_one(log)
             return True
    
 
@@ -160,7 +169,8 @@ class BattleLog(Database):
             for log in logs:                    
                 html.append(
                     f"""
-                    <div class="grid grid-cols-3 text-center rounded p-2 py-2 border border-gray-500/50">
+                    <div class="grid grid-cols-3 text-center rounded p-2 py-2 border
+                                border-gray-500/50">
                         <p>{log['winner'].title()}</p>
                         <p>{log['loser'].title()}</p>
                         <p>{log['date']}</p>
@@ -202,7 +212,8 @@ class Battle(Opponents, BattleLog):
                 
                 <p id="opponent_health" value={opponent['health']}></p>
 
-                <div class="w-full h-5 rounded-full items-center justify-center  border border-gray-400/75 ">
+                <div class="w-full h-5 rounded-full items-center justify-center
+                            border border-gray-400/75 ">
                     
                     <div id="opponent_current_health" value={opponent['current_health']}
                             class="relative w-full h-5 rounded-full bg-red-400/50">                                            

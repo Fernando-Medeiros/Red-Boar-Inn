@@ -1,10 +1,10 @@
-from flask import Blueprint, render_template, request, url_for, redirect
 from os import listdir
+
+from flask import Blueprint, redirect, render_template, request, url_for
 
 from app.backend.home.auth_login import check_current_user
 from app.backend.home.home_page import HomePage
 from app.backend.home.updates_page import UpdatePage
-
 
 home = Blueprint("home", __name__)
 

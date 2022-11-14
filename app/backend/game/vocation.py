@@ -15,9 +15,11 @@ class Vocation:
 
     def model_hmtl(self, name, sprite, description) -> str:
         html =  f"""
-                <div id="{name}" class="p-2 flex-cols-2 gap-2 items-center rounded border border-gray-500/50 md:flex">
+                <div id="{name}" class="p-2 flex-cols-2 gap-2 items-center rounded
+                                        border border-gray-500/50 md:flex">
 
-                    <div class="grid grid-cols-2 gap-2 w-auto p-2 items-center text-center md:w-[225px]">
+                    <div class="grid grid-cols-2 gap-2 w-auto p-2 items-center
+                                text-center md:w-[225px]">
     
                         <img src="{sprite}" class="w-[81px]">
 
@@ -32,7 +34,8 @@ class Vocation:
                     </div>
 
                     <!-- DESCRIPTION -->
-                    <div class="p-2 w-auto h-auto items-center border border-gray-500/50 md:h-full w-auto">
+                    <div class="p-2 w-auto h-auto items-center border border-gray-500/50
+                                md:h-full w-auto">
                         <div>
                             <p>{description}</p>
                         </div>

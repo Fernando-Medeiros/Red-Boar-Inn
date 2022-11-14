@@ -1,14 +1,14 @@
+import datetime
+
+from flask import current_app as app
+from flask_login import current_user, login_user
+from flask_pymongo import ObjectId
 from werkzeug.security import check_password_hash
 
-from flask_login import login_user, current_user
-from flask import current_app as app
-from flask_pymongo import ObjectId
-
-from ..database import Database
-from ...models.user import User
 from setup import login_manager
 
-import datetime
+from ...models.user import User
+from ..database import Database
 
 
 @login_manager.user_loader

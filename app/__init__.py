@@ -1,7 +1,9 @@
-from flask import Flask
 from dynaconf import FlaskDynaconf
+from flask import Flask
+
 from .extensions.blueprints import register_routes
 from .extensions.models import register_models
+
 
 def create_app():
 

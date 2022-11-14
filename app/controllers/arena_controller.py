@@ -1,9 +1,7 @@
 from flask import Blueprint, render_template, request
-
 from flask_login import login_required
 
-from ..backend.game.arena import Classification, Battle
-
+from ..backend.game.arena import Battle, Classification
 
 arena = Blueprint('arena', __name__)
 

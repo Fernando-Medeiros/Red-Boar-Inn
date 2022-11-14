@@ -3,7 +3,6 @@ from flask_login import login_required
 
 from ..backend.game.inventory import Inventory
 
-
 inventory = Blueprint('inventory', __name__)
 
 

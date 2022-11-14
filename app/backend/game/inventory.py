@@ -1,6 +1,7 @@
 from flask import url_for
 from flask_login import current_user as c_User
 
+
 class Inventory:
 
     def render_items(self) -> str:
@@ -11,7 +12,8 @@ class Inventory:
             
             name: str = key.replace('_', ' ').title()
             item: dict = c_User.inventory[key]
-            sprite = url_for('static', filename='img/items/' + item['type'] + '/' + key + '.png')
+            sprite = url_for('static',
+                            filename='img/items/{}/{}.png'.format(item['type'], key))
 
             html.append(
                 f"""

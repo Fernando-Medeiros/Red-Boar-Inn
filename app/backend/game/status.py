@@ -95,25 +95,37 @@ class CraftSkills:
 
         for item in self.skills:
             skills.append(f"""
-                <div class="w-full h-full p-2 gap-3 grid text-center items-center border border-gray-500/50">
+                <div class="w-full h-full p-2 gap-3 grid text-center items-center border
+                            border-gray-500/50">
                     
-                    <img class="m-auto" src="{ url_for('static', filename='img/icons/' + item + '.png') }" width={width}>
+                    <img class="m-auto" src="{ url_for('static',
+                            filename='img/icons/{}.png'.format(item)) }"
+                            width={width}>
+
                     Lv.{c_User.skill[item]} - {item.title()}
                 </div>
             """)
 
         for item in self.weapons:
             weapons.append(f"""
-                <div class="w-full h-full p-2 gap-3 grid text-center items-center border border-gray-500/50">
-                    <img class="m-auto" src="{ url_for('static', filename='img/icons/' + item + '.png') }" width={width}>
+                <div class="w-full h-full p-2 gap-3 grid text-center items-center border
+                            border-gray-500/50">
+                    <img class="m-auto" src="{ url_for('static',
+                            filename='img/icons/{}.png'.format(item)) }"
+                            width={width}>
+
                     lv.{c_User.craft[item]} - {item.title()}
                 </div>
             """)
 
         for item in self.foods_tools_equipments:
             others.append(f"""
-                <div class="w-full h-full p-2 gap-3 grid text-center items-center border border-gray-500/50">
-                    <img class="m-auto" src="{ url_for('static', filename='img/icons/' + item + '.png') }" width={width}>
+                <div class="w-full h-full p-2 gap-3 grid text-center items-center border
+                            border-gray-500/50">
+                    <img class="m-auto" src="{ url_for('static',
+                            filename='img/icons/{}.png'.format(item)) }"
+                            width={width}>
+
                     lv.{c_User.craft[item]} - {item.title()}
                 </div>
             """)

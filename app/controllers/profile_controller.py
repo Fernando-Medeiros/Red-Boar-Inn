@@ -1,11 +1,10 @@
 from flask import Blueprint, render_template
 from flask_login import login_required
 
-from ..backend.game.profile import Profile
 from ..backend.game.equipment import Equipments
+from ..backend.game.profile import Profile
+from ..backend.game.status import CraftSkills, Status
 from ..backend.game.vocation import Vocation
-from ..backend.game.status import Status, CraftSkills
-
 
 profile = Blueprint('profile', __name__)
 
@@ -18,7 +17,7 @@ tmp_folder_sub = 'game/profile/sub/'
 @profile.route('/profile', methods=['GET', 'POST'])
 @login_required
 def home():
-
+    
     profile = Profile()
 
     return render_template(tmp_folder + 'profile.html',

@@ -1,9 +1,10 @@
-from flask import render_template
-from ..database import Database
-
+import email.message
 import os
 import smtplib
-import email.message
+
+from flask import render_template
+
+from ..database import Database
 
 
 class AuthRecover(Database):

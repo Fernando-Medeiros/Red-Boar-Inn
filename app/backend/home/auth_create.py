@@ -1,9 +1,9 @@
+import datetime
+
 from flask_login import login_user
 
-from ..database import Database
 from ...models.user import User
-
-import datetime
+from ..database import Database
 
 
 class CreateNewAccount(Database):

@@ -23,6 +23,7 @@ class HomePage(Database):
         by_level: list[tuple(int, str)] = [(char['character']['level'], char['character']['name']) for char in users]        
         by_level = sorted(by_level, reverse=True)
         by_level: list[str] = [name for level, name in by_level]
+        
         self.by_level = by_level
      
         for user in users:

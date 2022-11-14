@@ -36,8 +36,6 @@ def context(app):
     app.db_update = mongo_update.db
     app.db_sql = database_sql
 
-    app.admin = admin
-
 
 def init_app(app):
 

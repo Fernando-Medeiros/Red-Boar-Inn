@@ -1,7 +1,5 @@
-from flask import Blueprint, render_template, redirect, url_for, flash, request
-
+from flask import Blueprint, flash, redirect, render_template, request, url_for
 from flask_login import login_required
-
 
 market = Blueprint('market', __name__)
 

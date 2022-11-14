@@ -1,4 +1,5 @@
 from flask_login import UserMixin
+
 from setup import database_sql as db
 
 
