@@ -2,7 +2,7 @@
     "python.linting.enabled": true,
     "python.linting.flake8Enabled": true,
     "python.formatting.provider": "black",
-    "python.analysis.typeCheckingMode": "off",
+    "python.analysis.typeCheckingMode": "basic",
     "[python]": {
         "editor.rulers": [
             88
@@ -12,6 +12,11 @@
             "source.organizeImports": true
         }
     },
-    "workbench.colorTheme": "Dracula",
-    "workbench.startupEditor": "readme"
+    "workbench.colorTheme": "Dracula Soft",
+    "workbench.startupEditor": "readme",
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
 }
