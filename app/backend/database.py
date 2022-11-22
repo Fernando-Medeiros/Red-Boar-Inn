@@ -13,7 +13,7 @@ class Generate:
         return datetime.datetime.today().strftime('%d/%m/%Y %H:%M')
 
 
-    def generate_id(self) -> str:
+    def generate_id(self) -> ObjectId:
         return ObjectId(str(randint(1, 999999999999999999999999)))
     
 

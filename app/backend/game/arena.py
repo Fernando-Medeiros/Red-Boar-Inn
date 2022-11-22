@@ -155,7 +155,7 @@ class BattleLog(Database):
                 raise Exception()
 
         except Exception as ErroCreateLog:
-            return
+            return False
         else:
             self.db_arena_insert_one(log)
             return True

@@ -33,7 +33,7 @@ class CreateNewAccount(Database):
             return 'man'
 
 
-    def auth_create(self, **kwargs) -> bool:
+    def auth_create(self, **kwargs) -> bool | None:
 
         try:
             name: str = kwargs['name'].strip()

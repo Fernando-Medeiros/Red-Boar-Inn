@@ -9,7 +9,7 @@ from ..database import Database
 
 class AuthRecover(Database):
 
-    def send_mail(self, e_mail) -> bool:  
+    def send_mail(self, e_mail) -> bool | None:  
         
         _user: dict =  self.db_find_one(find={'email': e_mail})
 
@@ -21,10 +21,10 @@ class AuthRecover(Database):
             msg = email.message.Message()
 
             msg['Subject'] = "Recover Password - Red Boar Inn"
-            msg['From'] = os.environ.get("MAIL_USERNAME")
+            msg['From'] = os.getenv("MAIL_USERNAME", 'None')
             msg['To'] = e_mail
 
-            password = os.environ.get("MAIL_PASSWORD") 
+            password = os.getenv("MAIL_PASSWORD", 'None') 
 
             msg.add_header('Content-Type', 'text/html')
             msg.set_payload(body)
@@ -46,7 +46,7 @@ class AuthRecover(Database):
         self.flash_email_does_not_exist()
         
 
-    def validate_token(self, **kwargs) -> bool:
+    def validate_token(self, **kwargs) -> bool | None:
         
         _token: str = str(kwargs['token']).strip()
         
@@ -58,7 +58,7 @@ class AuthRecover(Database):
         self.flash_invalid_email_or_token()
 
 
-    def new_pwd(self, **kwargs) -> bool:
+    def new_pwd(self, **kwargs) -> bool | None:
         try:
             token_pwd: str = self.generate_token()
             password: str = self.generate_password(password=str(kwargs['password']).strip())

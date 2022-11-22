@@ -20,7 +20,7 @@ def load_user(id_user) -> object:
     return user
 
 
-def check_current_user() -> bool:
+def check_current_user() -> bool | None:
     if current_user.is_authenticated and current_user.is_active:        
         return True
 
@@ -45,7 +45,7 @@ class AuthLogin(Database):
             update=model)
 
       
-    def auth_login(self, **kwargs) -> bool:
+    def auth_login(self, **kwargs) -> bool | None:
         try:
             email: str = str(kwargs['email']).strip()
 
