@@ -80,6 +80,7 @@ This city is a world, I'll let you discover it for yourself.
 
 ## Requirements
 
+- git
 - Python 3.10
 - Connection with [Mongodb atlas](https://account.mongodb.com/account/login)
 
@@ -110,7 +111,7 @@ This city is a world, I'll let you discover it for yourself.
 
 Clone this project
 ```console
-git clone https://github.com/Fernando-Medeiros/Web-Game-FLask.git
+git clone https://github.com/Fernando-Medeiros/Red-Boar-Inn.git
 ```
 
 Create the virtual environment
