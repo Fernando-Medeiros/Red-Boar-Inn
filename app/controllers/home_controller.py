@@ -18,8 +18,8 @@ def index():
     number_of_online_users = home.online_players()
     add_html_rank = home.render_by_level()
 
-    man = [f'man/{img}' for img in listdir('app/static/img/sprites/man')]
-    woman = [f'woman/{img}' for img in listdir('app/static/img/sprites/woman')]
+    man = [f'man/{img}' for img in listdir('app/frontend/static/img/sprites/man')]
+    woman = [f'woman/{img}' for img in listdir('app/frontend/static/img/sprites/woman')]
     
     sprite_list = man + woman
     
